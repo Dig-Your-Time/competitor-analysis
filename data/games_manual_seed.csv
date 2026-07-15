@@ -1,0 +1,29 @@
+title,game_id,company_id,tier,comparable_class,production_tier,relevance_note
+Dome Keeper,1637320,bippinbits,1-Direct,Resource-loop roguelite,Small team,Your stated reference. Mine/defend/upgrade loop; tiny team; Raw Fury published.
+SteamWorld Dig,252410,thunderful_image_form,1-Direct,Mining/Digging,Funded indie,Your loop reference. Dig/sell/upgrade DNA. 2D not FP. Nordic financials.
+SteamWorld Dig 2,571310,thunderful_image_form,1-Direct,Mining/Digging,Funded indie,Sequel; better sales baseline than Dig 1. Nordic financials.
+Hydroneer,1106840,foulball_hangover,1-Direct,Mining/Digging,Solo,Closest FIRST-PERSON loop match: dig/sell/upgrade sandbox. Near-solo dev.
+Core Keeper,1621690,pugstorm,1-Direct,Mining/Digging,Small team,Underground mine/craft sandbox; 1M+ in EA; cave tone close. Nordic financials. (top-down + co-op)
+Noita,881100,nolla_games,1-Direct,Mining/Digging,Small team,Finnish digging/physics sandbox; breakout for a ~3-person team. Your closest LOCAL peer.
+Techtonica,1457320,fire_hose_games,1-Direct,Mining/Digging,Small team,First-person mining in bioluminescent caves; aesthetic overlaps your palette.
+Cave Digger 2,2392740,vrkiwi,1-Direct,Mining/Digging,Small team,Finnish first-person mining. VR-first (limits sales comparability). Nordic financials.
+Moonlighter,606150,digital_sun,2-Adjacent,Adjacent/Reference,Funded indie,Run-a-SHOP sell/upgrade loop -- maps onto time-as-currency better than any survival game.
+ASTRONEER,361420,system_era,2-Adjacent,Cozy exploration,Small team,Cozy 3rd-person resource exploration; tone neighbour.
+Forager,751780,hopfrog,2-Adjacent,Resource-loop roguelite,Solo,Resource-gathering loop; solo-dev success story worth studying.
+The Gunk,1087760,thunderful_image_form,2-Adjacent,Adjacent/Reference,Funded indie,Value is the STUDIO (same as SteamWorld). Game itself is 3rd-person adventure not a loop comp.
+Deep Rock Galactic,548430,ghost_ship_games,3-Reference,Adjacent/Reference,Publisher-backed,Actually mining + Danish (Nordic financials). But 4p co-op shooter = ceiling not peer.
+Terraria,105600,relogic,3-Reference,Adjacent/Reference,Small team,Genre-defining 2D mining sandbox. Context ancestor not a peer.
+Valheim,892970,iron_gate,3-Reference,Survival-crafting,Small team,Nordic tiny-team viral breakout. Study the economics of a Nordic hit. Not a loop comp.
+Teardown,1167630,tuxedo_labs,3-Reference,Adjacent/Reference,Small team,Nordic voxel small-team; tech-adjacent reference.
+Outer Wilds,753640,mobius_digital,3-Reference,Cozy exploration,Publisher-backed,SP first-person sense-of-place. No economy/mining. Reference for exploration feel only.
+Enshrouded,1203620,keen_games,3-Reference,Survival-crafting,Publisher-backed,Survival action-RPG; bigger scope. Kept as a survival-shelf marker.
+Grounded,962130,obsidian,X-Drop?,Survival-crafting,AA+,Obsidian = Microsoft-owned. Big-budget; will skew any median. Reference at most.
+Forever Skies,1641960,far_from_home,X-Drop?,Survival-crafting,Funded indie,FP survival airship; MP-leaning; dystopian not cozy; no sell/upgrade economy.
+Voidtrain,1159690,nearly_games,X-Drop?,Survival-crafting,Funded indie,FP co-op survival adventure; MP-leaning; not a loop comp.
+7 Days to Die,251570,the_fun_pimps,X-Drop?,Survival-crafting,Small team,Long-running zombie survival sandbox; different genre entirely.
+Abiotic Factor,427410,deep_field_games,X-Drop?,Survival-crafting,Small team,FP co-op survival in a facility; survival-craft cluster.
+RuneScape: Dragonwilds,1374490,jagex,X-Drop?,Survival-crafting,AA+,Big IP + big studio co-op survival. Misleads on scope.
+SurrounDead,1645820,surroundead,X-Drop?,Survival-crafting,Solo,Solo-dev zombie survival. Only interesting as a solo-scope datapoint; wrong genre.
+DayZ,221100,bohemia_interactive,X-Drop?,Survival-crafting,AA+,Large MP survival. Totally different sales dynamics.
+ICARUS,1149460,rocketwerkz,X-Drop?,Survival-crafting,Publisher-backed,Session-based MP survival. Different genre/scope.
+ASKA,1898300,sand_sailor,X-Drop?,Survival-crafting,Small team,Viking village-builder co-op survival. Survival-craft cluster.

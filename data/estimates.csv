@@ -1,0 +1,29 @@
+game_id,title,review_count,est_units_boxleiter_low,est_units_boxleiter_mid,est_units_boxleiter_high,est_units_gamalytic,est_units_low,est_units_mid,est_units_high,units_gamalytic_vs_boxleiter,est_revenue_gross_mid,confidence_class,src_est,method
+1637320,Dome Keeper,21727,434540,651810,869080,1644955,434540,1644955,1644955,2.52,14366546,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+252410,SteamWorld Dig,10901,218020,327030,436040,679195,218020,679195,679195,2.08,2598402,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+571310,SteamWorld Dig 2,9037,180740,271110,361480,212929,180740,212929,361480,0.79,1268470,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1106840,Hydroneer,28227,564540,846810,1129080,1162165,564540,1162165,1162165,1.37,10342014,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1621690,Core Keeper,65424,1308480,1962720,2616960,3806964,1308480,3806964,3806964,1.94,43563632,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+881100,Noita,87804,1756080,2634120,3512160,4145740,1756080,4145740,4145740,1.57,45672435,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1457320,Techtonica,3225,64500,96750,129000,212450,64500,212450,212450,2.2,4550647,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+2392740,Cave Digger 2,34,680,1020,1360,1341,680,1341,1360,1.31,12540,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+606150,Moonlighter,21887,437740,656610,875480,1325100,437740,1325100,1325100,2.02,8681327,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+361420,ASTRONEER,138624,2772480,4158720,5544960,5260017,2772480,5260017,5544960,1.26,75346942,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+751780,Forager,43799,875980,1313970,1751960,1790570,875980,1790570,1790570,1.36,21237185,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1087760,The Gunk,5844,116880,175320,233760,204706,116880,204706,233760,1.17,1157669,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+548430,Deep Rock Galactic,377929,7558580,11337870,15117160,11740751,7558580,11740751,15117160,1.04,137368231,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+105600,Terraria,1537060,30741200,46111800,61482400,35755362,30741200,35755362,61482400,0.78,180159426,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+892970,Valheim,537601,10752020,16128030,21504040,16611970,10752020,16611970,21504040,1.03,208601191,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1167630,Teardown,133432,2668640,4002960,5337280,3374232,2668640,3374232,5337280,0.84,58856313,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+753640,Outer Wilds,104961,2099220,3148830,4198440,3019091,2099220,3019091,4198440,0.96,43806870,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1203620,Enshrouded,103563,2071260,3106890,4142520,5052840,2071260,5052840,5052840,1.63,119897430,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+962130,Grounded,94941,1898820,2848230,3797640,4558239,1898820,4558239,4558239,1.6,112094364,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1641960,Forever Skies,8570,171400,257100,342800,408073,171400,408073,408073,1.59,8820028,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1159690,Voidtrain,9635,192700,289050,385400,655793,192700,655793,655793,2.27,13303082,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+251570,7 Days to Die,403076,8061520,12092280,16123040,15346122,8061520,15346122,16123040,1.27,157330156,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+427410,Abiotic Factor,57055,1141100,1711650,2282200,1787803,1141100,1787803,2282200,1.04,39627754,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1374490,RuneScape: Dragonwilds,27660,553200,829800,1106400,1391234,553200,1391234,1391234,1.68,35956964,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1645820,SurrounDead,25803,516060,774090,1032120,1168734,516060,1168734,1168734,1.51,9964908,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+221100,DayZ,465203,9304060,13956090,18608120,12341677,9304060,12341677,18608120,0.88,313106280,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1898300,ASKA,11932,238640,357960,477280,580516,238640,580516,580516,1.62,9833364,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS
+1149460,ICARUS,64978,1299560,1949340,2599120,2689033,1299560,2689033,2689033,1.38,46663569,EST,S050,mid=Gamalytic; low/high bracket Boxleiter reviews x20/40; revenue=Gamalytic GROSS

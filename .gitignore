@@ -1,0 +1,5 @@
+data/raw/
+dashboard/node_modules/
+scripts/__pycache__/
+CLAUDE.md
+.claude/

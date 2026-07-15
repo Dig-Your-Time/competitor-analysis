@@ -1,0 +1,23 @@
+company_id,fiscal_year,period_end,revenue,operating_profit,net_profit,equity,share_capital,liabilities_total,long_term_loans,employees_avg,currency,public_grants,grant_source,source_id,notes
+nolla_games,2023,2023-12-31,3370000,2500000,1970000,,,,,0,EUR,,,S010,Filed (PRH). Op margin ~74%; equity ratio ~100%. Rev -14.2% YoY. employees_avg filed 0 (founders on dividends; effective ~3).
+nolla_games,2024,2024-12-31,4200000,3100000,,,,,,0,EUR,,,S010,Filed (PRH). Op margin ~74.2%; equity ratio ~98%. Rev +25.5% YoY. net_profit not in snippet - pull full filing.
+pugstorm,2024,2024-12-31,76326000,,30226000,,50000,,,12,SEK,,,S008,Filed (Bolagsverket). Rev +102.9% YoY; net margin ~66%; total assets 86.5M SEK; soliditet ~87%. operating_profit not isolated (result-after-fin 50.7M).
+vrkiwi,2023,2023-12-31,600000,-244000,-307000,,,,,21,EUR,,,S011,Filed (PRH). LOSS-making; op margin -40.7%; equity ratio 0.6%. Rev -36.6% YoY.
+vrkiwi,2024,2024-12-31,699000,-200000,,,,,,15,EUR,,,S011,Filed (PRH). Op margin ~-25.7%; NEGATIVE equity (~-17%). Rev +16.5% YoY. net not isolated. Headcount 21->15.
+bippinbits,2023,2023-12-31,,,,,25000,,,,EUR,,,S002,"ABBREVIATED German filing (small GmbH): balance sheet only, no P&L. Balance total ~EUR1.0M. Revenue/profit legally not disclosed."
+keen_games,2023,2023-12-31,,,,,25000,,,,EUR,,,S027,ABBREVIATED German filing (small GmbH): no public P&L. Revenue/profit not disclosed. Enshrouded-era figures would be FY2024+.
+jagex,2019,2019-12-31,110900000,,,,,,,,GBP,,,S048,Jagex-announced. Record GBP110.9M; 5th consecutive growth year. Revenue only (profit not in release).
+jagex,2020,2020-12-31,120000000,,,,,,,,GBP,,,S048,Jagex-announced. GBP120M; 6th successive growth year (~+10.5% on 2019); Covid tailwind.
+jagex,2021,2021-12-31,124860000,,,,,,,,GBP,,,S048,Jagex-announced. GBP124.86M; 7th growth year (+4%); RuneScape 20th anniv; 1.2M members (~$169M). FY2022-24 accounts at Companies House 03982706 - manual PDF pull needed (no longer press-released).
+iron_gate,2022,,170584000,,125384000,,,,,8,SEK,,,S040,"Filed. 'Resultat' 125,384 kSEK (label pre-tax/net ambiguous). Rev -63.4% from FY2021 peak. Broken fiscal year - verify period_end."
+iron_gate,2023,,533487000,511911000,406512000,,,,,11,SEK,,,S040,Filed. THE Valheim spike year: rev 533.5M SEK (+212.7%); result-after-fin 511.9M (pre-tax); tax 105.4M -> net ~406.5M. ~46M SEK profit/employee.
+iron_gate,2024,,94026000,,54529000,,,,,13,SEK,,,S040,"Filed. Rev crashed to 94.0M SEK (-82.4%) - Valheim revenue is lumpy (spikes on major free updates). 'Resultat' 54,529 kSEK."
+iron_gate,2025,,83775000,,38421000,,,,,14,SEK,,,S040,Filed. Rev 83.8M SEK (-10.9%); net 38.4M; vinstmarginal 60.6%. Note founded 2019-04-24 per Bolagsverket (Svensson began the game as a 2018 hobby).
+ghost_ship_games,2025,,,,, ,,,,52,DKK,,,S041,"Filed (CVR). REVENUE NOT DISCLOSED (Danish sec.32 gross-profit aggregation). Bruttofortjeneste (gross profit) 110,584 kDKK; afkastningsgrad 57%. NOT comparable to Swedish/Finnish revenue lines."
+ghost_ship_games,2019,,,,12272000,,,,,,DKK,,,S041,"Filed (CVR). Revenue not disclosed; gross profit 23,778 kDKK; net_profit shown is resultat foer skat (PRE-TAX) 12,272 kDKK."
+bohemia_interactive,2024,2024-12-31,1400000000,951000000,428000000,,,,,,CZK,,,S042,"Company-reported (justice.cz filing, via press). Rev 1.4bn CZK (+34%); operating 951M; net 428M. 4.85M copies sold, 17M players."
+bohemia_interactive,2025,2025-12-31,1700000000,1231000000,792000000,,,,,,CZK,,,S042,"PRELIMINARY/UNAUDITED (audited results H2-2026). Rev 1.7bn CZK (+23.6%); operating 1,231M; net 792M. Record year. Arma Reforger + DayZ Frostline drivers."
+far_from_home,2021,2021-12-31,1502070,,-951571,,201400,,,,PLN,,,S044,"Filed (KRS). Loss-making (in dev). Share capital ~201,400 PLN."
+far_from_home,2022,2022-12-31,2085098,,-1525510,,,,,,PLN,,,S044,Filed (KRS). Rev +38.8%; net loss -1.53M PLN.
+far_from_home,2023,2023-12-31,4309772,-1200000,-1412965,,,,,,PLN,,,S044,Filed (KRS). Rev +106.7% to 4.31M PLN (Forever Skies EA); EBIT -1.2M; pre-tax -1.36M; net -1.41M. Very close to the user's own studio profile.
+sand_sailor,2024,2024-12-31,2351976,,259943,,,,,10,RON,,,S045,"Filed (ONRC). Rev 2.35M RON (+6.95%); net 259,943 RON; pre-tax 329,176 RON; 10 emp. Modestly profitable. Earlier years available via termene.ro."

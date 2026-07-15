@@ -1,0 +1,20 @@
+company_id,round_date,funding_stage,amount,currency,investors,pre_money_valuation,post_money_valuation,confidence,source_id,notes
+vrkiwi,,Other,1500000,EUR,"Korpun Siemen Oy, Nordic Option Oy, private investors",,,ANEC,S012,EUR1.5M round; existing + private. Stage unlabelled. round_date ~2023 - verify. ~$623k total prior (PitchBook).
+vrkiwi,,Grant,,,Business Finland,,,ANEC,S013,Business Finland grant (amount/year not disclosed).
+keen_games,2021-07-20,Other,10000000,USD,"Hiro Capital, Tencent",,,ANEC,S028,"$10M to build Enshrouded. Stage unlabelled (Series-A-like). Tencent = minority investor, not parent."
+keen_games,,Grant,,,German Federal Government,,,ANEC,S028,German government grant for next game 'Game38'. Amount/date not disclosed.
+digital_sun,2016,Other,134267,USD,Kickstarter backers (via Square Enix Collective),,,HARD,S022,"Moonlighter Kickstarter final $134,267, <1 week (2016). Crowdfunding, not equity."
+digital_sun,,Grant,,,Spanish Ministry of Culture and Sport,,,ANEC,S022,Public grant supporting Moonlighter dev. Amount/year not disclosed.
+mobius_digital,2015,Other,126480,USD,Fig backers + accredited investors,,,HARD,S046,"Outer Wilds Fig campaign (Aug 2015): rewards $126,480; equity ~$50k accepted (capped by Mobius, more offered). Some cite ~$1.2M incl. equity. Later bought out by Annapurna."
+the_fun_pimps,2013-08,Other,507000,USD,Kickstarter backers,,,HARD,S047,"7DTD Kickstarter (Aug 2013): >$500k (~$507k), goal $200k. No institutional financing until Behaviour acquisition."
+deep_field_games,,Seed,,,Alt Ventures (NZ 'Kiwi gaming' fund),,,ANEC,S033,Pre-dev investment from Alt Ventures' NZ games fund. Amount/date not disclosed. Stage inferred.
+deep_field_games,2022-06,Grant,150000,NZD,NZ Centre of Digital Excellence (CODE),,,ANEC,S033,"NZ govt-backed CODE grant NZ$150,000 (June 2022) for Abiotic Factor."
+ghost_ship_games,2016,Seed,,,Cap Nova (Danish govt games fund),,,ANEC,S018,"Cap Nova seed 2016 + follow-on Feb 2017 (~$74k early, Tracxn)."
+ghost_ship_games,2021-08,Other,528000000,DKK,Embracer Group (Coffee Stain Holding),,,ANEC,S017,ACQUISITION of remaining 70% (Coffee Stain already held 30%). Founders received 528M DKK. Full buyout -> subsidiary.
+iron_gate,,Other,,,Coffee Stain Publishing (Embracer),,,ANEC,S015,Coffee Stain holds a MINORITY stake + rev-share (not full acquisition; studio stays independent/Active). Amount/%/date undisclosed.
+bohemia_interactive,2021-02,Other,,,Tencent,,,ANEC,S036,"Tencent MINORITY stake (Feb 2021, undisclosed). Founder-controlled via SPM. Strategic minority, not a priced VC round."
+rocketwerkz,2016,Other,,,Tencent,,,ANEC,S037,Tencent minority ~45% (Hall retains majority). round_date ~2015-2016 - verify. Strategic minority.
+sand_sailor,2014-10,Other,28485,GBP,Kickstarter backers (via Square Enix Collective),,,HARD,S049,"Black The Fall Kickstarter (Sep 30-Oct 31 2014): GBP28,485 from 1,669 backers (goal GBP25,000). Via Square Enix Collective; studio also used a gaming accelerator."
+bippinbits,2022,Publisher advance,,,Raw Fury (publisher),,,ANEC,S004,"Dome Keeper publishing deal (~2022). Advances typically recoupable, not equity. Amount undisclosed."
+system_era,2023-11,Other,40000000,USD,Devolver Digital,,,ANEC,S023,ACQUISITION by Devolver: up to $40M ($22M initial). Astroneer ~$87M lifetime rev cited.
+jagex,2024-02,Other,910000000,GBP,"CVC Capital Partners, Haveli Investments",,,ANEC,S039,ACQUISITION from Carlyle. Reported ~GBP910M (figures vary; ~GBP584M consideration cited elsewhere - verify). Jan-2021 valuation $530M.
