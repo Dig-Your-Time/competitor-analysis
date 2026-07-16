@@ -1,11 +1,19 @@
 import { useEffect, useState } from 'react'
 import LaunchCurves from './LaunchCurves.jsx'
 import Compare from './Compare.jsx'
+import RegionMap from './RegionMap.jsx'
+import Financials from './Financials.jsx'
+import PublisherView from './PublisherView.jsx'
+import FundingView from './FundingView.jsx'
 import Guide from './Guide.jsx'
 
 const TABS = [
   { id: 'curves', label: 'Launch curves' },
   { id: 'compare', label: 'Compare' },
+  { id: 'regions', label: 'Regions' },
+  { id: 'financials', label: 'Financials' },
+  { id: 'publishers', label: 'Publishers' },
+  { id: 'funding', label: 'Funding' },
   { id: 'guide', label: 'Guide' },
 ]
 
@@ -35,6 +43,10 @@ export default function App() {
 
       {tab === 'curves' && <LaunchCurves data={data} />}
       {tab === 'compare' && <Compare data={data} />}
+      {tab === 'regions' && <RegionMap data={data} />}
+      {tab === 'financials' && <Financials data={data} />}
+      {tab === 'publishers' && <PublisherView data={data} />}
+      {tab === 'funding' && <FundingView data={data} />}
       {tab === 'guide' && <Guide data={data} />}
 
       <footer>

@@ -105,6 +105,18 @@ export default function Compare({ data }) {
         are labelled — estimates show a low–high band, and revenue is <em>gross</em>.
       </p>
 
+      <div className="howto">
+        <strong>How to read this.</strong> The two bar charts rank your picks on one measure each.
+        <span className="tagpill tag-hard">HARD</span> bars (reviews) are a single solid fill — a fact.
+        The <span className="tagpill tag-est">EST</span> units bar is <em>not</em> a single number: the
+        shaded band spans the <strong>low–high estimate</strong> and the vertical tick is the
+        <strong> mid</strong>. A <em>wide</em> band means the two estimators disagree — nobody really knows;
+        a tight one means they roughly agree. Read the width as "how much to trust this." Revenue below is
+        <em> gross</em> (Valve takes 30%+, so real take-home is well under half). The full table underneath
+        breaks every row out per game — scroll it sideways for more games, down for more metrics; the game
+        names stay pinned at the top.
+      </div>
+
       <div className="selector" style={{ marginBottom: 22 }}>
         {byTier.map(([tier, gs]) => (
           <div className="tierblock" key={tier}>

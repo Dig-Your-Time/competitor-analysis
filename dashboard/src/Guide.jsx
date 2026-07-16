@@ -34,6 +34,27 @@ export default function Guide({ data }) {
       </div>
 
       <div className="gcard">
+        <h2>Reading the Compare view — and the estimate band</h2>
+        <p>
+          Compare ranks your picked games on two bars, then breaks every metric out in a table below.
+          The <strong>Reviews</strong> bar is <span className="tagpill tag-hard">HARD</span> — one solid
+          fill, a fact. The <strong>Est. units</strong> bar is deliberately <em>not</em> a single point:
+          the shaded band spans the <strong>low–high estimate</strong> and the tick marks the
+          <strong> mid</strong>.
+        </p>
+        <p>
+          Read the band's <strong>width as your confidence</strong>. A tight band means the two
+          independent estimators (Gamalytic and Boxleiter) roughly agree; a wide one means they don't —
+          so the "number" could be off by a lot. Two studios can show the same mid yet mean very different
+          things once you look at how wide each one's band is.
+        </p>
+        <p className="callout">
+          <strong>Don't compare revenue to our own net figure.</strong> Est. gross revenue is before
+          Valve's 30%+ cut, regional pricing, and discounts — real take-home is well under half.
+        </p>
+      </div>
+
+      <div className="gcard">
         <h2>The three confidence classes — never blur them</h2>
         <div className="deflist">
           <div className="d"><span className="k"><span className="tagpill tag-hard">HARD</span></span><span className="v">{m.confidence.HARD}. Trust these as facts.</span></div>
@@ -80,6 +101,76 @@ export default function Guide({ data }) {
           <div className="d"><span className="k">Company financials</span><span className="v">Filed Nordic / EU annual accounts — <span className="tagpill tag-hard">HARD</span>, but multi-currency and sometimes P&amp;L-restricted.</span></div>
           <div className="d"><span className="k">Sales claims, deal notes</span><span className="v">Dev tweets, interviews, postmortems — <span className="tagpill tag-anec">ANEC</span>.</span></div>
         </div>
+      </div>
+
+      <div className="gcard">
+        <h2>The Regions view — and why Finland comes first</h2>
+        <p>
+          Each bubble is a game, grouped by its studio's home region and sized by
+          <strong> reviews</strong> (HARD) or <strong>est. units</strong> (EST). Size is a
+          <strong> square-root</strong> scale, so read it as rank and rough magnitude — the giants would
+          otherwise flatten everything else. Colour shows whether a studio is still independent or has been
+          acquired.
+        </p>
+        <p>
+          Finland leads the layout on purpose. Nordic limited companies must <strong>file public annual
+          accounts</strong>, so for a large slice of this field we have real revenue and margins, not just
+          estimates — a competitive edge a non-Nordic researcher can't replicate. That's why several of the
+          most useful, filings-backed comparables sit right at the top of this view.
+        </p>
+      </div>
+
+      <div className="gcard">
+        <h2>Company financials — real numbers, with caveats</h2>
+        <p>
+          Unlike units and revenue <em>estimates</em>, filed annual accounts are
+          <span className="tagpill tag-hard">HARD</span> — Nordic and EU limited companies are legally
+          required to publish them. Each bar is one fiscal year's <strong>revenue</strong>; the figure
+          beside it is <strong>net profit</strong> (or operating, tagged <em>op</em>) with margin.
+        </p>
+        <p>
+          Two honesty caveats. First, euro conversion uses <strong>fixed approximate rates</strong> across
+          filings from different years — good for ranking studios, not for accounting. Second,
+          <strong> disclosure differs by country</strong>: small German studios file no profit-and-loss at
+          all, and Danish companies report <em>gross profit</em> rather than revenue, so those sit in a
+          separate restricted list rather than being shown as zero. And note a hit's revenue is
+          <strong> lumpy</strong> — Iron Gate's Valheim went 533M → 94M SEK in a year — so one big number
+          is a spike, not a run-rate.
+        </p>
+      </div>
+
+      <div className="gcard">
+        <h2>Publishers — track record, never terms</h2>
+        <p>
+          Deal terms — advances, revenue splits — are confidential and simply aren't obtainable. So this
+          view answers the question you <em>can</em> answer: does a publisher's catalogue tend to do well,
+          and how do self-published games compare? It uses <strong>medians</strong> so a single breakout
+          doesn't distort the picture.
+        </p>
+        <p>
+          The crucial caveat: all revenue is <strong>gross</strong> <span className="tagpill tag-est">EST</span>,
+          the whole pie before Valve's cut <em>and</em> before the publisher's share. A self-published studio
+          keeps most of each euro; a publisher-backed one gives away a slice you can't see — so a bigger gross
+          under a publisher doesn't mean more money reached the developer. And with only a couple of publishers
+          holding more than one title here, treat this as a <strong>signal, not a verdict</strong>.
+        </p>
+      </div>
+
+      <div className="gcard">
+        <h2>Funding &amp; ownership — the sparse, uncertain corner</h2>
+        <p>
+          This is the least complete view, and honestly so. Ownership is solid — who's independent, who was
+          acquired by Embracer, Microsoft, Devolver, or has a Tencent minority stake. Funding is thin:
+          <strong> crowdfunding</strong> amounts are <span className="tagpill tag-hard">HARD</span> (public
+          campaigns), but acquisition prices and investment rounds are <span className="tagpill tag-anec">ANEC</span> —
+          announced in press, often approximate, and frequently just <strong>undisclosed</strong>.
+        </p>
+        <p>
+          Two things to keep straight: an <strong>acquisition price is what a buyer paid</strong> for the
+          whole studio, not capital raised to make a game — so it isn't comparable to a funding round. And
+          <strong> valuations are deliberately absent</strong>: for studios this size they aren't public, and
+          a made-up valuation is exactly the kind of guess-as-fact this project refuses to show.
+        </p>
       </div>
 
       <div className="gcard">

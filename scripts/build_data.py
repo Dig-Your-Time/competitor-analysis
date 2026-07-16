@@ -102,6 +102,75 @@ for gid, rows in by.items():
                     "cum": int(r["reviews_cumulative"]),
                     "pct": round(int(r["reviews_cumulative"]) / total, 4)} for r in rows]
 
+# company financials: one company -> its filed annual rows (native currency kept;
+# CLAUDE.md rule -> currency is converted in the dashboard, never in the data).
+fin_by = {}
+for r in load("financials.csv"):
+    fin_by.setdefault(r["company_id"].strip(), []).append(r)
+
+financials = []
+for cid, rows in fin_by.items():
+    c = comp.get(cid, {})
+    rows = sorted(rows, key=lambda r: r.get("fiscal_year", ""))
+    years = [{
+        "fiscal_year": num(r.get("fiscal_year")),
+        "revenue": num(r.get("revenue")),
+        "operating_profit": num(r.get("operating_profit")),
+        "net_profit": num(r.get("net_profit")),
+        "employees_avg": num(r.get("employees_avg")),
+        "note": r.get("notes", ""),
+    } for r in rows]
+    financials.append({
+        "company_id": cid,
+        "company_name": c.get("company_name", ""),
+        "country": c.get("country", ""),
+        "region": c.get("region_bucket", ""),
+        "status": c.get("company_status", ""),
+        "self_published": c.get("self_published", ""),
+        "currency": next((r.get("currency", "") for r in rows if r.get("currency")), ""),
+        "years": years,
+        "has_revenue": any(y["revenue"] is not None for y in years),
+    })
+
+# funding & ownership: one company -> its rounds. Amounts stay native (dashboard
+# converts). Valuations are deliberately dropped per CLAUDE.md (not obtainable).
+fund_by = {}
+for r in load("funding.csv"):
+    fund_by.setdefault(r["company_id"].strip(), []).append(r)
+
+funding = []
+for cid, rows in fund_by.items():
+    c = comp.get(cid, {})
+    funding.append({
+        "company_id": cid,
+        "company_name": c.get("company_name", ""),
+        "country": c.get("country", ""),
+        "region": c.get("region_bucket", ""),
+        "status": c.get("company_status", ""),
+        "parent_company": c.get("parent_company", ""),
+        "rounds": [{
+            "round_date": r.get("round_date", ""),
+            "funding_stage": r.get("funding_stage", ""),
+            "amount": num(r.get("amount")),
+            "currency": r.get("currency", ""),
+            "investors": r.get("investors", ""),
+            "confidence": r.get("confidence", ""),
+            "note": r.get("notes", ""),
+        } for r in rows],
+    })
+
+# ownership roster: every distinct tracked studio, for the "who owns whom" view
+seen_co = {}
+for g in games:
+    cid = g.get("company_id")
+    if cid and cid not in seen_co and not g.get("is_our_game"):
+        seen_co[cid] = {
+            "company_id": cid, "company_name": g.get("company_name", ""),
+            "region": g.get("region", ""), "country": g.get("country", ""),
+            "status": g.get("status", ""), "parent_company": g.get("parent_company", ""),
+            "self_published": g.get("self_published", ""),
+        }
+
 data = {
     "generated": dt.date.today().isoformat(),
     "meta": {
@@ -124,6 +193,9 @@ data = {
     },
     "games": games,
     "launch_curves": curves,
+    "financials": financials,
+    "funding": funding,
+    "companies": list(seen_co.values()),
 }
 
 path = OUT / "data.json"

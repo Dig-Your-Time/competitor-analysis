@@ -27,3 +27,21 @@ export const calAt = (iso, week) => {
 }
 
 export const TIER_ORDER = ['1-Direct', '2-Adjacent', '3-Reference', 'X-Drop?', '0-Ours']
+
+// Approximate, FIXED euro rates (mid-2026). Per CLAUDE.md, data stays in native
+// currency and conversion happens here — so a rate refresh never rewrites the CSVs.
+// These are for cross-studio comparison, not accounting; filings span several years
+// at different real rates, so treat EUR figures as "roughly comparable", not exact.
+export const EUR_PER = {
+  EUR: 1, SEK: 0.087, NOK: 0.086, DKK: 0.134, GBP: 1.17,
+  USD: 0.92, CZK: 0.040, PLN: 0.235, RON: 0.201, NZD: 0.55,
+}
+export const CUR_SYMBOL = { USD: '$', EUR: '€', GBP: '£' }
+// native amount as a short string, e.g. "$40M", "910M GBP", "€1.5M"
+export const nativeAmt = (v, cur) => {
+  if (v == null) return null
+  const sym = CUR_SYMBOL[cur]
+  return sym ? sym + fmt(v) : `${fmt(v)} ${cur}`
+}
+export const toEur = (v, cur) => (v == null ? null : v * (EUR_PER[cur] ?? 1))
+export const eurStr = (v) => (v == null ? '—' : '€' + fmt(v))
