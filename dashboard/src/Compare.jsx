@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react'
-import { PALETTE, fmt, TIER_ORDER } from './lib.js'
+import { PALETTE, fmt, toEur, eurStr, TIER_ORDER } from './lib.js'
+import { useDrawer } from './drawer.jsx'
 
 const nowYear = (iso) => Number((iso || '').slice(0, 4))
 
@@ -35,9 +36,9 @@ const SECTIONS = (genYear) => [
   },
   {
     title: 'Estimates', badge: 'EST', rows: [
-      ['Est. units (low–high)', (g) => g.est_units_mid != null ? `${fmt(g.est_units_low)} – ${fmt(g.est_units_high)}` : '—'],
+      ['Est. units (low to high)', (g) => g.est_units_mid != null ? `${fmt(g.est_units_low)} to ${fmt(g.est_units_high)}` : '—'],
       ['Est. units (mid)', (g) => g.est_units_mid != null ? fmt(g.est_units_mid) : '—'],
-      ['Est. gross revenue', (g) => g.est_revenue_gross_mid != null ? '$' + fmt(g.est_revenue_gross_mid) : '—'],
+      ['Est. gross revenue', (g) => g.est_revenue_gross_mid != null ? eurStr(toEur(g.est_revenue_gross_mid, 'USD')) : '—'],
       ['Gamalytic ÷ Boxleiter', (g) => g.est_ratio != null ? g.est_ratio + '×' : '—'],
     ],
   },
@@ -83,6 +84,7 @@ function MagnitudeBars({ games, title, badge, get, band, hue, prefix = '', acces
 }
 
 export default function Compare({ data }) {
+  const { open } = useDrawer()
   const genYear = nowYear(data.generated)
   const allGames = [...data.games].sort((a, b) => TIER_ORDER.indexOf(a.tier) - TIER_ORDER.indexOf(b.tier))
   const byId = Object.fromEntries(allGames.map((g) => [g.game_id, g]))
@@ -98,23 +100,23 @@ export default function Compare({ data }) {
 
   return (
     <div>
-      <h1>Compare — every metric, side by side</h1>
+      <h1>Compare: every metric, side by side</h1>
       <p className="sub">
         Pick any games (including <strong>our own</strong>, so "where do we land?" is the same view).
         <span className="tagpill tag-hard">HARD</span> facts and <span className="tagpill tag-est">EST</span> estimates
-        are labelled — estimates show a low–high band, and revenue is <em>gross</em>.
+        are labelled. Estimates show a low to high band, and revenue is <em>gross</em>.
       </p>
 
       <div className="howto">
         <strong>How to read this.</strong> The two bar charts rank your picks on one measure each.
-        <span className="tagpill tag-hard">HARD</span> bars (reviews) are a single solid fill — a fact.
+        <span className="tagpill tag-hard">HARD</span> bars (reviews) are a single solid fill, a fact.
         The <span className="tagpill tag-est">EST</span> units bar is <em>not</em> a single number: the
-        shaded band spans the <strong>low–high estimate</strong> and the vertical tick is the
-        <strong> mid</strong>. A <em>wide</em> band means the two estimators disagree — nobody really knows;
-        a tight one means they roughly agree. Read the width as "how much to trust this." Revenue below is
-        <em> gross</em> (Valve takes 30%+, so real take-home is well under half). The full table underneath
-        breaks every row out per game — scroll it sideways for more games, down for more metrics; the game
-        names stay pinned at the top.
+        shaded band spans the <strong>low to high estimate</strong> and the vertical tick is the
+        <strong> mid</strong>. A <em>wide</em> band means the two estimators disagree, so nobody really
+        knows; a tight one means they roughly agree. Read the width as "how much to trust this." Revenue
+        below is <em> gross</em> (Valve takes 30%+, so real take-home is well under half). The full table
+        underneath breaks every row out per game. Scroll it sideways for more games, down for more metrics;
+        the game names stay pinned at the top.
       </div>
 
       <div className="selector" style={{ marginBottom: 22 }}>
@@ -152,7 +154,10 @@ export default function Compare({ data }) {
                 <tr>
                   <th className="rowhead" />
                   {games.map((g) => (
-                    <th key={g.game_id} className={g.is_our_game ? 'ours' : ''}>{g.title}</th>
+                    <th key={g.game_id} className={'srchead ' + (g.is_our_game ? 'ours' : '')}
+                      onClick={() => open({ type: 'game', id: g.game_id })} title="View sources">
+                      {g.title} <span className="srccue">ⓘ</span>
+                    </th>
                   ))}
                 </tr>
               </thead>
@@ -176,9 +181,9 @@ export default function Compare({ data }) {
             </table>
           </div>
           <p className="note">
-            The <strong>Gamalytic ÷ Boxleiter</strong> ratio is the disagreement between the two estimators —
-            above 1 means Gamalytic reads higher than reviews×30 would suggest (common for small games), a signal
-            of how uncertain the unit estimate is.
+            The <strong>Gamalytic ÷ Boxleiter</strong> ratio is the disagreement between the two estimators.
+            Above 1 means Gamalytic reads higher than reviews×30 would suggest (common for small games), which
+            signals how uncertain the unit estimate is.
           </p>
         </>
       )}

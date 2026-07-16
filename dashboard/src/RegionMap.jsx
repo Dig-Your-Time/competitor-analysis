@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { fmt } from './lib.js'
+import { useDrawer } from './drawer.jsx'
 
 // Finland first — the dataset's unfair advantage — then the rest of the Nordics,
 // then everyone else. Any unknown region falls through to 'Other'.
@@ -22,6 +23,7 @@ const statusColor = (s) =>
   s === 'Active' ? 'var(--teal)' : s === 'Acquired' ? 'var(--violet)' : 'var(--muted)'
 
 export default function RegionMap({ data }) {
+  const { open } = useDrawer()
   const [metric, setMetric] = useState('reviews')
   const get = METRICS[metric].get
 
@@ -55,26 +57,26 @@ export default function RegionMap({ data }) {
 
   return (
     <div>
-      <h1>Regions — where the studios are, and how big they got</h1>
+      <h1>Regions: where the studios are, and how big they got</h1>
       <p className="sub">
         One bubble per game, grouped by the studio's home region and <strong>sized by {METRICS[metric].label.toLowerCase()}</strong>,
         <span className={'tagpill ' + (METRICS[metric].badge === 'HARD' ? 'tag-hard' : 'tag-est')}>{METRICS[metric].badge}</span>.
         Colour is the studio's <strong>status</strong>. <strong>Finland leads</strong> because that is this
-        dataset's edge — Nordic studios must file public accounts, so their real economics are knowable.
+        dataset's edge: Nordic studios must file public accounts, so their real economics are knowable.
       </p>
 
       <div className="howto">
         <strong>How to read this.</strong> Bigger circle = more {METRICS[metric].label.toLowerCase()}.
-        Size uses a square-root scale so mid-sized games stay visible next to the giants — read it as
+        Size uses a square-root scale so mid-sized games stay visible next to the giants, so read it as
         <em> rank and rough magnitude</em>, not a precise ratio. Colour marks whether the studio is still
         <span className="lg"><span className="sw" style={{ background: 'var(--teal)' }} /> independent</span> or has been
         <span className="lg"><span className="sw" style={{ background: 'var(--violet)' }} /> acquired</span>. Hover any
         bubble for the studio's age, size, publishing, and both the HARD review count and the EST unit band.
-        Our own game isn't here — a map of what the market <em>did</em> has no room for a game that hasn't shipped.
+        Our own game isn't here: a map of what the market <em>did</em> has no room for a game that hasn't shipped.
       </div>
 
       <p className="note" style={{ marginBottom: 20 }}>
-        <strong>{nordicStudios} of {totalStudios}</strong> studios in this field are Nordic (Finland + Sweden + Denmark) —
+        <strong>{nordicStudios} of {totalStudios}</strong> studios in this field are Nordic (Finland + Sweden + Denmark),
         and several sit in the direct-comparable tier. That filed-financials advantage is the reason this whole project
         can talk about real revenue, not just estimates.
       </p>
@@ -101,7 +103,7 @@ export default function RegionMap({ data }) {
               {gs.map((g) => {
                 const d = 2 * R(get(g))
                 return (
-                  <div className="bubble" key={g.game_id}>
+                  <div className="bubble clickable" key={g.game_id} onClick={() => open({ type: 'game', id: g.game_id })} title="View sources">
                     <div className="disc-wrap" style={{ height: maxD }}>
                       <span
                         className="disc"
@@ -121,8 +123,9 @@ export default function RegionMap({ data }) {
                         <div><span>Self-published</span><b>{g.self_published || '—'}</b></div>
                         <div><span>Tier</span><b>{g.tier}</b></div>
                         <div className="hard"><span>Reviews <i className="tagpill tag-hard">HARD</i></span><b>{fmt(g.review_count)}</b></div>
-                        <div className="est"><span>Est. units <i className="tagpill tag-est">EST</i></span><b>{g.est_units_mid != null ? `${fmt(g.est_units_low)}–${fmt(g.est_units_high)}` : '—'}</b></div>
+                        <div className="est"><span>Est. units <i className="tagpill tag-est">EST</i></span><b>{g.est_units_mid != null ? `${fmt(g.est_units_low)} to ${fmt(g.est_units_high)}` : '—'}</b></div>
                       </div>
+                      <div className="btip-cue">Click for sources ↗</div>
                     </div>
                   </div>
                 )

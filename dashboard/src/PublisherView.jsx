@@ -1,5 +1,9 @@
 import { useState } from 'react'
-import { fmt } from './lib.js'
+import { fmt, toEur, eurStr } from './lib.js'
+import { useDrawer } from './drawer.jsx'
+
+// Gamalytic revenue is USD gross; convert to EUR so the whole dashboard speaks one currency
+const eurRev = (v) => eurStr(toEur(v, 'USD'))
 
 const SELF = 'var(--teal)'
 const PUB = 'var(--violet)'
@@ -19,7 +23,7 @@ function StatTile({ title, hue, games }) {
     <div className="ptile" style={{ borderTopColor: hue }}>
       <div className="ptile-h">{title}</div>
       <div className="ptile-n">{games.length} game{games.length !== 1 ? 's' : ''}</div>
-      <div className="ptile-big">${fmt(median(rev))}</div>
+      <div className="ptile-big">{eurRev(median(rev))}</div>
       <div className="ptile-lbl">median est. gross revenue <span className="tagpill tag-est">EST</span></div>
       <div className="ptile-row"><span>Median reviews</span><b>{fmt(median(rc))}</b></div>
       <div className="ptile-row"><span>Median est. units</span><b>{fmt(median(games.map((g) => g.est_units_mid)))}</b></div>
@@ -28,6 +32,7 @@ function StatTile({ title, hue, games }) {
 }
 
 export default function PublisherView({ data }) {
+  const { open } = useDrawer()
   const [sort, setSort] = useState('rev')
   const games = data.games.filter((g) => !g.is_our_game)
 
@@ -59,23 +64,24 @@ export default function PublisherView({ data }) {
 
   return (
     <div>
-      <h1>Publishers — self-publish, or sign a deal?</h1>
+      <h1>Publishers: self-publish, or sign a deal?</h1>
       <p className="sub">
-        You'll never get a publisher's <em>deal terms</em> — those are confidential. But you can get their
+        You'll never get a publisher's <em>deal terms</em>, since those are confidential. But you can get their
         <strong> track record</strong>, which is the decision-relevant number anyway. All revenue here is
-        <strong> estimated and gross</strong> <span className="tagpill tag-est">EST</span> — before Valve's
-        cut <em>and</em> before any publisher share.
+        <strong> estimated and gross</strong> <span className="tagpill tag-est">EST</span>, in
+        <strong> euros</strong> (converted from Gamalytic's USD at a fixed rate), before Valve's cut
+        <em> and</em> before any publisher share.
       </p>
 
       <div className="howto">
-        <strong>How to read this.</strong> The two tiles compare the whole field split by publishing model —
-        <span style={{ color: SELF, fontWeight: 600 }}> self-published</span> vs
-        <span style={{ color: PUB, fontWeight: 600 }}> publisher-backed</span> — using <strong>medians</strong>
+        <strong>How to read this.</strong> The two tiles compare the whole field split by publishing model,
+        <span style={{ color: SELF, fontWeight: 600 }}> self-published</span> versus
+        <span style={{ color: PUB, fontWeight: 600 }}> publisher-backed</span>, using <strong>medians</strong>
         (one breakout hit doesn't move a median the way it moves an average). The catch: gross revenue is the
         <em> whole pie</em>. A self-publisher keeps most of each euro; a publisher-backed studio hands over a
         cut you can't see here, so a higher gross under a publisher does <em>not</em> mean more money reaches
-        the studio. Read the publisher table as "what their catalogue tends to do", and remember N is small —
-        this is a signal, not a verdict.
+        the studio. Read the publisher table as "what their catalogue tends to do", and remember N is small,
+        so this is a signal, not a verdict.
       </div>
 
       <div className="ptiles">
@@ -85,7 +91,7 @@ export default function PublisherView({ data }) {
 
       <p className="note" style={{ marginTop: 14, marginBottom: 26 }}>
         In this field the median publisher-backed title grosses{' '}
-        <strong>${fmt(pubMed)}</strong> vs <strong>${fmt(selfMed)}</strong> self-published — but that gap is
+        <strong>{eurRev(pubMed)}</strong> vs <strong>{eurRev(selfMed)}</strong> self-published, but that gap is
         gross, before the publisher's share, and it's shaped by which studios <em>chose</em> to sign (bigger,
         more ambitious projects more often seek a publisher). {unknown.length > 0 &&
           `${unknown.length} game${unknown.length !== 1 ? 's have' : ' has'} an unclear arrangement and ${unknown.length !== 1 ? 'are' : 'is'} excluded.`}
@@ -116,7 +122,7 @@ export default function PublisherView({ data }) {
               <tr key={r.name}>
                 <td className="rowhead">{r.name}</td>
                 <td>{r.games.length}{r.games.length > 1 ? ' ★' : ''}</td>
-                <td>${fmt(r.medRev)}</td>
+                <td>{eurRev(r.medRev)}</td>
                 <td>{fmt(r.medReviews)}</td>
                 <td className="pubgames">{r.games.map((g) => g.title).join(', ')}</td>
               </tr>
@@ -125,7 +131,7 @@ export default function PublisherView({ data }) {
         </table>
       </div>
       <p className="note" style={{ marginTop: -14, marginBottom: 26 }}>
-        ★ marks a publisher with more than one title in this set — the only ones whose "median" means much.
+        ★ marks a publisher with more than one title in this set, the only ones whose "median" means much.
         Everyone else is a single data point. Coffee Stain (Deep Rock, Valheim) and Thunderful (The Gunk,
         ASKA) are the two with a real catalogue here.
       </p>
@@ -137,12 +143,12 @@ export default function PublisherView({ data }) {
       </p>
       <div className="magblock" style={{ marginBottom: 26 }}>
         {distro.map((g) => (
-          <div className="bar-row" key={g.game_id}>
-            <div className="bar-label" title={`${g.title} — ${g.self_published === 'Yes' ? 'self-published' : primaryPub(g)}`}>{g.title}</div>
+          <div className="bar-row clickable" key={g.game_id} onClick={() => open({ type: 'game', id: g.game_id })} title="View sources">
+            <div className="bar-label">{g.title} <span className="srccue">ⓘ</span></div>
             <div className="bar-track">
               <div className="bar-fill" style={{ width: `${(g.est_revenue_gross_mid / maxRev) * 100}%`, background: g.self_published === 'Yes' ? SELF : PUB }} />
             </div>
-            <div className="bar-val">${fmt(g.est_revenue_gross_mid)}</div>
+            <div className="bar-val">{eurRev(g.est_revenue_gross_mid)}</div>
           </div>
         ))}
       </div>

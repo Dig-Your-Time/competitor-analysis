@@ -1,4 +1,5 @@
 import { fmt, toEur, nativeAmt } from './lib.js'
+import { useDrawer } from './drawer.jsx'
 
 // bucket a round into a human category from its stage + investor + note text
 const categorize = (r) => {
@@ -14,18 +15,19 @@ const categorize = (r) => {
 
 const CAT_ORDER = ['Acquisition', 'Investment round', 'Strategic stake', 'Crowdfunding', 'Grant', 'Publisher advance']
 const CAT_NOTE = {
-  Acquisition: 'A studio bought outright — the price is what the buyer paid, not what the studio raised.',
+  Acquisition: 'A studio bought outright. The price is what the buyer paid, not what the studio raised.',
   'Investment round': 'Capital raised into the company.',
-  'Strategic stake': 'A minority stake — the studio stays independent; amounts are almost never disclosed.',
-  Crowdfunding: 'Money from players before launch — the only HARD figures here.',
-  Grant: 'Non-dilutive public money (government / regional games funds).',
-  'Publisher advance': 'A recoupable advance against future sales — not equity, and undisclosed.',
+  'Strategic stake': 'A minority stake. The studio stays independent, and amounts are almost never disclosed.',
+  Crowdfunding: 'Money from players before launch, the only HARD figures here.',
+  Grant: 'Non-dilutive public money (government or regional games funds).',
+  'Publisher advance': 'A recoupable advance against future sales. Not equity, and undisclosed.',
 }
 
 const conf = (c) => (c === 'HARD' ? 'tag-hard' : c === 'ANEC' ? 'tag-anec' : 'tag-est')
 const shortDate = (d) => (d ? d.slice(0, 7) : '—')
 
 export default function FundingView({ data }) {
+  const { open } = useDrawer()
   const funding = data.funding || []
   const companies = data.companies || []
 
@@ -53,9 +55,9 @@ export default function FundingView({ data }) {
 
   return (
     <div>
-      <h1>Funding &amp; ownership — who paid in, and who owns them now</h1>
+      <h1>Funding &amp; ownership: who paid in, and who owns them now</h1>
       <p className="sub">
-        The sparse corner of the dataset, and the least certain — most amounts are <strong>undisclosed</strong>,
+        The sparse corner of the dataset, and the least certain. Most amounts are <strong>undisclosed</strong>,
         and what exists is mostly <span className="tagpill tag-anec">ANEC</span> (announced, not filed).
         Valuations are deliberately left out: for studios this size they aren't obtainable, so any number
         would be a guess dressed as a fact.
@@ -63,12 +65,12 @@ export default function FundingView({ data }) {
 
       <div className="howto">
         <strong>How to read this.</strong> Two things live here. <strong>Ownership</strong> shows who's still
-        independent versus who was acquired and by whom — Embracer, Microsoft, Devolver, Tencent all appear.
+        independent versus who was acquired and by whom (Embracer, Microsoft, Devolver, and Tencent all appear).
         <strong> Funding events</strong> lists the money, bucketed by kind. Only <strong>crowdfunding</strong>
         is <span className="tagpill tag-hard">HARD</span> (public campaigns); acquisition prices and stakes are
         <span className="tagpill tag-anec">ANEC</span>, reported in press, often approximate. An
-        <strong> acquisition price is what a buyer paid</strong>, not money the studio raised to build a game —
-        don't read the big numbers as runway.
+        <strong> acquisition price is what a buyer paid</strong>, not money the studio raised to build a game,
+        so don't read the big numbers as runway.
       </div>
 
       <h2 className="finsechead" style={{ marginTop: 0 }}>Ownership</h2>
@@ -77,8 +79,8 @@ export default function FundingView({ data }) {
           <div className="ownhead"><span className="ownname">Independent</span><span className="owncount">{independent.length}</span></div>
           <div className="ownlist">
             {independent.map((c) => (
-              <div className="ownstudio" key={c.company_id}>
-                <span>{c.company_name}</span>
+              <div className="ownstudio clickable" key={c.company_id} onClick={() => open({ type: 'studio', id: c.company_id })} title="View sources">
+                <span>{c.company_name.split('(')[0].trim()} <span className="srccue">ⓘ</span></span>
                 {minorityOf[c.company_id] && <span className="minbadge">{minorityOf[c.company_id]} minority</span>}
               </div>
             ))}
@@ -89,8 +91,8 @@ export default function FundingView({ data }) {
             <div className="ownhead"><span className="ownname">{owner}</span><span className="owncount">{cos.length}</span></div>
             <div className="ownlist">
               {cos.map((c) => (
-                <div className="ownstudio" key={c.company_id} title={c.parent_company}>
-                  <span>{c.company_name.split('(')[0].trim()}</span>
+                <div className="ownstudio clickable" key={c.company_id} title={c.parent_company} onClick={() => open({ type: 'studio', id: c.company_id })}>
+                  <span>{c.company_name.split('(')[0].trim()} <span className="srccue">ⓘ</span></span>
                 </div>
               ))}
             </div>
@@ -112,9 +114,9 @@ export default function FundingView({ data }) {
                 const native = nativeAmt(e.amount, e.currency)
                 const eur = e.amount != null ? toEur(e.amount, e.currency) : null
                 return (
-                  <div className="fundrow" key={e.company_id + i}>
+                  <div className="fundrow clickable" key={e.company_id + i} onClick={() => open({ type: 'studio', id: e.company_id })} title="View sources">
                     <div className="fundco">
-                      <span className="fundco-n">{e.company_name.split('(')[0].trim()}</span>
+                      <span className="fundco-n">{e.company_name.split('(')[0].trim()} <span className="srccue">ⓘ</span></span>
                       <span className="funddate">{shortDate(e.round_date)}</span>
                     </div>
                     <div className="fundamt">
@@ -139,9 +141,9 @@ export default function FundingView({ data }) {
       ))}
 
       <p className="note" style={{ marginTop: 20 }}>
-        Euro figures use fixed approximate rates and span many years — rough comparison only. "Undisclosed"
-        is the honest majority: strategic stakes and publisher advances are almost never public, and this
-        dashboard would rather show a blank than invent one.
+        Euro figures use fixed approximate rates and span many years, so treat them as rough comparison only.
+        "Undisclosed" is the honest majority: strategic stakes and publisher advances are almost never public,
+        and this dashboard would rather show a blank than invent one.
       </p>
     </div>
   )

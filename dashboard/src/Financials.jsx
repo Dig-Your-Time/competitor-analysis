@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { fmt, toEur, eurStr, EUR_PER } from './lib.js'
+import { useDrawer } from './drawer.jsx'
 
 const LOSS = '#cf3b2e'
 const WIN = 'var(--teal)'
@@ -13,7 +14,7 @@ const profitSign = (years) => {
   return 'unknown'
 }
 
-function CompanyCard({ f }) {
+function CompanyCard({ f, open }) {
   const cur = f.currency
   const rev = (y) => toEur(y.revenue, cur)
   const revVals = f.years.map(rev).filter((v) => v != null)
@@ -29,8 +30,8 @@ function CompanyCard({ f }) {
   return (
     <div className="fincard" style={{ borderLeftColor: accent }}>
       <div className="finhead">
-        <div>
-          <div className="finname" title={f.company_name}>{f.company_name}</div>
+        <div className="finname-wrap clickable" onClick={() => open({ type: 'studio', id: f.company_id })} title="View sources">
+          <div className="finname" title={f.company_name}>{f.company_name} <span className="srccue">ⓘ</span></div>
           <div className="finsub">
             {f.country || f.region}
             {f.status ? ` · ${f.status}` : ''}
@@ -81,7 +82,7 @@ function CompanyCard({ f }) {
       {crashed && (
         <div className="fincrash">
           Lumpy: peaked at <strong>{eurStr(peak)}</strong> in {peakYear.fiscal_year}, then fell to{' '}
-          <strong>{eurStr(rev(latest))}</strong> by {latest.fiscal_year} — a hit game's revenue spikes on
+          <strong>{eurStr(rev(latest))}</strong> by {latest.fiscal_year}. A hit game's revenue spikes on
           release and major updates, then recedes.
         </div>
       )}
@@ -91,6 +92,7 @@ function CompanyCard({ f }) {
 }
 
 export default function Financials({ data }) {
+  const { open } = useDrawer()
   const [filter, setFilter] = useState('all')
   const fin = data.financials || []
 
@@ -110,10 +112,10 @@ export default function Financials({ data }) {
 
   return (
     <div>
-      <h1>Company financials — the numbers that aren't estimates</h1>
+      <h1>Company financials: the numbers that aren't estimates</h1>
       <p className="sub">
         Filed annual accounts, <span className="tagpill tag-hard">HARD</span>. Nordic and EU studios must
-        publish real revenue and profit — so for this slice of the field we have <strong>facts, not
+        publish real revenue and profit, so for this slice of the field we have <strong>facts, not
         Boxleiter guesses</strong>. Converted to <strong>euros</strong> for comparison; the native currency
         is on every bar.
       </p>
@@ -121,12 +123,12 @@ export default function Financials({ data }) {
       <div className="howto">
         <strong>How to read this.</strong> Each card is one studio; each bar is one filed fiscal year, sized
         by <strong>revenue</strong> (in EUR). The number on the right is <strong>net profit</strong>
-        (green) or loss (red), with margin — an <em>op</em> tag means only operating profit was disclosed.
+        (green) or loss (red), with margin. An <em>op</em> tag means only operating profit was disclosed.
         The left edge marks whether the studio's latest filing was <span style={{ color: WIN, fontWeight: 600 }}>profitable</span> or
         <span style={{ color: LOSS, fontWeight: 600 }}> loss-making</span>. Euro figures use fixed approximate
         rates across years of filings, so read them as <em>roughly comparable</em>, not exact accounting.
-        Disclosure differs by country — small German studios file no P&amp;L, Danish ones report gross profit
-        instead of revenue — those sit in the restricted list at the bottom.
+        Disclosure differs by country: small German studios file no P&amp;L, and Danish ones report gross profit
+        instead of revenue, so those sit in the restricted list at the bottom.
       </div>
 
       <div className="controls" style={{ marginBottom: 18 }}>
@@ -139,14 +141,14 @@ export default function Financials({ data }) {
       </div>
 
       <div className="fingrid">
-        {shown.map((f) => <CompanyCard key={f.company_id} f={f} />)}
+        {shown.map((f) => <CompanyCard key={f.company_id} f={f} open={open} />)}
       </div>
 
       {restricted.length > 0 && (
         <>
           <h2 className="finsechead">Filed, but revenue not publicly disclosed</h2>
           <p className="note" style={{ marginBottom: 14 }}>
-            These studios file accounts, but the filing type hides the top line — a small German GmbH files
+            These studios file accounts, but the filing type hides the top line. A small German GmbH files
             an abbreviated balance sheet with no P&amp;L; Danish companies report gross profit, not revenue.
             Still <span className="tagpill tag-hard">HARD</span>, just partial.
           </p>
@@ -156,8 +158,8 @@ export default function Financials({ data }) {
               return (
                 <div className="fincard muted" key={f.company_id} style={{ borderLeftColor: 'var(--axis)' }}>
                   <div className="finhead">
-                    <div>
-                      <div className="finname">{f.company_name}</div>
+                    <div className="finname-wrap clickable" onClick={() => open({ type: 'studio', id: f.company_id })} title="View sources">
+                      <div className="finname">{f.company_name} <span className="srccue">ⓘ</span></div>
                       <div className="finsub">{f.country || f.region} · {f.status} · {f.currency}</div>
                     </div>
                   </div>
@@ -171,7 +173,7 @@ export default function Financials({ data }) {
 
       <p className="note" style={{ marginTop: 22 }}>
         Rates used (native per €1): {Object.entries(EUR_PER).filter(([k]) => k !== 'EUR').map(([k, v]) => `${(1 / v).toFixed(2)} ${k}`).join(' · ')}.
-        Fixed, approximate — for comparison, not accounting.
+        Fixed and approximate, for comparison, not accounting.
       </p>
     </div>
   )

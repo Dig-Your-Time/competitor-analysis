@@ -65,6 +65,8 @@ for r in seed:
         "est_units_high": num(e.get("est_units_high")),
         "est_revenue_gross_mid": num(e.get("est_revenue_gross_mid")),
         "est_ratio": num(e.get("units_gamalytic_vs_boxleiter")),
+        "src_est": e.get("src_est", ""),
+        "src_registry": c.get("src_registry", ""), "src_headcount": c.get("src_headcount", ""),
         "is_our_game": False,
     })
 
@@ -118,6 +120,7 @@ for cid, rows in fin_by.items():
         "operating_profit": num(r.get("operating_profit")),
         "net_profit": num(r.get("net_profit")),
         "employees_avg": num(r.get("employees_avg")),
+        "source_id": r.get("source_id", ""),
         "note": r.get("notes", ""),
     } for r in rows]
     financials.append({
@@ -131,6 +134,12 @@ for cid, rows in fin_by.items():
         "years": years,
         "has_revenue": any(y["revenue"] is not None for y in years),
     })
+
+# sources lookup: every source_id -> the one place its URL + archive URL live.
+# The whole point of the src_* columns is that they hold an id, not a 90-char URL.
+SRC_FIELDS = ("source_type", "title", "url", "archive_url", "outlet",
+              "author", "date_published", "reliability", "notes")
+sources = {r["source_id"]: {k: r.get(k, "") for k in SRC_FIELDS} for r in load("sources.csv")}
 
 # funding & ownership: one company -> its rounds. Amounts stay native (dashboard
 # converts). Valuations are deliberately dropped per CLAUDE.md (not obtainable).
@@ -155,6 +164,7 @@ for cid, rows in fund_by.items():
             "currency": r.get("currency", ""),
             "investors": r.get("investors", ""),
             "confidence": r.get("confidence", ""),
+            "source_id": r.get("source_id", ""),
             "note": r.get("notes", ""),
         } for r in rows],
     })
@@ -164,11 +174,15 @@ seen_co = {}
 for g in games:
     cid = g.get("company_id")
     if cid and cid not in seen_co and not g.get("is_our_game"):
+        c = comp.get(cid, {})
         seen_co[cid] = {
             "company_id": cid, "company_name": g.get("company_name", ""),
             "region": g.get("region", ""), "country": g.get("country", ""),
             "status": g.get("status", ""), "parent_company": g.get("parent_company", ""),
             "self_published": g.get("self_published", ""),
+            "city": c.get("city", ""), "founded_year": num(c.get("founded_year")),
+            "company_size": c.get("company_size", ""), "website": c.get("website", ""),
+            "src_registry": c.get("src_registry", ""), "src_headcount": c.get("src_headcount", ""),
         }
 
 data = {
@@ -196,6 +210,7 @@ data = {
     "financials": financials,
     "funding": funding,
     "companies": list(seen_co.values()),
+    "sources": sources,
 }
 
 path = OUT / "data.json"

@@ -81,11 +81,12 @@ export default function LaunchCurves({ data }) {
 
   return (
     <div>
-      <h1>Launch curves — how fast a game like ours sells, and how fast it stops</h1>
+      <h1>Launch curves: how fast a game like ours sells, and how fast it stops</h1>
       <p className="sub">
-        Cumulative Steam <strong>reviews</strong>, week 0 = launch — a directly-observed
-        (<span className="tagpill tag-hard">HARD</span>) proxy for sales velocity. Not a sales figure;
-        the <em>shape</em>: the launch spike, the decay, and the bumps when a sale or a streamer brings it back.
+        Cumulative Steam <strong>reviews</strong>, week 0 = launch. This is a directly observed
+        (<span className="tagpill tag-hard">HARD</span>) proxy for sales speed, not a sales figure.
+        What matters is the <em>shape</em>: the launch spike, the decay, and the bumps when a sale or a
+        streamer brings it back.
       </p>
 
       <div className="controls">
@@ -104,7 +105,7 @@ export default function LaunchCurves({ data }) {
       </div>
       <p className="hint">
         The x-axis is normalized: week 0 is each game's <em>own</em> launch, so "first year" means each
-        game's first 52 weeks — a different calendar year per game. Hover any point to see the real month &amp; year.
+        game's first 52 weeks, a different calendar year per game. Hover any point to see the real month &amp; year.
       </p>
 
       <div className="chartwrap">
@@ -136,8 +137,8 @@ export default function LaunchCurves({ data }) {
       <p className="note">
         Showing {selIds.length} of {curveGames.length} games with a full review history.
         {excluded > 0 && (
-          <> {excluded} million-review giants (Terraria, DayZ, Valheim…) are <strong>excluded</strong> —
-          the reviews API can't recover their launch weeks, so their curve would be a misleading stub.</>
+          <> {excluded} million-review giants (Terraria, DayZ, Valheim and more) are <strong>excluded</strong>.
+          The reviews API can't recover their launch weeks, so their curve would be a misleading stub.</>
         )}
       </p>
 
