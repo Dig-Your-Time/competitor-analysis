@@ -80,9 +80,9 @@ games.append({
     "release_date": "", "price_usd": 19.99, "genres": "Adventure, Indie, Simulation",
     "steam_tags": "Mining, First-Person, Cozy, Exploration, Survival",
     "platforms": "windows", "publisher": "(undecided)", "developer": "Your studio",
-    "review_count": None, "review_pct": None, "review_desc": "", "curve_coverage": "",
-    "est_units_low": None, "est_units_mid": None, "est_units_high": None,
-    "est_revenue_gross_mid": None, "est_ratio": None,
+    "review_count": 0, "review_pct": 0, "review_desc": "", "curve_coverage": "",
+    "est_units_low": 0, "est_units_mid": 0, "est_units_high": 0,
+    "est_revenue_gross_mid": 0, "est_ratio": None,
     "is_our_game": True, "placeholder": True,
     "target_price_usd": 19.99, "ea_window": "TBD",
 })

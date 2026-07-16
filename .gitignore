@@ -1,5 +1,6 @@
 data/raw/
 dashboard/node_modules/
+dashboard/dist/
 scripts/__pycache__/
 CLAUDE.md
 .claude/

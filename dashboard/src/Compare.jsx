@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react'
 import { PALETTE, fmt, toEur, eurStr, TIER_ORDER } from './lib.js'
 import { useDrawer } from './drawer.jsx'
+import { EditOurGame } from './editor.jsx'
 
 const nowYear = (iso) => Number((iso || '').slice(0, 4))
 
@@ -130,6 +131,7 @@ export default function Compare({ data }) {
                   <button key={g.game_id} className={'chip' + (on ? ' on' : '')} onClick={() => toggle(g.game_id)}>
                     <span className="dot" style={{ background: on ? 'var(--violet)' : 'var(--axis)' }} />
                     {g.title}
+                    {g.is_our_game && <EditOurGame />}
                   </button>
                 )
               })}
@@ -157,6 +159,7 @@ export default function Compare({ data }) {
                     <th key={g.game_id} className={'srchead ' + (g.is_our_game ? 'ours' : '')}
                       onClick={() => open({ type: 'game', id: g.game_id })} title="View sources">
                       {g.title} <span className="srccue">ⓘ</span>
+                      {g.is_our_game && <EditOurGame />}
                     </th>
                   ))}
                 </tr>
