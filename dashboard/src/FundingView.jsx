@@ -1,5 +1,6 @@
 import { fmt, toEur, nativeAmt } from './lib.js'
 import { useDrawer } from './drawer.jsx'
+import { ViewHead } from './ui.jsx'
 
 // bucket a round into a human category from its stage + investor + note text
 const categorize = (r) => {
@@ -19,8 +20,8 @@ const CAT_NOTE = {
   'Investment round': 'Capital raised into the company.',
   'Strategic stake': 'A minority stake. The studio stays independent, and amounts are almost never disclosed.',
   Crowdfunding: 'Money from players before launch, the only HARD figures here.',
-  Grant: 'Non-dilutive public money (government or regional games funds).',
-  'Publisher advance': 'A recoupable advance against future sales. Not equity, and undisclosed.',
+  Grant: 'Non-dilutive public money.',
+  'Publisher advance': 'A recoupable advance against future sales.',
 }
 
 const conf = (c) => (c === 'HARD' ? 'tag-hard' : c === 'ANEC' ? 'tag-anec' : 'tag-est')
@@ -55,23 +56,12 @@ export default function FundingView({ data }) {
 
   return (
     <div>
-      <h1>Funding &amp; ownership: who paid in, and who owns them now</h1>
-      <p className="sub">
-        The sparse corner of the dataset, and the least certain. Most amounts are <strong>undisclosed</strong>,
-        and what exists is mostly <span className="tagpill tag-anec">ANEC</span> (announced, not filed).
-        Valuations are deliberately left out: for studios this size they aren't obtainable, so any number
-        would be a guess dressed as a fact.
-      </p>
-
-      <div className="howto">
-        <strong>How to read this.</strong> Two things live here. <strong>Ownership</strong> shows who's still
-        independent versus who was acquired and by whom (Embracer, Microsoft, Devolver, and Tencent all appear).
-        <strong> Funding events</strong> lists the money, bucketed by kind. Only <strong>crowdfunding</strong>
-        is <span className="tagpill tag-hard">HARD</span> (public campaigns); acquisition prices and stakes are
-        <span className="tagpill tag-anec">ANEC</span>, reported in press, often approximate. An
-        <strong> acquisition price is what a buyer paid</strong>, not money the studio raised to build a game,
-        so don't read the big numbers as runway.
-      </div>
+      <ViewHead
+        title="Funding & ownership"
+        subtitle="Who paid in, and who owns them now. The sparse, least-certain corner of the dataset."
+        infoWidth={440}
+        info={<><b>Ownership</b> shows who's still independent versus who was acquired and by whom. <b>Funding events</b> lists the money, bucketed by kind. Only crowdfunding is HARD; acquisition prices and stakes are ANEC, reported in press, often approximate. An <b>acquisition price is what a buyer paid</b>, not money the studio raised, so don't read the big numbers as runway.</>}
+      />
 
       <h2 className="finsechead" style={{ marginTop: 0 }}>Ownership</h2>
       <div className="owngrid">
@@ -142,8 +132,7 @@ export default function FundingView({ data }) {
 
       <p className="note" style={{ marginTop: 20 }}>
         Euro figures use fixed approximate rates and span many years, so treat them as rough comparison only.
-        "Undisclosed" is the honest majority: strategic stakes and publisher advances are almost never public,
-        and this dashboard would rather show a blank than invent one.
+        "Undisclosed" is the honest majority: strategic stakes and publisher advances are almost never public.
       </p>
     </div>
   )

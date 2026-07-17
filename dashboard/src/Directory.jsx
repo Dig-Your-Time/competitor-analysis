@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react'
 import { fmt, TIER_ORDER } from './lib.js'
 import { useDrawer } from './drawer.jsx'
+import { ViewHead } from './ui.jsx'
+
+const tierShort = (t) => (t || '').split('-')[1]?.toUpperCase() || t
 
 export default function Directory({ data }) {
   const { open } = useDrawer()
@@ -27,59 +30,65 @@ export default function Directory({ data }) {
     .filter((c) => match(c.company_name, c.country, c.region, c.status))
     .sort((a, b) => (a.company_name || '').localeCompare(b.company_name || ''))
 
+  const cards = mode === 'games'
+    ? games.map((g) => ({
+        key: g.game_id,
+        title: g.title,
+        sub: g.company_name || g.developer,
+        tag: tierShort(g.tier),
+        statA: fmt(g.review_count), statALbl: 'reviews',
+        statB: g.release_date ? g.release_date.slice(0, 4) : '—', statBLbl: 'released',
+        onClick: () => open({ type: 'game', id: g.game_id }),
+      }))
+    : studios.map((c) => ({
+        key: c.company_id,
+        title: c.company_name.split('(')[0].trim(),
+        sub: (c.country || c.region || '') + (c.city ? ` · ${c.city}` : ''),
+        tag: c.status === 'Acquired' ? 'ACQ' : 'IND',
+        statA: String(gamesPerCo[c.company_id] || 0), statALbl: 'games',
+        statB: c.company_size ? c.company_size.split(' ')[0] : '—', statBLbl: 'team',
+        onClick: () => open({ type: 'studio', id: c.company_id }),
+      }))
+
   return (
     <div>
-      <h1>Browse: every studio and game we track</h1>
-      <p className="sub">
-        The full index. Click any <strong>game</strong> or <strong>studio</strong> to open everything we
-        hold on it: facts, financials, funding, and every <strong>source</strong> with a link to visit.
-      </p>
+      <ViewHead
+        title="Browse"
+        subtitle="Every studio and game we track."
+        info={<>The full index. Click any <b>game</b> or <b>studio</b> to open everything we hold on it: facts, financials, funding, and every source with a link to visit.</>}
+      >
+        <input
+          className="search browse-search"
+          placeholder="Search title, studio, country…"
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+        />
+      </ViewHead>
 
-      <div className="controls" style={{ marginBottom: 16, justifyContent: 'space-between' }}>
+      <div className="controls" style={{ marginBottom: 22 }}>
         <div className="group">
-          <button className={'pill' + (mode === 'games' ? ' on' : '')} onClick={() => setMode('games')}>Games ({games.length})</button>
-          <button className={'pill' + (mode === 'studios' ? ' on' : '')} onClick={() => setMode('studios')}>Studios ({studios.length})</button>
+          <button className={'pill' + (mode === 'games' ? ' on' : '')} onClick={() => setMode('games')}>Games <span className="muted2">{games.length}</span></button>
+          <button className={'pill' + (mode === 'studios' ? ' on' : '')} onClick={() => setMode('studios')}>Studios <span className="muted2">{studios.length}</span></button>
         </div>
-        <input className="search" placeholder="Search title, studio, country…" value={q} onChange={(e) => setQ(e.target.value)} />
       </div>
 
-      {mode === 'games' ? (
-        <div className="dirgrid">
-          {games.map((g) => (
-            <button className="dircard" key={g.game_id} onClick={() => open({ type: 'game', id: g.game_id })} title="View details & sources">
-              <div className="dircard-top">
-                <span className="dirname">{g.title}</span>
-                <span className="srccue">ⓘ</span>
-              </div>
-              <div className="dirmeta">{g.company_name || g.developer}</div>
-              <div className="dirtags">
-                <span className="dirtag">{g.tier}</span>
-                {g.release_date ? <span className="dirtag ghost">{g.release_date.slice(0, 4)}</span> : null}
-                <span className="dirtag ghost">{fmt(g.review_count)} reviews</span>
-              </div>
-            </button>
-          ))}
-          {games.length === 0 && <p className="note">No games match “{q}”.</p>}
-        </div>
-      ) : (
-        <div className="dirgrid">
-          {studios.map((c) => (
-            <button className="dircard" key={c.company_id} onClick={() => open({ type: 'studio', id: c.company_id })} title="View details & sources">
-              <div className="dircard-top">
-                <span className="dirname">{c.company_name.split('(')[0].trim()}</span>
-                <span className="srccue">ⓘ</span>
-              </div>
-              <div className="dirmeta">{c.country || c.region}{c.city ? ` · ${c.city}` : ''}</div>
-              <div className="dirtags">
-                <span className={'dirtag' + (c.status === 'Acquired' ? ' acq' : '')}>{c.status}</span>
-                {c.company_size ? <span className="dirtag ghost">{c.company_size}</span> : null}
-                <span className="dirtag ghost">{gamesPerCo[c.company_id] || 0} game{(gamesPerCo[c.company_id] || 0) !== 1 ? 's' : ''}</span>
-              </div>
-            </button>
-          ))}
-          {studios.length === 0 && <p className="note">No studios match “{q}”.</p>}
-        </div>
-      )}
+      <div className="gcgrid">
+        {cards.map((c) => (
+          <button className="gcard-b" key={c.key} onClick={c.onClick} title="View details & sources">
+            <div className="gcard-top">
+              <span className="gcname">{c.title}</span>
+              <span className="minitag">{c.tag}</span>
+            </div>
+            <div className="gcard-sub">{c.sub}</div>
+            <div className="gcard-stats">
+              <div className="gcstat"><span className="gcstat-v">{c.statA}</span><span className="gcstat-l">{c.statALbl}</span></div>
+              <div className="gcstat-div" />
+              <div className="gcstat"><span className="gcstat-v">{c.statB}</span><span className="gcstat-l">{c.statBLbl}</span></div>
+            </div>
+          </button>
+        ))}
+      </div>
+      {cards.length === 0 && <p className="note" style={{ marginTop: 20 }}>Nothing matches your search.</p>}
     </div>
   )
 }

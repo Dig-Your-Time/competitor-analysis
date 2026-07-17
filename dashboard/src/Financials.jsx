@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { fmt, toEur, eurStr, EUR_PER } from './lib.js'
 import { useDrawer } from './drawer.jsx'
+import { ViewHead } from './ui.jsx'
 
-const LOSS = '#cf3b2e'
-const WIN = 'var(--teal)'
+const WIN = '#7bbfa3'
+const LOSS = '#cf8f8f'
 
 // latest disclosed profit sign decides the "winner vs loss-maker" split
 const profitSign = (years) => {
@@ -20,7 +21,7 @@ function CompanyCard({ f, open }) {
   const revVals = f.years.map(rev).filter((v) => v != null)
   const peak = revVals.length ? Math.max(...revVals) : 0
   const sign = profitSign(f.years)
-  const accent = sign === 'win' ? WIN : sign === 'loss' ? LOSS : 'var(--axis)'
+  const accent = sign === 'win' ? WIN : sign === 'loss' ? LOSS : 'var(--color-neutral-600, #75798c)'
 
   // "lumpy revenue" story (Iron Gate / Valheim): peaked, then fell hard
   const peakYear = f.years.find((y) => rev(y) === peak)
@@ -112,24 +113,13 @@ export default function Financials({ data }) {
 
   return (
     <div>
-      <h1>Company financials: the numbers that aren't estimates</h1>
-      <p className="sub">
-        Filed annual accounts, <span className="tagpill tag-hard">HARD</span>. Nordic and EU studios must
-        publish real revenue and profit, so for this slice of the field we have <strong>facts, not
-        Boxleiter guesses</strong>. Converted to <strong>euros</strong> for comparison; the native currency
-        is on every bar.
-      </p>
-
-      <div className="howto">
-        <strong>How to read this.</strong> Each card is one studio; each bar is one filed fiscal year, sized
-        by <strong>revenue</strong> (in EUR). The number on the right is <strong>net profit</strong>
-        (green) or loss (red), with margin. An <em>op</em> tag means only operating profit was disclosed.
-        The left edge marks whether the studio's latest filing was <span style={{ color: WIN, fontWeight: 600 }}>profitable</span> or
-        <span style={{ color: LOSS, fontWeight: 600 }}> loss-making</span>. Euro figures use fixed approximate
-        rates across years of filings, so read them as <em>roughly comparable</em>, not exact accounting.
-        Disclosure differs by country: small German studios file no P&amp;L, and Danish ones report gross profit
-        instead of revenue, so those sit in the restricted list at the bottom.
-      </div>
+      <ViewHead
+        title="Financials"
+        badge="HARD"
+        subtitle="Filed annual accounts, not estimates. Converted to euros; native currency on every bar."
+        infoWidth={440}
+        info={<>Each card is one studio; each bar is one filed fiscal year, sized by <b>revenue</b> (EUR). The number on the right is <b>net profit</b> (positive) or loss, with margin. An <b>op</b> tag means only operating profit was disclosed. The left edge marks whether the latest filing was profitable or loss-making. Euro figures use fixed approximate rates, so read them as roughly comparable, not exact. Small German studios file no P&amp;L and Danish ones report gross profit, so those sit in the restricted list at the bottom.</>}
+      />
 
       <div className="controls" style={{ marginBottom: 18 }}>
         <div className="group">

@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { fmt, toEur, eurStr } from './lib.js'
 import { useDrawer } from './drawer.jsx'
+import { ViewHead } from './ui.jsx'
 
 // Gamalytic revenue is USD gross; convert to EUR so the whole dashboard speaks one currency
 const eurRev = (v) => eurStr(toEur(v, 'USD'))
 
-const SELF = 'var(--teal)'
-const PUB = 'var(--violet)'
+const SELF = 'var(--color-accent)'
+const PUB = '#c9c1ff'
 
 const median = (xs) => {
   const v = xs.filter((x) => x != null).sort((a, b) => a - b)
@@ -64,25 +65,13 @@ export default function PublisherView({ data }) {
 
   return (
     <div>
-      <h1>Publishers: self-publish, or sign a deal?</h1>
-      <p className="sub">
-        You'll never get a publisher's <em>deal terms</em>, since those are confidential. But you can get their
-        <strong> track record</strong>, which is the decision-relevant number anyway. All revenue here is
-        <strong> estimated and gross</strong> <span className="tagpill tag-est">EST</span>, in
-        <strong> euros</strong> (converted from Gamalytic's USD at a fixed rate), before Valve's cut
-        <em> and</em> before any publisher share.
-      </p>
-
-      <div className="howto">
-        <strong>How to read this.</strong> The two tiles compare the whole field split by publishing model,
-        <span style={{ color: SELF, fontWeight: 600 }}> self-published</span> versus
-        <span style={{ color: PUB, fontWeight: 600 }}> publisher-backed</span>, using <strong>medians</strong>
-        (one breakout hit doesn't move a median the way it moves an average). The catch: gross revenue is the
-        <em> whole pie</em>. A self-publisher keeps most of each euro; a publisher-backed studio hands over a
-        cut you can't see here, so a higher gross under a publisher does <em>not</em> mean more money reaches
-        the studio. Read the publisher table as "what their catalogue tends to do", and remember N is small,
-        so this is a signal, not a verdict.
-      </div>
+      <ViewHead
+        title="Publishers"
+        badge="EST"
+        subtitle="Self-publish, or sign a deal? You can't get deal terms, but you can get a publisher's track record."
+        infoWidth={440}
+        info={<>The two tiles compare the whole field split by publishing model, using <b>medians</b> (one breakout hit doesn't move a median). The catch: gross revenue is the whole pie. A self-publisher keeps most of each euro; a publisher-backed studio hands over a cut you can't see here, so a higher gross under a publisher does not mean more money reaches the studio. N is small, so read it as a signal, not a verdict.</>}
+      />
 
       <div className="ptiles">
         <StatTile title="Self-published" hue={SELF} games={self} />
@@ -90,10 +79,9 @@ export default function PublisherView({ data }) {
       </div>
 
       <p className="note" style={{ marginTop: 14, marginBottom: 26 }}>
-        In this field the median publisher-backed title grosses{' '}
-        <strong>{eurRev(pubMed)}</strong> vs <strong>{eurRev(selfMed)}</strong> self-published, but that gap is
-        gross, before the publisher's share, and it's shaped by which studios <em>chose</em> to sign (bigger,
-        more ambitious projects more often seek a publisher). {unknown.length > 0 &&
+        In this field the median publisher-backed title grosses <strong>{eurRev(pubMed)}</strong> vs{' '}
+        <strong>{eurRev(selfMed)}</strong> self-published, but that gap is gross, before the publisher's share,
+        and it's shaped by which studios chose to sign. {unknown.length > 0 &&
           `${unknown.length} game${unknown.length !== 1 ? 's have' : ' has'} an unclear arrangement and ${unknown.length !== 1 ? 'are' : 'is'} excluded.`}
       </p>
 
@@ -112,9 +100,9 @@ export default function PublisherView({ data }) {
             <tr>
               <th className="rowhead">Publisher</th>
               <th>Titles</th>
-              <th>Median est. gross <span className="tagpill tag-est">EST</span></th>
-              <th>Median reviews <span className="tagpill tag-hard">HARD</span></th>
-              <th>Games (in this set)</th>
+              <th>Median est. gross</th>
+              <th>Median reviews</th>
+              <th>Games in this set</th>
             </tr>
           </thead>
           <tbody>
@@ -132,14 +120,12 @@ export default function PublisherView({ data }) {
       </div>
       <p className="note" style={{ marginTop: -14, marginBottom: 26 }}>
         ★ marks a publisher with more than one title in this set, the only ones whose "median" means much.
-        Everyone else is a single data point. Coffee Stain (Deep Rock, Valheim) and Thunderful (The Gunk,
-        ASKA) are the two with a real catalogue here.
+        Everyone else is a single data point.
       </p>
 
       <h2 className="finsechead">Every game by gross revenue</h2>
       <p className="note" style={{ marginBottom: 14 }}>
-        The full distribution behind the medians, coloured by model. Bars are <strong>estimated gross</strong>{' '}
-        <span className="tagpill tag-est">EST</span>.
+        The full distribution behind the medians, coloured by model.
       </p>
       <div className="magblock" style={{ marginBottom: 26 }}>
         {distro.map((g) => (

@@ -52,6 +52,7 @@ export default function App() {
       <div className="topbar">
         <div className="brand">
           <span className="mark">Competitor Analysis</span>
+          <span className="tag">Indie mining &amp; survival benchmark</span>
         </div>
         <nav className="nav">
           {TABS.map((t) => (

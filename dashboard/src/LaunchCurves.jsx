@@ -3,17 +3,18 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   ResponsiveContainer, ReferenceLine,
 } from 'recharts'
-import { PALETTE, CHROME, fmt, yearOf, calAt, TIER_ORDER } from './lib.js'
+import { CURVE_PALETTE, CHROME, fmt, yearOf, calAt, TIER_ORDER } from './lib.js'
+import { ViewHead, InfoPopover } from './ui.jsx'
 
 const METRICS = {
-  cum: { label: 'Cumulative reviews', axis: 'reviews (cumulative)' },
-  new: { label: 'New reviews / week', axis: 'reviews that week' },
-  pct: { label: '% of lifetime reviews', axis: 'share of lifetime total' },
+  cum: { label: 'Cumulative', axis: 'reviews (cumulative)' },
+  new: { label: 'Per week', axis: 'reviews that week' },
+  pct: { label: '% lifetime', axis: 'share of lifetime total' },
 }
 const RANGES = [
-  { w: 52, label: 'First year' },
-  { w: 104, label: 'First 2 years' },
-  { w: 260, label: 'First 5 years' },
+  { w: 52, label: '1yr' },
+  { w: 104, label: '2yr' },
+  { w: 260, label: '5yr' },
   { w: 0, label: 'All' },
 ]
 
@@ -25,7 +26,7 @@ export default function LaunchCurves({ data }) {
   const curveGames = data.games
     .filter((g) => curves[g.game_id])
     .sort((a, b) => TIER_ORDER.indexOf(a.tier) - TIER_ORDER.indexOf(b.tier))
-  const colorOf = (id) => PALETTE[curveGames.findIndex((g) => g.game_id === id) % PALETTE.length]
+  const colorOf = (id) => CURVE_PALETTE[curveGames.findIndex((g) => g.game_id === id) % CURVE_PALETTE.length]
   const meta = Object.fromEntries(curveGames.map((g) => [g.game_id, g]))
   const titleOf = (id) => meta[id]?.title ?? id
 
@@ -81,13 +82,13 @@ export default function LaunchCurves({ data }) {
 
   return (
     <div>
-      <h1>Launch curves: how fast a game like ours sells, and how fast it stops</h1>
-      <p className="sub">
-        Cumulative Steam <strong>reviews</strong>, week 0 = launch. This is a directly observed
-        (<span className="tagpill tag-hard">HARD</span>) proxy for sales speed, not a sales figure.
-        What matters is the <em>shape</em>: the launch spike, the decay, and the bumps when a sale or a
-        streamer brings it back.
-      </p>
+      <ViewHead
+        title="Launch curves"
+        badge="HARD"
+        subtitle="How fast a game like ours sells, and how fast it stops. Week 0 = launch."
+        infoWidth={420}
+        info={<>Cumulative Steam <b>reviews</b>, a directly observed proxy for sales velocity, <b>not</b> a sales figure. What matters is the <b>shape</b>: the launch spike, the decay, and the bumps when a sale or a streamer brings it back. The x-axis is normalized, so "week 52" is each game's own first year, a different calendar year per game. <b>Million-review giants are excluded</b> because the reviews API can't recover their launch weeks.</>}
+      />
 
       <div className="controls">
         <div className="group">
@@ -103,11 +104,6 @@ export default function LaunchCurves({ data }) {
           ))}
         </div>
       </div>
-      <p className="hint">
-        The x-axis is normalized: week 0 is each game's <em>own</em> launch, so "first year" means each
-        game's first 52 weeks, a different calendar year per game. Hover any point to see the real month &amp; year.
-      </p>
-
       <div className="chartwrap">
         <ResponsiveContainer width="100%" height={470}>
           <LineChart data={rows} margin={{ top: 8, right: 26, bottom: 26, left: 10 }}>
@@ -134,11 +130,13 @@ export default function LaunchCurves({ data }) {
         </ResponsiveContainer>
       </div>
 
-      <p className="note">
+      <p className="showing">
         Showing {selIds.length} of {curveGames.length} games with a full review history.
         {excluded > 0 && (
-          <> {excluded} million-review giants (Terraria, DayZ, Valheim and more) are <strong>excluded</strong>.
-          The reviews API can't recover their launch weeks, so their curve would be a misleading stub.</>
+          <InfoPopover>
+            {excluded} million-review giants (<b>Terraria, DayZ, Valheim</b> and more) are excluded.
+            The reviews API can't recover their launch weeks, so their curve would be a misleading stub.
+          </InfoPopover>
         )}
       </p>
 
@@ -154,7 +152,7 @@ export default function LaunchCurves({ data }) {
                 const on = selected.has(g.game_id)
                 return (
                   <button key={g.game_id} className={'chip' + (on ? ' on' : '')} onClick={() => toggle(g.game_id)}>
-                    <span className="dot" style={{ background: on ? colorOf(g.game_id) : 'var(--axis)' }} />
+                    <span className="dot" style={{ background: on ? colorOf(g.game_id) : 'var(--color-neutral-600, #75798c)' }} />
                     {g.title}
                     <span className="yr">{yearOf(g.release_date)}</span>
                   </button>

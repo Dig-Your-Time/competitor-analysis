@@ -5,8 +5,23 @@ export const PALETTE = [
   '#1c8a4b', '#2f6fd6', '#d13a2c', '#8f39b8',
 ]
 
+// Nocturne dark-ground palettes (from the design handoff)
+export const CURVE_PALETTE = [
+  '#968ae0', '#57b6c9', '#e2a24f', '#df8fb5',
+  '#74c79a', '#b9a0e8', '#8fb2ea', '#d98f8f',
+]
+export const TIER_COLOR = {
+  '1-Direct': '#968ae0',
+  '2-Adjacent': '#57b6c9',
+  '3-Reference': '#e2a24f',
+  'X-Drop?': '#df8fb5',
+  '0-Ours': '#e7e5fe',
+}
+export const tierColor = (t) => TIER_COLOR[t] || '#9397ab'
+
 // chart chrome — explicit hex (SVG fill/stroke attrs don't resolve CSS vars reliably)
-export const CHROME = { grid: '#e6e8f0', axis: '#c7cbdb', muted: '#767c93', ink2: '#4a4f63' }
+// tuned for the Nocturne dark ground
+export const CHROME = { grid: '#2a2d3b', axis: '#595d6c', muted: '#9397ab', ink2: '#c2c3cc' }
 
 export const fmt = (n) => {
   if (n == null) return '—'
