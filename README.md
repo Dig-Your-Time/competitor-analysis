@@ -41,7 +41,7 @@ newer** (for the data pipeline and local edit mode). No database, no global tool
 
 ```bash
 # clone the repo
-git clone <your-repo-url> competitor-analysis
+git clone https://github.com/Dig-Your-Time/competitor-analysis.git
 cd competitor-analysis
 
 # run the dashboard — this is all you need just to view/edit it locally
@@ -87,13 +87,6 @@ needs `httpx` installed.
 
 There's no separate command to start — the edit API rides along with `npm run
 dev`. It does nothing in `npm run build` / `npm run preview`.
-
-## Deploying
-
-It's a static site, so any static host works. The build lives in a subfolder, so
-whatever you use, point it at `dashboard/` as the project root, with `npm run build`
-as the build command and `dist` as the output. The site loads from the domain
-root, so nothing in the code needs a base-path tweak.
 
 ## A couple of conventions worth knowing
 
