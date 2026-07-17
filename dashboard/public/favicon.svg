@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Competitor Analysis">
+  <rect width="32" height="32" rx="7" fill="#161826"/>
+  <g stroke="#161826" stroke-width="1" stroke-linejoin="round">
+    <!-- crown table -->
+    <polygon points="10,9 22,9 26,13.5 6,13.5" fill="#c9c1ff"/>
+    <!-- cyan sparkle facet -->
+    <polygon points="10,9 16,9 13,13.5 6,13.5" fill="#4fc4b6"/>
+    <!-- pavilion, left facet -->
+    <polygon points="6,13.5 16,13.5 16,25.5" fill="#7d6fcf"/>
+    <!-- pavilion, right facet -->
+    <polygon points="16,13.5 26,13.5 16,25.5" fill="#9184d9"/>
+  </g>
+</svg>
