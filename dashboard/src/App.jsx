@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import LaunchCurves from './LaunchCurves.jsx'
 import Directory from './Directory.jsx'
 import Compare from './Compare.jsx'
@@ -30,9 +30,12 @@ export default function App() {
   const [ourEdits, setOurEdits] = useState({})
   const [editOpen, setEditOpen] = useState(false)
 
-  useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data.json`).then((r) => r.json()).then(setData)
-  }, [])
+  // cache-busted so a local edit's rebuilt data.json is picked up immediately
+  const reload = useCallback(
+    () => fetch(`${import.meta.env.BASE_URL}data.json?t=${Date.now()}`).then((r) => r.json()).then(setData),
+    []
+  )
+  useEffect(() => { reload() }, [reload])
 
   // patch our own game with any in-session edits, so every view reads one source
   const view = useMemo(() => {
@@ -46,7 +49,7 @@ export default function App() {
   const ourGame = view.games.find((g) => g.is_our_game)
 
   return (
-    <DrawerProvider data={view}>
+    <DrawerProvider data={view} reload={reload}>
     <EditorCtx.Provider value={() => setEditOpen(true)}>
     <div className="app">
       <div className="topbar">

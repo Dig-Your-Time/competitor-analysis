@@ -33,50 +33,60 @@ every change to every number shows up in a diff. There are two kinds: files a
 human edits by hand, and files a script generates. A script never writes to a
 hand-edited file, which is the whole reason the data model is split the way it is.
 
-## Running the dashboard
+## Setting up the project
 
-You need Node 18 or newer.
+You only need two things installed: **[Node.js](https://nodejs.org) 18 or newer**
+(for the dashboard) and **[Python](https://www.python.org/downloads/) 3.9 or
+newer** (for the data pipeline and local edit mode). No database, no global tools.
 
-```
+```bash
+# clone the repo
+git clone <your-repo-url> competitor-analysis
+cd competitor-analysis
+
+# run the dashboard — this is all you need just to view/edit it locally
 cd dashboard
-npm install
-npm run dev
+npm install                          # first time only
+npm run dev                          # prints a local URL, usually http://localhost:5173
+
+# (optional) refresh the data — only when pulling fresh numbers or adding a game
+cd ..
+pip install -r requirements.txt      # just httpx, used only by the Steam fetch
+python scripts/fetch_steam.py        # Steam facts + review curves -> games_steam.csv, timeseries.csv
+python scripts/build_estimates.py    # blends the estimate sources -> estimates.csv
+python scripts/build_data.py         # joins everything            -> dashboard/public/data.json
 ```
 
-That starts the dev server and prints a local URL (usually http://localhost:5173).
-The dashboard reads `dashboard/public/data.json`, which is already committed, so
-you can run the site without touching the Python side at all.
+The dashboard reads `dashboard/public/data.json`, which is committed, so it runs
+without touching Python at all. For a production build use `npm run build`
+(outputs to `dashboard/dist`, which is gitignored) and `npm run preview` to check
+it.
 
-To make a production build:
+The three Python scripts must run in the order above. `fetch_steam.py` uses
+Steam's public API (no key), rate-limits itself, and caches raw responses under
+`data/raw/` (gitignored). `build_estimates.py` and `build_data.py` are
+standard-library only, so if you only changed a hand-edited CSV you can skip the
+fetch and run just those two. Commit the changed CSVs and the regenerated
+`data.json` afterward — the diff shows exactly which numbers moved.
 
-```
-npm run build      # outputs to dashboard/dist
-npm run preview     # serve that build locally to check it
-```
+## Editing the data from the dashboard (local only)
 
-`dashboard/dist` is gitignored on purpose. It's generated output, so the host
-rebuilds it on every push rather than us committing it.
+When you run `npm run dev`, the dashboard gains an edit mode: pencil and "＋"
+controls on studios, games, financials, funding, sources, and estimates, plus
+**Add studio / Add source / Add game** on the Browse page. This is **only** for
+local development — it's a dev-server feature that is stripped from the production
+build, so the deployed site is always read-only.
 
-## Refreshing the data
+Under the hood, an edit calls a small local endpoint that runs a Python writer
+(`scripts/apply_edit.py`). It writes only the hand-edited CSVs — never the
+script-generated ones — then rebuilds `data.json` so your change shows up
+immediately. Because it edits the CSVs directly, every change is a normal `git
+diff`; review it and commit like any other edit. For this to work you need Python
+available (see *Setting up the project*); adding a game also fetches Steam, so it
+needs `httpx` installed.
 
-You only need this if you're pulling fresh numbers or adding a competitor.
-It's plain Python 3.9+ and uses **only the standard library**, so there's
-nothing to `pip install`.
-
-Run the three scripts in order from the repo root:
-
-```
-python scripts/fetch_steam.py        # Steam facts + review curves -> data/games_steam.csv, data/timeseries.csv
-python scripts/build_estimates.py    # blends the estimate sources -> data/estimates.csv
-python scripts/build_data.py         # joins everything           -> dashboard/public/data.json
-```
-
-`fetch_steam.py` talks to Steam's public API (no key needed). It rate-limits
-itself and caches every raw response under `data/raw/` so a re-run doesn't hammer
-Steam again. That folder is gitignored because it's large and reproducible.
-
-After a refresh, commit the changed CSVs and the regenerated `data.json`, and the
-diff will show you exactly which numbers moved.
+There's no separate command to start — the edit API rides along with `npm run
+dev`. It does nothing in `npm run build` / `npm run preview`.
 
 ## Deploying
 

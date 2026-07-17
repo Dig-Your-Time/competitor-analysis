@@ -1,5 +1,10 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { fmt, toEur, eurStr, nativeAmt, EUR_PER } from './lib.js'
+import { CAN_EDIT, nextSourceId } from './editApi.js'
+import { EditForm, EditCue } from './EditForm.jsx'
+import {
+  companyFields, gameSeedFields, financialFields, fundingFields, sourceFields, newSourceFields, estimateFields,
+} from './editSpecs.js'
 
 const Ctx = createContext(null)
 export const useDrawer = () => useContext(Ctx)
@@ -11,8 +16,6 @@ const relClass = (r) =>
         : r === 'Unverified' ? 'rel-unverified'
           : 'rel-other'
 
-// plain-language meaning of each reliability label (hover tooltip only; the full
-// glossary lives on the Guide page, so it isn't repeated as a block here)
 const REL_MEANING = {
   Primary: 'The original official record: a company filing, a government registry, or a first-party announcement. The strongest kind of source.',
   'Reputable secondary': 'A trusted third party reporting on it, such as an established news outlet or a company-accounts aggregator.',
@@ -20,13 +23,14 @@ const REL_MEANING = {
   Unverified: 'A single weak or unconfirmed source. Treat it with caution.',
 }
 
-function SourceCard({ src, roles }) {
+function SourceCard({ src, roles, onEdit }) {
   if (!src) return null
   return (
     <div className="srccard">
       <div className="srccard-top">
         <span className={'relbadge ' + relClass(src.reliability)} title={REL_MEANING[src.reliability] || ''}>{src.reliability || 'source'}</span>
         {roles?.length ? <span className="srcroles">{roles.join(' · ')}</span> : null}
+        {CAN_EDIT && onEdit ? <EditCue label="Edit source" onClick={onEdit} /> : null}
       </div>
       <div className="srctitle">{src.title}</div>
       <div className="srcmeta">
@@ -41,7 +45,6 @@ function SourceCard({ src, roles }) {
   )
 }
 
-// collect a studio's sources with the role(s) each one documents, deduped by id
 function studioSourceRoles(data, cid) {
   const roles = new Map()
   const add = (sid, role) => {
@@ -59,8 +62,15 @@ function studioSourceRoles(data, cid) {
   return [...roles.entries()].map(([sid, r]) => ({ sid, roles: r }))
 }
 
+// dev-only "＋ add" / "✎ edit" section button
+function AddBtn({ label, onClick }) {
+  if (!CAN_EDIT) return null
+  return <button className="add-btn" onClick={onClick}>＋ {label}</button>
+}
+
 function StudioBody({ data, cid, hideGames }) {
-  const { open } = useDrawer()
+  const { open, reload } = useDrawer()
+  const [form, setForm] = useState(null)
   const c = (data.companies || []).find((x) => x.company_id === cid)
   const fin = (data.financials || []).find((x) => x.company_id === cid)
   const fund = (data.funding || []).find((x) => x.company_id === cid)
@@ -69,8 +79,48 @@ function StudioBody({ data, cid, hideGames }) {
   const finRate = fin && fin.currency !== 'EUR' ? EUR_PER[fin.currency] : null
   if (!c) return <p className="note">No studio record.</p>
 
+  const done = async () => { await reload(); setForm(null) }
+
+  const editStudio = () => setForm({
+    title: `Edit studio · ${c.company_name}`, table: 'companies', op: 'update',
+    match: { company_id: cid }, initial: c, fields: companyFields, submitLabel: 'Save studio',
+  })
+  const editFinYear = (y) => setForm({
+    title: `Edit FY${y.fiscal_year} · ${c.company_name}`, table: 'financials', op: 'update',
+    match: { company_id: cid, fiscal_year: y.fiscal_year }, initial: { ...y, currency: fin.currency },
+    fields: financialFields, submitLabel: 'Save year',
+  })
+  const addFinYear = () => setForm({
+    title: `Add fiscal year · ${c.company_name}`, table: 'financials', op: 'add',
+    extra: { company_id: cid }, initial: { currency: fin?.currency || 'EUR' },
+    fields: financialFields, submitLabel: 'Add year',
+  })
+  const editRound = (r) => setForm({
+    title: `Edit funding · ${c.company_name}`, table: 'funding', op: 'update',
+    match: { company_id: cid, funding_stage: r.funding_stage, round_date: r.round_date ?? '', amount: r.amount ?? '', investors: r.investors ?? '' },
+    initial: r, fields: fundingFields, submitLabel: 'Save round',
+  })
+  const addRound = () => setForm({
+    title: `Add funding round · ${c.company_name}`, table: 'funding', op: 'add',
+    extra: { company_id: cid }, initial: {}, fields: fundingFields, submitLabel: 'Add round',
+  })
+  const editSource = (sid) => setForm({
+    title: `Edit source ${sid}`, table: 'sources', op: 'update',
+    match: { source_id: sid }, initial: data.sources[sid], fields: sourceFields, submitLabel: 'Save source',
+  })
+  const addSource = () => setForm({
+    title: 'Add source', table: 'sources', op: 'add', initial: { source_id: nextSourceId(data.sources) },
+    fields: newSourceFields, submitLabel: 'Add source',
+  })
+
   return (
     <>
+      {CAN_EDIT ? (
+        <div className="edit-bar">
+          <button className="edit-btn" onClick={editStudio}>✎ Edit studio</button>
+        </div>
+      ) : null}
+
       <div className="dfacts">
         <div><span>Region</span><b>{c.country || c.region || '—'}{c.city ? ` · ${c.city}` : ''}</b></div>
         <div><span>Status</span><b>{c.status}{c.parent_company ? ` · ${c.parent_company.split('(')[0].trim()}` : ''}</b></div>
@@ -94,63 +144,90 @@ function StudioBody({ data, cid, hideGames }) {
         </div>
       ) : null}
 
-      {fin?.years?.length ? (
+      {(fin?.years?.length || CAN_EDIT) ? (
         <div className="dsection">
-          <div className="dsec-h">Filed financials <span className="tagpill tag-hard">HARD</span></div>
-          <div className="dmini">
-            {fin.years.map((y) => (
-              <div className="dminirow" key={y.fiscal_year}>
-                <span>FY{y.fiscal_year}</span>
-                <b>{y.revenue != null ? eurStr(toEur(y.revenue, fin.currency)) : 'revenue n/d'}</b>
-                <i>{y.revenue != null ? `${fmt(y.revenue)} ${fin.currency}` : (y.net_profit != null ? `net ${fmt(y.net_profit)} ${fin.currency}` : '')}</i>
-              </div>
-            ))}
-          </div>
-          <div className="dnote">
-            {finRate
-              ? `Euro figures converted at a fixed 1 ${fin.currency} = €${finRate} (approximate; filings span several years at different real rates, so treat as roughly comparable, not exact). Native ${fin.currency} shown alongside.`
-              : `Filed in EUR, no conversion needed.`}
-          </div>
+          <div className="dsec-h">Filed financials <span className="tagpill tag-hard">HARD</span><AddBtn label="year" onClick={addFinYear} /></div>
+          {fin?.years?.length ? (
+            <div className="dmini">
+              {fin.years.map((y) => (
+                <div className="dminirow" key={y.fiscal_year}>
+                  <span>FY{y.fiscal_year}</span>
+                  <b>{y.revenue != null ? eurStr(toEur(y.revenue, fin.currency)) : 'revenue n/d'}</b>
+                  <i>{y.revenue != null ? `${fmt(y.revenue)} ${fin.currency}` : (y.net_profit != null ? `net ${fmt(y.net_profit)} ${fin.currency}` : '')}</i>
+                  {CAN_EDIT ? <EditCue label="Edit year" onClick={() => editFinYear(y)} /> : null}
+                </div>
+              ))}
+            </div>
+          ) : <p className="note">No filed financials yet.</p>}
+          {finRate ? (
+            <div className="dnote">
+              Euro figures converted at a fixed 1 {fin.currency} = €{finRate} (approximate; filings span several
+              years at different real rates, so treat as roughly comparable, not exact). Native {fin.currency} shown alongside.
+            </div>
+          ) : fin?.years?.length ? <div className="dnote">Filed in EUR, no conversion needed.</div> : null}
         </div>
       ) : null}
 
-      {fund?.rounds?.length ? (
+      {(fund?.rounds?.length || CAN_EDIT) ? (
         <div className="dsection">
-          <div className="dsec-h">Funding &amp; ownership</div>
-          <div className="dmini">
-            {fund.rounds.map((r, i) => (
-              <div className="dminirow" key={i}>
-                <span>{r.funding_stage}</span>
-                <b>{r.amount != null ? nativeAmt(r.amount, r.currency) : 'undisclosed'}</b>
-                <i>{r.investors?.split(/[,(]/)[0]}</i>
-              </div>
-            ))}
-          </div>
+          <div className="dsec-h">Funding &amp; ownership<AddBtn label="round" onClick={addRound} /></div>
+          {fund?.rounds?.length ? (
+            <div className="dmini">
+              {fund.rounds.map((r, i) => (
+                <div className="dminirow" key={i}>
+                  <span>{r.funding_stage}</span>
+                  <b>{r.amount != null ? nativeAmt(r.amount, r.currency) : 'undisclosed'}</b>
+                  <i>{r.investors?.split(/[,(]/)[0]}</i>
+                  {CAN_EDIT ? <EditCue label="Edit round" onClick={() => editRound(r)} /> : null}
+                </div>
+              ))}
+            </div>
+          ) : <p className="note">No funding rounds recorded.</p>}
         </div>
       ) : null}
 
       <div className="dsection">
-        <div className="dsec-h">Sources ({srcs.length})</div>
+        <div className="dsec-h">Sources ({srcs.length})<AddBtn label="source" onClick={addSource} /></div>
         {srcs.length ? srcs.map(({ sid, roles }) => (
-          <SourceCard key={sid} src={data.sources[sid]} roles={roles} />
+          <SourceCard key={sid} src={data.sources[sid]} roles={roles} onEdit={() => editSource(sid)} />
         )) : <p className="note">No filed / cited sources for this studio yet.</p>}
       </div>
+
+      {CAN_EDIT && form ? <EditForm {...form} onCancel={() => setForm(null)} onDone={done} /> : null}
     </>
   )
 }
 
 function GameBody({ data, gid }) {
+  const { reload } = useDrawer()
+  const [form, setForm] = useState(null)
   const g = data.games.find((x) => x.game_id === gid)
   if (!g) return <p className="note">No game record.</p>
   const steamUrl = g.is_our_game ? null : `https://store.steampowered.com/app/${g.game_id}/`
   const estBase = g.src_est ? data.sources[g.src_est] : null
-  // Gamalytic pages are per-game at gamalytic.com/game/<steam appid>; game_id IS the appid
   const est = estBase
     ? { ...estBase, url: (estBase.outlet || '').includes('Gamalytic') && !g.is_our_game ? `https://gamalytic.com/game/${g.game_id}` : estBase.url }
     : null
 
+  const done = async () => { await reload(); setForm(null) }
+  const editGame = () => setForm({
+    title: `Edit game · ${g.title}`, table: 'games_manual_seed', op: 'update',
+    match: { game_id: g.game_id }, initial: g, fields: gameSeedFields, submitLabel: 'Save game',
+  })
+  const editEstimate = () => setForm({
+    title: `Edit estimate · ${g.title}`, table: 'gamalytic_stats', op: 'upsert',
+    extra: { game_id: g.game_id }, initial: g, fields: estimateFields, submitLabel: 'Save estimate',
+  })
+
   return (
     <>
+      {CAN_EDIT && !g.is_our_game ? (
+        <div className="edit-bar">
+          <button className="edit-btn" onClick={editGame}>✎ Edit game</button>
+          <span className="edit-note">judgement fields only — Steam facts &amp; estimates are script-owned</span>
+        </div>
+      ) : null}
+
       <div className="dfacts">
         <div><span>Tier</span><b>{g.tier}</b></div>
         <div><span>Released</span><b>{g.release_date || (g.is_our_game ? 'unreleased' : '—')}</b></div>
@@ -180,10 +257,14 @@ function GameBody({ data, gid }) {
         ) : <p className="note">Our own game, no Steam page yet.</p>}
       </div>
 
-      {est ? (
+      {(est || CAN_EDIT) && !g.is_our_game ? (
         <div className="dsection">
-          <div className="dsec-h">Units &amp; revenue estimate <span className="tagpill tag-est">EST</span></div>
-          <SourceCard src={est} roles={['est. units', 'est. gross revenue']} />
+          <div className="dsec-h">
+            Units &amp; revenue estimate <span className="tagpill tag-est">EST</span>
+            {g.est_units_source === 'manual' ? <span className="minitag">hand-set</span> : null}
+            {CAN_EDIT ? <button className="add-btn" onClick={editEstimate}>✎ estimate</button> : null}
+          </div>
+          {est ? <SourceCard src={est} roles={['est. units', 'est. gross revenue']} /> : <p className="note">No estimate recorded yet.</p>}
         </div>
       ) : null}
 
@@ -193,6 +274,8 @@ function GameBody({ data, gid }) {
           <StudioBody data={data} cid={g.company_id} />
         </div>
       ) : null}
+
+      {CAN_EDIT && form ? <EditForm {...form} onCancel={() => setForm(null)} onDone={done} /> : null}
     </>
   )
 }
@@ -233,12 +316,12 @@ function DetailDrawer({ data, sel, onClose }) {
   )
 }
 
-export function DrawerProvider({ data, children }) {
+export function DrawerProvider({ data, reload, children }) {
   const [sel, setSel] = useState(null)
   const open = (s) => setSel(s)
   const close = () => setSel(null)
   return (
-    <Ctx.Provider value={{ open, close }}>
+    <Ctx.Provider value={{ open, close, reload: reload || (() => Promise.resolve()) }}>
       {children}
       <DetailDrawer data={data} sel={sel} onClose={close} />
     </Ctx.Provider>

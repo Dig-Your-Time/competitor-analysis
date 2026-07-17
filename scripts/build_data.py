@@ -63,6 +63,7 @@ for r in seed:
         "curve_coverage": s.get("review_curve_coverage", ""),
         "est_units_low": num(e.get("est_units_low")), "est_units_mid": num(e.get("est_units_mid")),
         "est_units_high": num(e.get("est_units_high")),
+        "est_units_source": e.get("est_units_source", ""),
         "est_revenue_gross_mid": num(e.get("est_revenue_gross_mid")),
         "est_ratio": num(e.get("units_gamalytic_vs_boxleiter")),
         "src_est": e.get("src_est", ""),
@@ -180,6 +181,20 @@ for g in games:
             "region": g.get("region", ""), "country": g.get("country", ""),
             "status": g.get("status", ""), "parent_company": g.get("parent_company", ""),
             "self_published": g.get("self_published", ""),
+            "city": c.get("city", ""), "founded_year": num(c.get("founded_year")),
+            "company_size": c.get("company_size", ""), "website": c.get("website", ""),
+            "src_registry": c.get("src_registry", ""), "src_headcount": c.get("src_headcount", ""),
+        }
+
+# also surface studios filed in companies.csv that have no tracked game yet, so a
+# newly-added studio is visible in Browse before its first game is fetched.
+for cid, c in comp.items():
+    if cid and cid not in seen_co:
+        seen_co[cid] = {
+            "company_id": cid, "company_name": c.get("company_name", ""),
+            "region": c.get("region_bucket", ""), "country": c.get("country", ""),
+            "status": c.get("company_status", ""), "parent_company": c.get("parent_company", ""),
+            "self_published": c.get("self_published", ""),
             "city": c.get("city", ""), "founded_year": num(c.get("founded_year")),
             "company_size": c.get("company_size", ""), "website": c.get("website", ""),
             "src_registry": c.get("src_registry", ""), "src_headcount": c.get("src_headcount", ""),

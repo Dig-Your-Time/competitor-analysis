@@ -186,96 +186,154 @@ def fetch_all_reviews(appid, max_pages=MAX_PAGES):
 def to_week_index(ts, launch_ts):
     return (ts - launch_ts) // (7 * 86400)
 
+def build_one(title, hint):
+    """Fetch a single game -> (games_row_or_None, ts_rows). Reusable by full run + --add."""
+    appid = hint or resolve_appid(title)
+    if not appid:
+        return None, []
+    print(f"[{appid}] {title}")
+    d = fetch_details(appid)
+    if not d:
+        print("  !! appdetails failed -- skipping"); return None, []
+
+    rd = d.get("release_date", {}).get("date", "")     # e.g. '27 Sep, 2022'
+    launch_ts = None
+    for fmt in ("%d %b, %Y", "%b %d, %Y", "%d %B %Y", "%B %d, %Y"):
+        try:
+            launch_ts = int(time.mktime(time.strptime(rd, fmt))); break
+        except Exception:
+            pass
+
+    price = d.get("price_overview", {})
+    spy = fetch_steamspy(appid)
+    summ = fetch_review_summary(appid)
+
+    owners = spy.get("owners", "")                      # e.g. '500,000 .. 1,000,000'
+    tags = ", ".join(list(spy.get("tags", {}).keys())[:8]) if isinstance(spy.get("tags"), dict) else ""
+
+    # HARD review total decides whether the launch curve is even reachable.
+    total_reviews = summ.get("total_reviews") or 0
+    full_curve = bool(total_reviews) and total_reviews <= CAP_REVIEWS
+
+    game_row = {
+        "game_id": appid,
+        "steam_appid": appid,
+        "title": d.get("name", title),
+        "developer": "; ".join(d.get("developers", []) or []),
+        "publisher": "; ".join(d.get("publishers", []) or []),
+        "release_date_raw": rd,
+        "release_date": (dt.date.fromtimestamp(launch_ts).isoformat() if launch_ts else ""),
+        "is_free": d.get("is_free", False),
+        "current_price_usd": (price.get("final", 0) / 100) if price else "",
+        "currency": price.get("currency", "USD") if price else "USD",
+        "genres": ", ".join(g["description"] for g in d.get("genres", [])),
+        "steam_top_tags": tags,
+        "platforms": ", ".join(k for k, v in d.get("platforms", {}).items() if v),
+        "review_count_total": summ.get("total_reviews", ""),
+        "review_positive_pct": (round(summ.get("total_positive", 0) / summ["total_reviews"], 3)
+                                if summ.get("total_reviews") else ""),
+        "review_desc": summ.get("review_score_desc", ""),
+        "review_curve_coverage": ("full" if full_curve else "recent-tail"),
+        "steamspy_owners_est": owners,        # EST -- rough, wide band
+        "retrieved_date": TODAY,
+    }
+
+    ts_rows = []
+    if launch_ts:
+        stamps = fetch_all_reviews(appid, max_pages=(MAX_PAGES if full_curve else TAIL_PAGES))
+        buckets = {}
+        for ts in stamps:
+            wk = to_week_index(ts, launch_ts)
+            if wk < 0:            # a handful of pre-release/press reviews
+                wk = 0
+            buckets[wk] = buckets.get(wk, 0) + 1
+        cum = 0
+        for wk in range(0, (max(buckets) if buckets else 0) + 1):
+            new = buckets.get(wk, 0)
+            cum += new
+            ts_rows.append({
+                "game_id": appid,
+                "week_index": wk,
+                "week_start": (dt.date.fromtimestamp(launch_ts + wk * 7 * 86400).isoformat()),
+                "reviews_new": new,
+                "reviews_cumulative": cum,
+                "peak_ccu": "", "price_that_week": "", "on_sale": "",
+                "discount_pct": "", "est_units_week": "", "est_revenue_week": "",
+                "event_note": "",
+            })
+        print(f"  {len(stamps)} reviews -> {len(buckets)} weeks  [{'full' if full_curve else 'recent-tail'}]")
+    return game_row, ts_rows
+
 def build_rows():
     games_rows, ts_rows = [], []
     for title, hint in GAMES:
-        appid = hint or resolve_appid(title)
-        if not appid:
-            continue
-        print(f"[{appid}] {title}")
-        d = fetch_details(appid)
-        if not d:
-            print("  !! appdetails failed -- skipping"); continue
-
-        rd = d.get("release_date", {}).get("date", "")     # e.g. '27 Sep, 2022'
-        launch_ts = None
-        for fmt in ("%d %b, %Y", "%b %d, %Y", "%d %B %Y", "%B %d, %Y"):
-            try:
-                launch_ts = int(time.mktime(time.strptime(rd, fmt))); break
-            except Exception:
-                pass
-
-        price = d.get("price_overview", {})
-        spy = fetch_steamspy(appid)
-        summ = fetch_review_summary(appid)
-
-        owners = spy.get("owners", "")                      # e.g. '500,000 .. 1,000,000'
-        tags = ", ".join(list(spy.get("tags", {}).keys())[:8]) if isinstance(spy.get("tags"), dict) else ""
-
-        # HARD review total decides whether the launch curve is even reachable.
-        total_reviews = summ.get("total_reviews") or 0
-        full_curve = bool(total_reviews) and total_reviews <= CAP_REVIEWS
-
-        games_rows.append({
-            "game_id": appid,
-            "steam_appid": appid,
-            "title": d.get("name", title),
-            "developer": "; ".join(d.get("developers", []) or []),
-            "publisher": "; ".join(d.get("publishers", []) or []),
-            "release_date_raw": rd,
-            "release_date": (dt.date.fromtimestamp(launch_ts).isoformat() if launch_ts else ""),
-            "is_free": d.get("is_free", False),
-            "current_price_usd": (price.get("final", 0) / 100) if price else "",
-            "currency": price.get("currency", "USD") if price else "USD",
-            "genres": ", ".join(g["description"] for g in d.get("genres", [])),
-            "steam_top_tags": tags,
-            "platforms": ", ".join(k for k, v in d.get("platforms", {}).items() if v),
-            "review_count_total": summ.get("total_reviews", ""),
-            "review_positive_pct": (round(summ.get("total_positive", 0) / summ["total_reviews"], 3)
-                                    if summ.get("total_reviews") else ""),
-            "review_desc": summ.get("review_score_desc", ""),
-            "review_curve_coverage": ("full" if full_curve else "recent-tail"),
-            "steamspy_owners_est": owners,        # EST -- rough, wide band
-            "retrieved_date": TODAY,
-        })
-
-        if launch_ts:
-            stamps = fetch_all_reviews(appid, max_pages=(MAX_PAGES if full_curve else TAIL_PAGES))
-            buckets = {}
-            for ts in stamps:
-                wk = to_week_index(ts, launch_ts)
-                if wk < 0:            # a handful of pre-release/press reviews
-                    wk = 0
-                buckets[wk] = buckets.get(wk, 0) + 1
-            cum = 0
-            for wk in range(0, (max(buckets) if buckets else 0) + 1):
-                new = buckets.get(wk, 0)
-                cum += new
-                ts_rows.append({
-                    "game_id": appid,
-                    "week_index": wk,
-                    "week_start": (dt.date.fromtimestamp(launch_ts + wk * 7 * 86400).isoformat()),
-                    "reviews_new": new,
-                    "reviews_cumulative": cum,
-                    "peak_ccu": "", "price_that_week": "", "on_sale": "",
-                    "discount_pct": "", "est_units_week": "", "est_revenue_week": "",
-                    "event_note": "",
-                })
-            print(f"  {len(stamps)} reviews -> {len(buckets)} weeks  [{'full' if full_curve else 'recent-tail'}]")
+        g, ts = build_one(title, hint)
+        if g:
+            games_rows.append(g)
+            ts_rows.extend(ts)
     return games_rows, ts_rows
 
 def write_csv(path, rows):
     if not rows:
         print(f"  (no rows for {path.name})"); return
     with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator="\n")
         w.writeheader(); w.writerows(rows)
     print(f"wrote {path}  ({len(rows)} rows)")
 
+# --- single-game merge (used by `--add`, i.e. adding a competitor from the dashboard) ---
+def _read(path):
+    if not path.exists():
+        return [], None
+    with open(path, encoding="utf-8-sig", newline="") as f:
+        r = csv.DictReader(f)
+        return list(r), r.fieldnames
+
+def _write(path, fieldnames, rows):
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
+        w.writeheader()
+        for row in rows:
+            w.writerow({k: row.get(k, "") for k in fieldnames})
+
+def add_game(appid, title):
+    """Fetch ONE appid and merge it into the SCRIPT-owned CSVs (replace-in-place
+    for games_steam + timeseries, append for fetch_log). Leaves every other game
+    untouched, so a re-run doesn't re-hammer Steam for the whole set."""
+    appid = str(appid).strip()
+    game_row, ts_new = build_one(title or appid, int(appid) if appid.isdigit() else appid)
+    if not game_row:
+        raise SystemExit(f"could not fetch appid {appid}")
+
+    gs_path, ts_path, log_path = DATA / "games_steam.csv", DATA / "timeseries.csv", DATA / "fetch_log.csv"
+
+    gs_rows, gs_fields = _read(gs_path)
+    gs_fields = gs_fields or list(game_row.keys())
+    gs_rows = [r for r in gs_rows if str(r.get("game_id", "")).strip() != appid]
+    gs_rows.append({k: game_row.get(k, "") for k in gs_fields})
+    _write(gs_path, gs_fields, gs_rows)
+
+    ts_rows, ts_fields = _read(ts_path)
+    ts_fields = ts_fields or (list(ts_new[0].keys()) if ts_new else [])
+    ts_rows = [r for r in ts_rows if str(r.get("game_id", "")).strip() != appid]
+    ts_rows.extend({k: r.get(k, "") for k in ts_fields} for r in ts_new)
+    if ts_fields:
+        _write(ts_path, ts_fields, ts_rows)
+
+    log_rows_existing, log_fields = _read(log_path)
+    log_fields = log_fields or list(log_rows[0].keys()) if log_rows else ["retrieved_date", "appid", "endpoint", "url", "n_records", "status"]
+    log_rows_existing.extend({k: r.get(k, "") for k in log_fields} for r in log_rows)
+    _write(log_path, log_fields, log_rows_existing)
+
+    print(f"merged appid {appid} into games_steam ({len(gs_rows)} rows), timeseries ({len(ts_new)} new weeks)")
+
 if __name__ == "__main__":
-    games_rows, ts_rows = build_rows()
-    write_csv(DATA / "games_steam.csv", games_rows)
-    write_csv(DATA / "timeseries.csv", ts_rows)
-    write_csv(DATA / "fetch_log.csv", log_rows)
-    print("\nDone. games_steam + timeseries are SCRIPT-owned -- never hand-edit them.")
-    print("Sanity-check the resolved appids printed above, then pin them in GAMES.")
+    if len(sys.argv) >= 3 and sys.argv[1] == "--add":
+        add_game(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else "")
+    else:
+        games_rows, ts_rows = build_rows()
+        write_csv(DATA / "games_steam.csv", games_rows)
+        write_csv(DATA / "timeseries.csv", ts_rows)
+        write_csv(DATA / "fetch_log.csv", log_rows)
+        print("\nDone. games_steam + timeseries are SCRIPT-owned -- never hand-edit them.")
+        print("Sanity-check the resolved appids printed above, then pin them in GAMES.")

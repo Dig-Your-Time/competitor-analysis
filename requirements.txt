@@ -1,0 +1,6 @@
+# Python dependencies for the data pipeline.
+#
+# Only fetch_steam.py needs a third-party package (httpx, for the Steam API).
+# Everything else -- build_estimates.py, build_data.py, and the local edit mode
+# (apply_edit.py / add_game.py / _hand_csv.py) -- is standard library only.
+httpx>=0.27

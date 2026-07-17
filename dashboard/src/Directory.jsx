@@ -2,13 +2,29 @@ import { useMemo, useState } from 'react'
 import { fmt, TIER_ORDER } from './lib.js'
 import { useDrawer } from './drawer.jsx'
 import { ViewHead } from './ui.jsx'
+import { CAN_EDIT, nextSourceId } from './editApi.js'
+import { EditForm } from './EditForm.jsx'
+import { AddGameForm } from './AddGameForm.jsx'
+import { newCompanyFields, newSourceFields } from './editSpecs.js'
 
 const tierShort = (t) => (t || '').split('-')[1]?.toUpperCase() || t
 
 export default function Directory({ data }) {
-  const { open } = useDrawer()
+  const { open, reload } = useDrawer()
   const [mode, setMode] = useState('games')
   const [q, setQ] = useState('')
+  const [form, setForm] = useState(null)
+  const [addingGame, setAddingGame] = useState(false)
+  const done = async () => { await reload(); setForm(null) }
+  const gameAdded = async () => { await reload(); setAddingGame(false) }
+  const addStudio = () => setForm({
+    title: 'Add studio', table: 'companies', op: 'add', initial: { status: 'Active', self_published: 'No' },
+    fields: newCompanyFields, submitLabel: 'Add studio',
+  })
+  const addSource = () => setForm({
+    title: 'Add source', table: 'sources', op: 'add', initial: { source_id: nextSourceId(data.sources) },
+    fields: newSourceFields, submitLabel: 'Add source',
+  })
 
   const gamesPerCo = useMemo(() => {
     const m = {}
@@ -70,6 +86,13 @@ export default function Directory({ data }) {
           <button className={'pill' + (mode === 'games' ? ' on' : '')} onClick={() => setMode('games')}>Games <span className="muted2">{games.length}</span></button>
           <button className={'pill' + (mode === 'studios' ? ' on' : '')} onClick={() => setMode('studios')}>Studios <span className="muted2">{studios.length}</span></button>
         </div>
+        {CAN_EDIT ? (
+          <div className="group">
+            <button className="add-btn" onClick={() => setAddingGame(true)}>＋ game</button>
+            <button className="add-btn" onClick={addStudio}>＋ studio</button>
+            <button className="add-btn" onClick={addSource}>＋ source</button>
+          </div>
+        ) : null}
       </div>
 
       <div className="gcgrid">
@@ -89,6 +112,8 @@ export default function Directory({ data }) {
         ))}
       </div>
       {cards.length === 0 && <p className="note" style={{ marginTop: 20 }}>Nothing matches your search.</p>}
+      {CAN_EDIT && form ? <EditForm {...form} onCancel={() => setForm(null)} onDone={done} /> : null}
+      {CAN_EDIT && addingGame ? <AddGameForm data={data} onCancel={() => setAddingGame(false)} onDone={gameAdded} /> : null}
     </div>
   )
 }
