@@ -160,6 +160,14 @@ function GameBody({ data, gid }) {
         <div><span>Est. gross rev</span><b>{g.est_revenue_gross_mid != null ? `${eurStr(toEur(g.est_revenue_gross_mid, 'USD'))}` : '—'}</b></div>
       </div>
 
+      {g.est_revenue_gross_mid != null ? (
+        <div className="dnote">
+          Est. gross revenue is <b>{eurStr(toEur(g.est_revenue_gross_mid, 'USD'))}</b>, converted from a
+          native <b>{nativeAmt(g.est_revenue_gross_mid, 'USD')}</b> at a fixed 1 USD = €{EUR_PER.USD}{' '}
+          (approximate). This is <b>gross</b>, before Valve's 30%+ cut and any discounts.
+        </div>
+      ) : null}
+
       <div className="dsection">
         <div className="dsec-h">Steam facts <span className="tagpill tag-hard">HARD</span></div>
         {steamUrl ? (
@@ -176,13 +184,6 @@ function GameBody({ data, gid }) {
         <div className="dsection">
           <div className="dsec-h">Units &amp; revenue estimate <span className="tagpill tag-est">EST</span></div>
           <SourceCard src={est} roles={['est. units', 'est. gross revenue']} />
-          {g.est_revenue_gross_mid != null ? (
-            <div className="dnote">
-              Est. gross revenue is <b>{eurStr(toEur(g.est_revenue_gross_mid, 'USD'))}</b>, converted from a
-              native <b>{nativeAmt(g.est_revenue_gross_mid, 'USD')}</b> at a fixed 1 USD = €{EUR_PER.USD}{' '}
-              (approximate). This is <b>gross</b>, before Valve's 30%+ cut and any discounts.
-            </div>
-          ) : null}
         </div>
       ) : null}
 
