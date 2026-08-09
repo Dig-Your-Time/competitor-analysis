@@ -121,6 +121,8 @@ h1 {
   color: color-mix(in srgb, var(--ink) 74%, transparent); text-align: left; font-weight: 400;
   animation: pop 0.13s ease;
 }
+.noc-pop p { margin: 0 0 9px; }
+.noc-pop p:last-child { margin-bottom: 0; }
 .noc-pop strong, .noc-pop b { color: var(--color-accent-300); font-weight: 600; }
 .noc-pop em { color: var(--color-accent-300); font-style: normal; }
 .noc-pop .tagpill { margin: 0 1px; }
@@ -167,11 +169,55 @@ button.pill.on {
 
 /* ---- chart card ---- */
 .chartwrap {
+  position: relative;                 /* anchors the full-screen control */
   background: var(--surface);
   border-radius: 16px;
   padding: 14px 10px 8px; margin-bottom: 12px;
   box-shadow: var(--shadow-md, 0 0 0 1px #595d6c, 0 6px 18px rgba(0,0,0,0.55));
 }
+
+/* Full-screen control, bottom-right inside the panel — where this control lives in
+   every other charting tool, so it is where people look for it. Sits above the plot
+   but recessed until hovered, so it never competes with the data. */
+.chartbtn {
+  position: absolute; right: 14px; bottom: 12px; z-index: 3;
+  padding: 4px 10px; border-radius: 8px;
+  font-size: 11.5px; font-weight: 500; line-height: 1.6;
+  color: var(--muted); background: color-mix(in srgb, var(--surface) 82%, transparent);
+  border: 1px solid var(--border); cursor: pointer;
+  backdrop-filter: blur(3px);
+  transition: color 0.14s ease, border-color 0.14s ease, background 0.14s ease;
+}
+.chartbtn:hover, .chartbtn.on {
+  color: var(--color-accent); border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 12%, var(--surface));
+}
+
+/* Legend, lifted out of the chart so it never shrinks the plot. Wraps freely and
+   scrolls past a few rows rather than pushing the graph down the page. */
+.curvelegend {
+  display: flex; flex-wrap: wrap; gap: 4px 14px;
+  margin: 2px 0 10px; max-height: 76px; overflow-y: auto;
+  font-size: 12.5px; color: var(--ink-2);
+}
+.cl-item { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.cl-item svg { flex: none; overflow: visible; }
+
+/* Full screen: a fixed overlay rather than the Fullscreen API, so the app's own
+   theme and chrome survive and Esc always gets you out. The chart is the flex
+   child that grows; min-height:0 is what lets it actually shrink-to-fit inside
+   the viewport instead of overflowing it. */
+.curvestage.full {
+  position: fixed; inset: 0; z-index: 60;
+  background: var(--plane);
+  padding: 14px 20px 18px;
+  display: flex; flex-direction: column; gap: 2px;
+  overflow: hidden;
+}
+.curvestage.full .chartwrap { flex: 1 1 auto; min-height: 0; margin-bottom: 8px; }
+.curvestage.full .curvelegend { max-height: 88px; }
+.curvestage.full .selector { display: none; }   /* the picker returns on exit */
+.curvestage.full .sub { display: none; }
 .note { color: var(--ink-2); font-size: 13px; margin: 0 0 26px; max-width: 92ch; }
 .note strong { color: var(--color-accent-300); font-weight: 600; }
 
@@ -207,6 +253,14 @@ button.pill.on {
 .chip.on { color: var(--ink); border-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 12%, transparent); }
 .chip .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
 .chip .yr { color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+/* caveat marker on a launch-curve chip: this game's week 0 needs reading twice
+   (Early Access history before it, or no recoverable launch week at all) */
+.alt-price { color: var(--muted); font-weight: 500; }
+.chip .flag {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--amber); border: 1px solid color-mix(in srgb, var(--amber) 45%, transparent);
+  border-radius: 5px; padding: 0 4px; line-height: 1.5; flex: none;
+}
 
 /* ---- guide ---- */
 .guide { max-width: 820px; }

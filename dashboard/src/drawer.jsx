@@ -231,7 +231,17 @@ function GameBody({ data, gid }) {
       <div className="dfacts">
         <div><span>Tier</span><b>{g.tier}</b></div>
         <div><span>Released</span><b>{g.release_date || (g.is_our_game ? 'unreleased' : '—')}</b></div>
-        <div><span>Price</span><b>{g.price_usd != null ? `$${g.price_usd}` : '—'}</b></div>
+        {/* LIST price in both regions, so a game caught mid-sale isn't filed as a
+            cheap game. The EUR figure is the Finnish store's own price, not a
+            conversion — Hydroneer is €15.49 against $14.99, Outer Wilds €22.99
+            against $24.99. Showing it converted would invent a number. */}
+        <div>
+          <span>Price</span>
+          <b>
+            {g.price_usd != null ? `$${g.price_usd}` : '—'}
+            {g.price_eur != null && <span className="alt-price"> · €{g.price_eur}</span>}
+          </b>
+        </div>
         <div><span>Reviews</span><b>{fmt(g.review_count)} {g.review_pct != null ? `· ${Math.round(g.review_pct * 100)}%` : ''}</b></div>
         <div><span>Est. units</span><b>{g.est_units_mid != null ? `${fmt(g.est_units_low)}–${fmt(g.est_units_high)}` : '—'}</b></div>
         <div><span>Est. gross rev</span><b>{g.est_revenue_gross_mid != null ? `${eurStr(toEur(g.est_revenue_gross_mid, 'USD'))}` : '—'}</b></div>

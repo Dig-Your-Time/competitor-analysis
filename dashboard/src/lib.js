@@ -5,11 +5,26 @@ export const PALETTE = [
   '#1c8a4b', '#2f6fd6', '#d13a2c', '#8f39b8',
 ]
 
-// Nocturne dark-ground palettes (from the design handoff)
+// Curve hues for the Nocturne dark ground (chart surface #232532).
+// Validated with the dataviz validator: lightness band, chroma floor, adjacent
+// CVD separation, normal-vision floor and contrast all PASS.
+// The handoff's original eight did NOT pass — its #8fb2ea and #b9a0e8 sat ΔE 6.8
+// apart in normal vision and 0.4 under deuteranopia, i.e. two of the eight launch
+// curves were the same colour. These are stepped in OKLCH to keep the house look
+// (slot 1 is the Nocturne accent) while actually being tellable apart.
 export const CURVE_PALETTE = [
-  '#968ae0', '#57b6c9', '#e2a24f', '#df8fb5',
-  '#74c79a', '#b9a0e8', '#8fb2ea', '#d98f8f',
+  '#8968d4', '#00a8a9', '#cf752d', '#bc4385',
+  '#2ca470', '#346ecd', '#d95960', '#9b5bb6',
 ]
+
+// Composite encoding for series 9+. A 9th series never gets an invented hue --
+// the palette repeats with a different stroke, so identity is (hue x dash) and
+// stays unique and stable per game however many are on screen at once.
+export const CURVE_DASH = [undefined, '7 4', '2 3', '10 3 2 3']
+export const curveStyle = (i) => ({
+  stroke: CURVE_PALETTE[i % CURVE_PALETTE.length],
+  strokeDasharray: CURVE_DASH[Math.floor(i / CURVE_PALETTE.length) % CURVE_DASH.length],
+})
 export const TIER_COLOR = {
   '1-Direct': '#968ae0',
   '2-Adjacent': '#57b6c9',

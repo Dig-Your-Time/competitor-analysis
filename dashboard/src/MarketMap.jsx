@@ -165,8 +165,9 @@ export default function MarketMap({ data }) {
       </div>
 
       <p className="note" style={{ marginTop: 12, color: 'var(--muted)', fontSize: 12.5 }}>
-        Price and reviews are HARD from Steam; units and revenue are EST. Games without a price or unit
-        estimate can't be placed and are left out.
+        Price and reviews are HARD from Steam; units and revenue are EST. Price is the <b>list price</b>,
+        not today's price — a game on sale still plots at what it normally costs. Games without a price or
+        unit estimate can't be placed and are left out.
       </p>
     </div>
   )

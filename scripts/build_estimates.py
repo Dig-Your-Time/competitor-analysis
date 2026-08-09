@@ -59,7 +59,13 @@ def as_int(v):
         return None
 
 def main():
-    reviews = {r["game_id"]: as_int(r.get("review_count_total")) for r in load("games_steam.csv")}
+    # Boxleiter multiplies REVIEWS to estimate copies sold, so it wants every review
+    # that represents a purchase -- including ones inside an off-topic review-bomb
+    # window, which Steam hides from the store-page total. Fall back to the store
+    # figure only if the bombs-included one is missing.
+    reviews = {r["game_id"]: (as_int(r.get("review_count_all"))
+                              or as_int(r.get("review_count_total")))
+               for r in load("games_steam.csv")}
     out = []
     for r in load("gamalytic_stats.csv"):
         gid = r["game_id"].strip()

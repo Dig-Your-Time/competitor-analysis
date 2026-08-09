@@ -26,7 +26,11 @@ export default function Compare({ data }) {
       ['Tier', (g) => g.tier],
       ['Class', (g) => g.comparable_class || '—'],
       ['Released', (g) => (g.is_our_game ? 'unreleased (target)' : g.release_date ? `${g.release_date} · ${genYear - nowYear(g.release_date)}y ago` : '—')],
-      ['Price', (g) => (g.price_usd != null ? `$${g.price_usd}${g.is_our_game ? ' (target)' : ''}` : '—')],
+      // list price, both regions. EUR is Steam's Finnish price, set separately by the
+      // publisher rather than converted from the dollar figure.
+      ['Price (list)', (g) => (g.price_usd != null
+        ? `$${g.price_usd}${g.price_eur != null ? ` · €${g.price_eur}` : ''}${g.is_our_game ? ' (target)' : ''}`
+        : '—')],
       ['Platforms', (g) => g.platforms || '—'],
     ]],
     ['Studio', null, [

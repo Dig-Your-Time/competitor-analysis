@@ -17,6 +17,7 @@ DATA = ROOT / "data"
 OUT  = ROOT / "dashboard" / "public"
 OUT.mkdir(parents=True, exist_ok=True)
 YEAR = dt.date.today().year
+REVIEWS_LIVE = "2013-11-25"      # the day Steam reviews went live; see pre_review_era
 
 def load(name):
     with open(DATA / name, encoding="utf-8-sig", newline="") as f:
@@ -53,7 +54,15 @@ for r in seed:
         "status": c.get("company_status", ""), "company_size": c.get("company_size", ""),
         "self_published": c.get("self_published", ""), "parent_company": c.get("parent_company", ""),
         "company_founded": founded, "company_age": (YEAR - founded) if founded else None,
-        "release_date": s.get("release_date", ""), "price_usd": num(s.get("current_price_usd")),
+        # Both are LIST prices, never today's discounted price: a game caught mid-sale
+        # is not a cheap game, and price_usd is the x-axis of the market map, the chart
+        # that exists to inform our own pricing. price_eur is the Finnish store price,
+        # a separate regional decision by the publisher rather than a conversion of the
+        # dollar figure -- which is why it is fetched, not computed.
+        "release_date": s.get("release_date", ""),
+        "price_usd": num(s.get("base_price_usd")),
+        "price_eur": num(s.get("base_price_eur")),
+        "price_retrieved": s.get("price_retrieved", ""),
         "genres": s.get("genres", ""), "steam_tags": s.get("steam_top_tags", ""),
         "platforms": s.get("platforms", ""), "publisher": s.get("publisher", ""),
         "developer": s.get("developer", ""),
@@ -61,6 +70,15 @@ for r in seed:
         "review_pct": num(s.get("review_positive_pct")),
         "review_desc": s.get("review_desc", ""),
         "curve_coverage": s.get("review_curve_coverage", ""),
+        "curve_capture_pct": num(s.get("curve_capture_pct")),
+        "reviews_start_week": num(s.get("reviews_start_week")),
+        "pre_launch_reviews": num(s.get("pre_launch_reviews")),
+        # Steam's review system went live 2013-11-25 and absorbed the older Community
+        # recommendations with their original dates -- so a 2011 game DOES have real
+        # week-0 data. What it carries instead is a one-off spike the week the feature
+        # launched and players reviewed the back catalogue (Terraria: ~9x its baseline).
+        # Flag it so that bump isn't read as a sales event.
+        "pre_review_era": bool(s.get("release_date", "")) and s.get("release_date", "") < REVIEWS_LIVE,
         "est_units_low": num(e.get("est_units_low")), "est_units_mid": num(e.get("est_units_mid")),
         "est_units_high": num(e.get("est_units_high")),
         "est_units_source": e.get("est_units_source", ""),
@@ -88,16 +106,29 @@ games.append({
     "target_price_usd": 19.99, "ea_window": "TBD",
 })
 
-# launch curves: full-curve games only (recent-tail giants have no real week 0)
+# launch curves: EVERY game that has a real review history.
+#
+# The old rule kept only rows flagged "full", which dropped the eight biggest games
+# outright -- their curves were never fetched because paging a million reviews was
+# impractical. Weekly window counts removed that limit, so the filter is gone: if a
+# game has reviews, it has a curve. What survives is honesty about the edges:
+#
+#   * leading zero weeks are TRIMMED, so a line begins where its data does instead
+#     of running flat along the axis (which reads as "nobody bought it").
+#     reviews_start_week records where that is.
+#   * NEGATIVE weeks are kept. A game whose Steam release_date is its 1.0 date
+#     (Techtonica: 1,984 of its 3,245 reviews predate 1.0) has a real Early Access
+#     ramp to the left of week 0. The old code clamped all of it into week 0 and
+#     manufactured a launch spike that never happened.
 by = {}
 for r in load("timeseries.csv"):
     by.setdefault(r["game_id"], []).append(r)
-full_ids = {gid for gid, s in steam.items() if s.get("review_curve_coverage") == "full"}
+
 curves = {}
 for gid, rows in by.items():
-    if gid not in full_ids:
-        continue
     rows = sorted(rows, key=lambda r: int(r["week_index"]))
+    while rows and int(rows[0]["reviews_cumulative"]) == 0:      # trim the dead prefix
+        rows.pop(0)
     total = int(rows[-1]["reviews_cumulative"]) if rows else 0
     if total <= 0:
         continue
@@ -216,8 +247,11 @@ data = {
             "0-Ours": "our game",
         },
         "launch_curve_note": ("Cumulative REVIEWS (a HARD proxy for sales velocity), week 0 = launch. "
-                              "Only games with a full review history appear; million-review giants are "
-                              "excluded because their launch weeks are unrecoverable from the reviews API."),
+                              "Every tracked game with a review history appears, counted a week at a "
+                              "time from Steam's own review index. Negative weeks are Early Access, "
+                              "before a game's 1.0 date. Games released before 2013-11-25 carry a "
+                              "one-off spike the week Steam's review feature launched -- that bump "
+                              "is the feature, not a sale."),
         "est_note": "Units & revenue are ESTIMATES, never sales data. Revenue is GROSS (Valve takes 30%+).",
     },
     "games": games,
