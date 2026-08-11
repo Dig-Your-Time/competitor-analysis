@@ -1,0 +1,869 @@
+game_id,title,language,reviews,reviews_positive,reviews_negative,retrieved_date
+1637320,Dome Keeper,arabic,0,0,0,2026-08-10
+1637320,Dome Keeper,bulgarian,5,4,1,2026-08-10
+1637320,Dome Keeper,schinese,2013,1675,338,2026-08-10
+1637320,Dome Keeper,tchinese,156,129,27,2026-08-10
+1637320,Dome Keeper,czech,76,74,2,2026-08-10
+1637320,Dome Keeper,danish,22,22,0,2026-08-10
+1637320,Dome Keeper,dutch,49,48,1,2026-08-10
+1637320,Dome Keeper,english,13334,12456,878,2026-08-10
+1637320,Dome Keeper,finnish,19,19,0,2026-08-10
+1637320,Dome Keeper,french,623,586,37,2026-08-10
+1637320,Dome Keeper,german,664,606,58,2026-08-10
+1637320,Dome Keeper,greek,4,4,0,2026-08-10
+1637320,Dome Keeper,hungarian,26,22,4,2026-08-10
+1637320,Dome Keeper,indonesian,1,0,1,2026-08-10
+1637320,Dome Keeper,italian,127,119,8,2026-08-10
+1637320,Dome Keeper,japanese,193,157,36,2026-08-10
+1637320,Dome Keeper,koreana,548,483,65,2026-08-10
+1637320,Dome Keeper,malay,0,0,0,2026-08-10
+1637320,Dome Keeper,norwegian,29,27,2,2026-08-10
+1637320,Dome Keeper,polish,295,281,14,2026-08-10
+1637320,Dome Keeper,portuguese,32,30,2,2026-08-10
+1637320,Dome Keeper,brazilian,687,664,23,2026-08-10
+1637320,Dome Keeper,romanian,5,5,0,2026-08-10
+1637320,Dome Keeper,russian,1769,1632,137,2026-08-10
+1637320,Dome Keeper,spanish,756,737,19,2026-08-10
+1637320,Dome Keeper,latam,169,163,6,2026-08-10
+1637320,Dome Keeper,swedish,52,47,5,2026-08-10
+1637320,Dome Keeper,thai,23,23,0,2026-08-10
+1637320,Dome Keeper,turkish,232,210,22,2026-08-10
+1637320,Dome Keeper,ukrainian,132,128,4,2026-08-10
+1637320,Dome Keeper,vietnamese,11,11,0,2026-08-10
+252410,SteamWorld Dig,arabic,0,0,0,2026-08-10
+252410,SteamWorld Dig,bulgarian,4,4,0,2026-08-10
+252410,SteamWorld Dig,schinese,423,370,53,2026-08-10
+252410,SteamWorld Dig,tchinese,79,72,7,2026-08-10
+252410,SteamWorld Dig,czech,60,56,4,2026-08-10
+252410,SteamWorld Dig,danish,8,7,1,2026-08-10
+252410,SteamWorld Dig,dutch,15,14,1,2026-08-10
+252410,SteamWorld Dig,english,5194,4808,386,2026-08-10
+252410,SteamWorld Dig,finnish,8,8,0,2026-08-10
+252410,SteamWorld Dig,french,275,257,18,2026-08-10
+252410,SteamWorld Dig,german,332,311,21,2026-08-10
+252410,SteamWorld Dig,greek,4,4,0,2026-08-10
+252410,SteamWorld Dig,hungarian,59,58,1,2026-08-10
+252410,SteamWorld Dig,indonesian,1,1,0,2026-08-10
+252410,SteamWorld Dig,italian,117,109,8,2026-08-10
+252410,SteamWorld Dig,japanese,88,80,8,2026-08-10
+252410,SteamWorld Dig,koreana,111,98,13,2026-08-10
+252410,SteamWorld Dig,malay,0,0,0,2026-08-10
+252410,SteamWorld Dig,norwegian,3,3,0,2026-08-10
+252410,SteamWorld Dig,polish,258,253,5,2026-08-10
+252410,SteamWorld Dig,portuguese,34,33,1,2026-08-10
+252410,SteamWorld Dig,brazilian,919,902,17,2026-08-10
+252410,SteamWorld Dig,romanian,2,1,1,2026-08-10
+252410,SteamWorld Dig,russian,1679,1565,114,2026-08-10
+252410,SteamWorld Dig,spanish,823,805,18,2026-08-10
+252410,SteamWorld Dig,latam,148,143,5,2026-08-10
+252410,SteamWorld Dig,swedish,16,16,0,2026-08-10
+252410,SteamWorld Dig,thai,21,20,1,2026-08-10
+252410,SteamWorld Dig,turkish,166,150,16,2026-08-10
+252410,SteamWorld Dig,ukrainian,113,109,4,2026-08-10
+252410,SteamWorld Dig,vietnamese,4,2,2,2026-08-10
+571310,SteamWorld Dig 2,arabic,1,1,0,2026-08-10
+571310,SteamWorld Dig 2,bulgarian,1,1,0,2026-08-10
+571310,SteamWorld Dig 2,schinese,743,674,69,2026-08-10
+571310,SteamWorld Dig 2,tchinese,78,76,2,2026-08-10
+571310,SteamWorld Dig 2,czech,36,36,0,2026-08-10
+571310,SteamWorld Dig 2,danish,7,7,0,2026-08-10
+571310,SteamWorld Dig 2,dutch,17,16,1,2026-08-10
+571310,SteamWorld Dig 2,english,4506,4293,213,2026-08-10
+571310,SteamWorld Dig 2,finnish,9,9,0,2026-08-10
+571310,SteamWorld Dig 2,french,165,158,7,2026-08-10
+571310,SteamWorld Dig 2,german,277,267,10,2026-08-10
+571310,SteamWorld Dig 2,greek,1,1,0,2026-08-10
+571310,SteamWorld Dig 2,hungarian,15,14,1,2026-08-10
+571310,SteamWorld Dig 2,indonesian,1,1,0,2026-08-10
+571310,SteamWorld Dig 2,italian,68,66,2,2026-08-10
+571310,SteamWorld Dig 2,japanese,46,45,1,2026-08-10
+571310,SteamWorld Dig 2,koreana,79,74,5,2026-08-10
+571310,SteamWorld Dig 2,malay,0,0,0,2026-08-10
+571310,SteamWorld Dig 2,norwegian,8,8,0,2026-08-10
+571310,SteamWorld Dig 2,polish,186,179,7,2026-08-10
+571310,SteamWorld Dig 2,portuguese,15,15,0,2026-08-10
+571310,SteamWorld Dig 2,brazilian,518,510,8,2026-08-10
+571310,SteamWorld Dig 2,romanian,3,3,0,2026-08-10
+571310,SteamWorld Dig 2,russian,1359,1297,62,2026-08-10
+571310,SteamWorld Dig 2,spanish,596,588,8,2026-08-10
+571310,SteamWorld Dig 2,latam,121,118,3,2026-08-10
+571310,SteamWorld Dig 2,swedish,13,13,0,2026-08-10
+571310,SteamWorld Dig 2,thai,10,10,0,2026-08-10
+571310,SteamWorld Dig 2,turkish,88,82,6,2026-08-10
+571310,SteamWorld Dig 2,ukrainian,94,90,4,2026-08-10
+571310,SteamWorld Dig 2,vietnamese,6,6,0,2026-08-10
+1106840,Hydroneer,arabic,0,0,0,2026-08-10
+1106840,Hydroneer,bulgarian,4,3,1,2026-08-10
+1106840,Hydroneer,schinese,500,363,137,2026-08-10
+1106840,Hydroneer,tchinese,47,37,10,2026-08-10
+1106840,Hydroneer,czech,923,856,67,2026-08-10
+1106840,Hydroneer,danish,120,104,16,2026-08-10
+1106840,Hydroneer,dutch,283,268,15,2026-08-10
+1106840,Hydroneer,english,20631,17826,2805,2026-08-10
+1106840,Hydroneer,finnish,55,46,9,2026-08-10
+1106840,Hydroneer,french,768,648,120,2026-08-10
+1106840,Hydroneer,german,1795,1476,319,2026-08-10
+1106840,Hydroneer,greek,6,5,1,2026-08-10
+1106840,Hydroneer,hungarian,56,44,12,2026-08-10
+1106840,Hydroneer,indonesian,0,0,0,2026-08-10
+1106840,Hydroneer,italian,49,43,6,2026-08-10
+1106840,Hydroneer,japanese,176,115,61,2026-08-10
+1106840,Hydroneer,koreana,188,151,37,2026-08-10
+1106840,Hydroneer,malay,0,0,0,2026-08-10
+1106840,Hydroneer,norwegian,137,127,10,2026-08-10
+1106840,Hydroneer,polish,576,509,67,2026-08-10
+1106840,Hydroneer,portuguese,41,39,2,2026-08-10
+1106840,Hydroneer,brazilian,471,407,64,2026-08-10
+1106840,Hydroneer,romanian,13,11,2,2026-08-10
+1106840,Hydroneer,russian,783,582,201,2026-08-10
+1106840,Hydroneer,spanish,235,193,42,2026-08-10
+1106840,Hydroneer,latam,21,18,3,2026-08-10
+1106840,Hydroneer,swedish,269,255,14,2026-08-10
+1106840,Hydroneer,thai,14,11,3,2026-08-10
+1106840,Hydroneer,turkish,141,106,35,2026-08-10
+1106840,Hydroneer,ukrainian,35,30,5,2026-08-10
+1106840,Hydroneer,vietnamese,2,2,0,2026-08-10
+1621690,Core Keeper,arabic,0,0,0,2026-08-10
+1621690,Core Keeper,bulgarian,2,2,0,2026-08-10
+1621690,Core Keeper,schinese,8678,6946,1732,2026-08-10
+1621690,Core Keeper,tchinese,1775,1637,138,2026-08-10
+1621690,Core Keeper,czech,175,173,2,2026-08-10
+1621690,Core Keeper,danish,34,33,1,2026-08-10
+1621690,Core Keeper,dutch,104,103,1,2026-08-10
+1621690,Core Keeper,english,31190,29538,1652,2026-08-10
+1621690,Core Keeper,finnish,57,53,4,2026-08-10
+1621690,Core Keeper,french,1467,1419,48,2026-08-10
+1621690,Core Keeper,german,2803,2708,95,2026-08-10
+1621690,Core Keeper,greek,9,9,0,2026-08-10
+1621690,Core Keeper,hungarian,60,60,0,2026-08-10
+1621690,Core Keeper,indonesian,17,17,0,2026-08-10
+1621690,Core Keeper,italian,296,288,8,2026-08-10
+1621690,Core Keeper,japanese,1437,1307,130,2026-08-10
+1621690,Core Keeper,koreana,5343,5100,243,2026-08-10
+1621690,Core Keeper,malay,0,0,0,2026-08-10
+1621690,Core Keeper,norwegian,41,39,2,2026-08-10
+1621690,Core Keeper,polish,743,713,30,2026-08-10
+1621690,Core Keeper,portuguese,90,88,2,2026-08-10
+1621690,Core Keeper,brazilian,2225,2174,51,2026-08-10
+1621690,Core Keeper,romanian,14,14,0,2026-08-10
+1621690,Core Keeper,russian,3136,2821,315,2026-08-10
+1621690,Core Keeper,spanish,3460,3382,78,2026-08-10
+1621690,Core Keeper,latam,691,676,15,2026-08-10
+1621690,Core Keeper,swedish,141,139,2,2026-08-10
+1621690,Core Keeper,thai,1029,1003,26,2026-08-10
+1621690,Core Keeper,turkish,531,478,53,2026-08-10
+1621690,Core Keeper,ukrainian,223,213,10,2026-08-10
+1621690,Core Keeper,vietnamese,98,94,4,2026-08-10
+881100,Noita,arabic,0,0,0,2026-08-10
+881100,Noita,bulgarian,5,5,0,2026-08-10
+881100,Noita,schinese,13024,12237,787,2026-08-10
+881100,Noita,tchinese,499,451,48,2026-08-10
+881100,Noita,czech,130,125,5,2026-08-10
+881100,Noita,danish,58,58,0,2026-08-10
+881100,Noita,dutch,98,95,3,2026-08-10
+881100,Noita,english,51985,49658,2327,2026-08-10
+881100,Noita,finnish,538,523,15,2026-08-10
+881100,Noita,french,1122,1080,42,2026-08-10
+881100,Noita,german,1698,1626,72,2026-08-10
+881100,Noita,greek,9,8,1,2026-08-10
+881100,Noita,hungarian,39,37,2,2026-08-10
+881100,Noita,indonesian,2,2,0,2026-08-10
+881100,Noita,italian,254,241,13,2026-08-10
+881100,Noita,japanese,1260,1109,151,2026-08-10
+881100,Noita,koreana,1334,1235,99,2026-08-10
+881100,Noita,malay,0,0,0,2026-08-10
+881100,Noita,norwegian,62,60,2,2026-08-10
+881100,Noita,polish,1319,1265,54,2026-08-10
+881100,Noita,portuguese,43,42,1,2026-08-10
+881100,Noita,brazilian,1519,1464,55,2026-08-10
+881100,Noita,romanian,5,5,0,2026-08-10
+881100,Noita,russian,10387,9903,484,2026-08-10
+881100,Noita,spanish,1542,1487,55,2026-08-10
+881100,Noita,latam,272,263,9,2026-08-10
+881100,Noita,swedish,102,100,2,2026-08-10
+881100,Noita,thai,22,20,2,2026-08-10
+881100,Noita,turkish,541,511,30,2026-08-10
+881100,Noita,ukrainian,425,404,21,2026-08-10
+881100,Noita,vietnamese,8,8,0,2026-08-10
+1457320,Techtonica,arabic,0,0,0,2026-08-10
+1457320,Techtonica,bulgarian,0,0,0,2026-08-10
+1457320,Techtonica,schinese,128,77,51,2026-08-10
+1457320,Techtonica,tchinese,21,13,8,2026-08-10
+1457320,Techtonica,czech,12,9,3,2026-08-10
+1457320,Techtonica,danish,6,6,0,2026-08-10
+1457320,Techtonica,dutch,19,15,4,2026-08-10
+1457320,Techtonica,english,2122,1347,775,2026-08-10
+1457320,Techtonica,finnish,2,1,1,2026-08-10
+1457320,Techtonica,french,133,97,36,2026-08-10
+1457320,Techtonica,german,302,230,72,2026-08-10
+1457320,Techtonica,greek,0,0,0,2026-08-10
+1457320,Techtonica,hungarian,5,4,1,2026-08-10
+1457320,Techtonica,indonesian,1,1,0,2026-08-10
+1457320,Techtonica,italian,3,1,2,2026-08-10
+1457320,Techtonica,japanese,88,52,36,2026-08-10
+1457320,Techtonica,koreana,27,12,15,2026-08-10
+1457320,Techtonica,malay,0,0,0,2026-08-10
+1457320,Techtonica,norwegian,8,5,3,2026-08-10
+1457320,Techtonica,polish,34,20,14,2026-08-10
+1457320,Techtonica,portuguese,2,2,0,2026-08-10
+1457320,Techtonica,brazilian,40,30,10,2026-08-10
+1457320,Techtonica,romanian,0,0,0,2026-08-10
+1457320,Techtonica,russian,224,131,93,2026-08-10
+1457320,Techtonica,spanish,31,21,10,2026-08-10
+1457320,Techtonica,latam,5,4,1,2026-08-10
+1457320,Techtonica,swedish,10,7,3,2026-08-10
+1457320,Techtonica,thai,4,3,1,2026-08-10
+1457320,Techtonica,turkish,8,6,2,2026-08-10
+1457320,Techtonica,ukrainian,10,9,1,2026-08-10
+1457320,Techtonica,vietnamese,0,0,0,2026-08-10
+2392740,Cave Digger 2,arabic,0,0,0,2026-08-10
+2392740,Cave Digger 2,bulgarian,0,0,0,2026-08-10
+2392740,Cave Digger 2,schinese,0,0,0,2026-08-10
+2392740,Cave Digger 2,tchinese,0,0,0,2026-08-10
+2392740,Cave Digger 2,czech,0,0,0,2026-08-10
+2392740,Cave Digger 2,danish,1,1,0,2026-08-10
+2392740,Cave Digger 2,dutch,0,0,0,2026-08-10
+2392740,Cave Digger 2,english,24,16,8,2026-08-10
+2392740,Cave Digger 2,finnish,0,0,0,2026-08-10
+2392740,Cave Digger 2,french,0,0,0,2026-08-10
+2392740,Cave Digger 2,german,0,0,0,2026-08-10
+2392740,Cave Digger 2,greek,0,0,0,2026-08-10
+2392740,Cave Digger 2,hungarian,0,0,0,2026-08-10
+2392740,Cave Digger 2,indonesian,0,0,0,2026-08-10
+2392740,Cave Digger 2,italian,0,0,0,2026-08-10
+2392740,Cave Digger 2,japanese,0,0,0,2026-08-10
+2392740,Cave Digger 2,koreana,0,0,0,2026-08-10
+2392740,Cave Digger 2,malay,0,0,0,2026-08-10
+2392740,Cave Digger 2,norwegian,0,0,0,2026-08-10
+2392740,Cave Digger 2,polish,1,0,1,2026-08-10
+2392740,Cave Digger 2,portuguese,0,0,0,2026-08-10
+2392740,Cave Digger 2,brazilian,2,2,0,2026-08-10
+2392740,Cave Digger 2,romanian,0,0,0,2026-08-10
+2392740,Cave Digger 2,russian,3,3,0,2026-08-10
+2392740,Cave Digger 2,spanish,2,1,1,2026-08-10
+2392740,Cave Digger 2,latam,0,0,0,2026-08-10
+2392740,Cave Digger 2,swedish,0,0,0,2026-08-10
+2392740,Cave Digger 2,thai,0,0,0,2026-08-10
+2392740,Cave Digger 2,turkish,1,1,0,2026-08-10
+2392740,Cave Digger 2,ukrainian,0,0,0,2026-08-10
+2392740,Cave Digger 2,vietnamese,0,0,0,2026-08-10
+606150,Moonlighter,arabic,0,0,0,2026-08-10
+606150,Moonlighter,bulgarian,1,1,0,2026-08-10
+606150,Moonlighter,schinese,2329,1583,746,2026-08-10
+606150,Moonlighter,tchinese,300,219,81,2026-08-10
+606150,Moonlighter,czech,30,30,0,2026-08-10
+606150,Moonlighter,danish,14,13,1,2026-08-10
+606150,Moonlighter,dutch,24,22,2,2026-08-10
+606150,Moonlighter,english,10099,8021,2078,2026-08-10
+606150,Moonlighter,finnish,10,7,3,2026-08-10
+606150,Moonlighter,french,548,466,82,2026-08-10
+606150,Moonlighter,german,573,489,84,2026-08-10
+606150,Moonlighter,greek,6,6,0,2026-08-10
+606150,Moonlighter,hungarian,23,21,2,2026-08-10
+606150,Moonlighter,indonesian,8,8,0,2026-08-10
+606150,Moonlighter,italian,158,145,13,2026-08-10
+606150,Moonlighter,japanese,320,202,118,2026-08-10
+606150,Moonlighter,koreana,717,464,253,2026-08-10
+606150,Moonlighter,malay,0,0,0,2026-08-10
+606150,Moonlighter,norwegian,7,7,0,2026-08-10
+606150,Moonlighter,polish,369,325,44,2026-08-10
+606150,Moonlighter,portuguese,62,59,3,2026-08-10
+606150,Moonlighter,brazilian,2718,2590,128,2026-08-10
+606150,Moonlighter,romanian,1,1,0,2026-08-10
+606150,Moonlighter,russian,1689,1325,364,2026-08-10
+606150,Moonlighter,spanish,1684,1595,89,2026-08-10
+606150,Moonlighter,latam,273,255,18,2026-08-10
+606150,Moonlighter,swedish,12,11,1,2026-08-10
+606150,Moonlighter,thai,132,124,8,2026-08-10
+606150,Moonlighter,turkish,579,516,63,2026-08-10
+606150,Moonlighter,ukrainian,96,74,22,2026-08-10
+606150,Moonlighter,vietnamese,12,11,1,2026-08-10
+361420,ASTRONEER,arabic,0,0,0,2026-08-10
+361420,ASTRONEER,bulgarian,50,48,2,2026-08-10
+361420,ASTRONEER,schinese,17240,15499,1741,2026-08-10
+361420,ASTRONEER,tchinese,603,538,65,2026-08-10
+361420,ASTRONEER,czech,829,796,33,2026-08-10
+361420,ASTRONEER,danish,266,254,12,2026-08-10
+361420,ASTRONEER,dutch,427,405,22,2026-08-10
+361420,ASTRONEER,english,63186,57800,5386,2026-08-10
+361420,ASTRONEER,finnish,140,121,19,2026-08-10
+361420,ASTRONEER,french,3940,3665,275,2026-08-10
+361420,ASTRONEER,german,5222,4864,358,2026-08-10
+361420,ASTRONEER,greek,38,34,4,2026-08-10
+361420,ASTRONEER,hungarian,310,300,10,2026-08-10
+361420,ASTRONEER,indonesian,6,6,0,2026-08-10
+361420,ASTRONEER,italian,966,908,58,2026-08-10
+361420,ASTRONEER,japanese,786,627,159,2026-08-10
+361420,ASTRONEER,koreana,4920,4320,600,2026-08-10
+361420,ASTRONEER,malay,0,0,0,2026-08-10
+361420,ASTRONEER,norwegian,303,285,18,2026-08-10
+361420,ASTRONEER,polish,3900,3744,156,2026-08-10
+361420,ASTRONEER,portuguese,263,255,8,2026-08-10
+361420,ASTRONEER,brazilian,4599,4391,208,2026-08-10
+361420,ASTRONEER,romanian,115,106,9,2026-08-10
+361420,ASTRONEER,russian,17191,15914,1277,2026-08-10
+361420,ASTRONEER,spanish,4148,3939,209,2026-08-10
+361420,ASTRONEER,latam,610,581,29,2026-08-10
+361420,ASTRONEER,swedish,628,613,15,2026-08-10
+361420,ASTRONEER,thai,254,237,17,2026-08-10
+361420,ASTRONEER,turkish,7436,6952,484,2026-08-10
+361420,ASTRONEER,ukrainian,442,411,31,2026-08-10
+361420,ASTRONEER,vietnamese,66,64,2,2026-08-10
+751780,Forager,arabic,0,0,0,2026-08-10
+751780,Forager,bulgarian,17,16,1,2026-08-10
+751780,Forager,schinese,4405,3819,586,2026-08-10
+751780,Forager,tchinese,429,392,37,2026-08-10
+751780,Forager,czech,74,72,2,2026-08-10
+751780,Forager,danish,57,54,3,2026-08-10
+751780,Forager,dutch,62,60,2,2026-08-10
+751780,Forager,english,17455,15225,2230,2026-08-10
+751780,Forager,finnish,48,47,1,2026-08-10
+751780,Forager,french,846,729,117,2026-08-10
+751780,Forager,german,2830,2539,291,2026-08-10
+751780,Forager,greek,22,21,1,2026-08-10
+751780,Forager,hungarian,95,93,2,2026-08-10
+751780,Forager,indonesian,0,0,0,2026-08-10
+751780,Forager,italian,98,93,5,2026-08-10
+751780,Forager,japanese,188,151,37,2026-08-10
+751780,Forager,koreana,2798,2371,427,2026-08-10
+751780,Forager,malay,0,0,0,2026-08-10
+751780,Forager,norwegian,24,22,2,2026-08-10
+751780,Forager,polish,740,693,47,2026-08-10
+751780,Forager,portuguese,100,98,2,2026-08-10
+751780,Forager,brazilian,4214,4017,197,2026-08-10
+751780,Forager,romanian,70,68,2,2026-08-10
+751780,Forager,russian,3027,2735,292,2026-08-10
+751780,Forager,spanish,4044,3887,157,2026-08-10
+751780,Forager,latam,631,593,38,2026-08-10
+751780,Forager,swedish,163,158,5,2026-08-10
+751780,Forager,thai,239,213,26,2026-08-10
+751780,Forager,turkish,1119,1028,91,2026-08-10
+751780,Forager,ukrainian,105,100,5,2026-08-10
+751780,Forager,vietnamese,17,17,0,2026-08-10
+1087760,The Gunk,arabic,0,0,0,2026-08-10
+1087760,The Gunk,bulgarian,0,0,0,2026-08-10
+1087760,The Gunk,schinese,472,353,119,2026-08-10
+1087760,The Gunk,tchinese,40,31,9,2026-08-10
+1087760,The Gunk,czech,25,23,2,2026-08-10
+1087760,The Gunk,danish,7,5,2,2026-08-10
+1087760,The Gunk,dutch,12,12,0,2026-08-10
+1087760,The Gunk,english,2492,2118,374,2026-08-10
+1087760,The Gunk,finnish,5,5,0,2026-08-10
+1087760,The Gunk,french,163,140,23,2026-08-10
+1087760,The Gunk,german,198,180,18,2026-08-10
+1087760,The Gunk,greek,3,3,0,2026-08-10
+1087760,The Gunk,hungarian,12,11,1,2026-08-10
+1087760,The Gunk,indonesian,4,4,0,2026-08-10
+1087760,The Gunk,italian,62,52,10,2026-08-10
+1087760,The Gunk,japanese,23,18,5,2026-08-10
+1087760,The Gunk,koreana,25,22,3,2026-08-10
+1087760,The Gunk,malay,0,0,0,2026-08-10
+1087760,The Gunk,norwegian,2,1,1,2026-08-10
+1087760,The Gunk,polish,52,51,1,2026-08-10
+1087760,The Gunk,portuguese,14,14,0,2026-08-10
+1087760,The Gunk,brazilian,619,594,25,2026-08-10
+1087760,The Gunk,romanian,3,3,0,2026-08-10
+1087760,The Gunk,russian,1092,944,148,2026-08-10
+1087760,The Gunk,spanish,277,253,24,2026-08-10
+1087760,The Gunk,latam,84,77,7,2026-08-10
+1087760,The Gunk,swedish,14,14,0,2026-08-10
+1087760,The Gunk,thai,13,13,0,2026-08-10
+1087760,The Gunk,turkish,121,100,21,2026-08-10
+1087760,The Gunk,ukrainian,86,80,6,2026-08-10
+1087760,The Gunk,vietnamese,4,4,0,2026-08-10
+548430,Deep Rock Galactic,arabic,0,0,0,2026-08-10
+548430,Deep Rock Galactic,bulgarian,53,51,2,2026-08-10
+548430,Deep Rock Galactic,schinese,36496,34260,2236,2026-08-10
+548430,Deep Rock Galactic,tchinese,3538,3363,175,2026-08-10
+548430,Deep Rock Galactic,czech,1225,1195,30,2026-08-10
+548430,Deep Rock Galactic,danish,564,542,22,2026-08-10
+548430,Deep Rock Galactic,dutch,550,538,12,2026-08-10
+548430,Deep Rock Galactic,english,215304,210151,5153,2026-08-10
+548430,Deep Rock Galactic,finnish,682,665,17,2026-08-10
+548430,Deep Rock Galactic,french,6782,6658,124,2026-08-10
+548430,Deep Rock Galactic,german,8753,8537,216,2026-08-10
+548430,Deep Rock Galactic,greek,66,65,1,2026-08-10
+548430,Deep Rock Galactic,hungarian,628,617,11,2026-08-10
+548430,Deep Rock Galactic,indonesian,29,27,2,2026-08-10
+548430,Deep Rock Galactic,italian,1646,1617,29,2026-08-10
+548430,Deep Rock Galactic,japanese,704,637,67,2026-08-10
+548430,Deep Rock Galactic,koreana,3459,3312,147,2026-08-10
+548430,Deep Rock Galactic,malay,0,0,0,2026-08-10
+548430,Deep Rock Galactic,norwegian,313,301,12,2026-08-10
+548430,Deep Rock Galactic,polish,4889,4785,104,2026-08-10
+548430,Deep Rock Galactic,portuguese,382,376,6,2026-08-10
+548430,Deep Rock Galactic,brazilian,8801,8675,126,2026-08-10
+548430,Deep Rock Galactic,romanian,64,63,1,2026-08-10
+548430,Deep Rock Galactic,russian,65756,63719,2037,2026-08-10
+548430,Deep Rock Galactic,spanish,8290,8187,103,2026-08-10
+548430,Deep Rock Galactic,latam,2121,2097,24,2026-08-10
+548430,Deep Rock Galactic,swedish,810,790,20,2026-08-10
+548430,Deep Rock Galactic,thai,310,304,6,2026-08-10
+548430,Deep Rock Galactic,turkish,3377,3239,138,2026-08-10
+548430,Deep Rock Galactic,ukrainian,3140,3089,51,2026-08-10
+548430,Deep Rock Galactic,vietnamese,100,97,3,2026-08-10
+105600,Terraria,arabic,1,1,0,2026-08-10
+105600,Terraria,bulgarian,569,548,21,2026-08-10
+105600,Terraria,schinese,201348,197178,4170,2026-08-10
+105600,Terraria,tchinese,8444,8168,276,2026-08-10
+105600,Terraria,czech,7330,7147,183,2026-08-10
+105600,Terraria,danish,2310,2228,82,2026-08-10
+105600,Terraria,dutch,3181,3104,77,2026-08-10
+105600,Terraria,english,737152,718420,18732,2026-08-10
+105600,Terraria,finnish,3635,3504,131,2026-08-10
+105600,Terraria,french,13969,13628,341,2026-08-10
+105600,Terraria,german,28578,27845,733,2026-08-10
+105600,Terraria,greek,512,499,13,2026-08-10
+105600,Terraria,hungarian,2713,2643,70,2026-08-10
+105600,Terraria,indonesian,180,178,2,2026-08-10
+105600,Terraria,italian,5789,5661,128,2026-08-10
+105600,Terraria,japanese,4523,4240,283,2026-08-10
+105600,Terraria,koreana,17859,17144,715,2026-08-10
+105600,Terraria,malay,1,1,0,2026-08-10
+105600,Terraria,norwegian,1711,1650,61,2026-08-10
+105600,Terraria,polish,37095,36032,1063,2026-08-10
+105600,Terraria,portuguese,3193,3143,50,2026-08-10
+105600,Terraria,brazilian,86337,84348,1989,2026-08-10
+105600,Terraria,romanian,1027,1005,22,2026-08-10
+105600,Terraria,russian,236017,228074,7943,2026-08-10
+105600,Terraria,spanish,92821,91032,1789,2026-08-10
+105600,Terraria,latam,13968,13656,312,2026-08-10
+105600,Terraria,swedish,4569,4428,141,2026-08-10
+105600,Terraria,thai,4433,4355,78,2026-08-10
+105600,Terraria,turkish,16006,15182,824,2026-08-10
+105600,Terraria,ukrainian,7842,7630,212,2026-08-10
+105600,Terraria,vietnamese,535,529,6,2026-08-10
+892970,Valheim,arabic,1,1,0,2026-08-10
+892970,Valheim,bulgarian,79,75,4,2026-08-10
+892970,Valheim,schinese,21339,18119,3220,2026-08-10
+892970,Valheim,tchinese,3721,3340,381,2026-08-10
+892970,Valheim,czech,3033,2918,115,2026-08-10
+892970,Valheim,danish,1367,1322,45,2026-08-10
+892970,Valheim,dutch,1881,1813,68,2026-08-10
+892970,Valheim,english,301640,285011,16629,2026-08-10
+892970,Valheim,finnish,4439,4328,111,2026-08-10
+892970,Valheim,french,14718,14030,688,2026-08-10
+892970,Valheim,german,22148,21060,1088,2026-08-10
+892970,Valheim,greek,325,305,20,2026-08-10
+892970,Valheim,hungarian,985,934,51,2026-08-10
+892970,Valheim,indonesian,50,48,2,2026-08-10
+892970,Valheim,italian,2061,1929,132,2026-08-10
+892970,Valheim,japanese,1745,1417,328,2026-08-10
+892970,Valheim,koreana,7699,7129,570,2026-08-10
+892970,Valheim,malay,0,0,0,2026-08-10
+892970,Valheim,norwegian,1555,1516,39,2026-08-10
+892970,Valheim,polish,12382,11925,457,2026-08-10
+892970,Valheim,portuguese,1247,1215,32,2026-08-10
+892970,Valheim,brazilian,20967,20266,701,2026-08-10
+892970,Valheim,romanian,164,156,8,2026-08-10
+892970,Valheim,russian,71961,66368,5593,2026-08-10
+892970,Valheim,spanish,20150,19467,683,2026-08-10
+892970,Valheim,latam,2994,2900,94,2026-08-10
+892970,Valheim,swedish,3927,3826,101,2026-08-10
+892970,Valheim,thai,1081,1041,40,2026-08-10
+892970,Valheim,turkish,11949,10924,1025,2026-08-10
+892970,Valheim,ukrainian,3884,3674,210,2026-08-10
+892970,Valheim,vietnamese,222,216,6,2026-08-10
+1167630,Teardown,arabic,0,0,0,2026-08-10
+1167630,Teardown,bulgarian,27,26,1,2026-08-10
+1167630,Teardown,schinese,2800,2602,198,2026-08-10
+1167630,Teardown,tchinese,188,176,12,2026-08-10
+1167630,Teardown,czech,757,727,30,2026-08-10
+1167630,Teardown,danish,423,408,15,2026-08-10
+1167630,Teardown,dutch,695,666,29,2026-08-10
+1167630,Teardown,english,80530,76896,3634,2026-08-10
+1167630,Teardown,finnish,591,575,16,2026-08-10
+1167630,Teardown,french,2147,2063,84,2026-08-10
+1167630,Teardown,german,4960,4787,173,2026-08-10
+1167630,Teardown,greek,29,28,1,2026-08-10
+1167630,Teardown,hungarian,304,296,8,2026-08-10
+1167630,Teardown,indonesian,14,13,1,2026-08-10
+1167630,Teardown,italian,669,637,32,2026-08-10
+1167630,Teardown,japanese,164,141,23,2026-08-10
+1167630,Teardown,koreana,380,351,29,2026-08-10
+1167630,Teardown,malay,0,0,0,2026-08-10
+1167630,Teardown,norwegian,527,514,13,2026-08-10
+1167630,Teardown,polish,5044,4884,160,2026-08-10
+1167630,Teardown,portuguese,137,130,7,2026-08-10
+1167630,Teardown,brazilian,1977,1915,62,2026-08-10
+1167630,Teardown,romanian,104,103,1,2026-08-10
+1167630,Teardown,russian,23788,23008,780,2026-08-10
+1167630,Teardown,spanish,2584,2498,86,2026-08-10
+1167630,Teardown,latam,324,314,10,2026-08-10
+1167630,Teardown,swedish,1119,1094,25,2026-08-10
+1167630,Teardown,thai,84,82,2,2026-08-10
+1167630,Teardown,turkish,3243,3104,139,2026-08-10
+1167630,Teardown,ukrainian,810,778,32,2026-08-10
+1167630,Teardown,vietnamese,11,11,0,2026-08-10
+753640,Outer Wilds,arabic,0,0,0,2026-08-10
+753640,Outer Wilds,bulgarian,2,1,1,2026-08-10
+753640,Outer Wilds,schinese,16985,16516,469,2026-08-10
+753640,Outer Wilds,tchinese,473,459,14,2026-08-10
+753640,Outer Wilds,czech,110,107,3,2026-08-10
+753640,Outer Wilds,danish,85,81,4,2026-08-10
+753640,Outer Wilds,dutch,139,129,10,2026-08-10
+753640,Outer Wilds,english,60287,57335,2952,2026-08-10
+753640,Outer Wilds,finnish,84,82,2,2026-08-10
+753640,Outer Wilds,french,6286,6096,190,2026-08-10
+753640,Outer Wilds,german,1322,1234,88,2026-08-10
+753640,Outer Wilds,greek,13,11,2,2026-08-10
+753640,Outer Wilds,hungarian,40,40,0,2026-08-10
+753640,Outer Wilds,indonesian,3,3,0,2026-08-10
+753640,Outer Wilds,italian,1154,1108,46,2026-08-10
+753640,Outer Wilds,japanese,805,675,130,2026-08-10
+753640,Outer Wilds,koreana,1411,1302,109,2026-08-10
+753640,Outer Wilds,malay,0,0,0,2026-08-10
+753640,Outer Wilds,norwegian,81,80,1,2026-08-10
+753640,Outer Wilds,polish,465,430,35,2026-08-10
+753640,Outer Wilds,portuguese,121,120,1,2026-08-10
+753640,Outer Wilds,brazilian,4888,4821,67,2026-08-10
+753640,Outer Wilds,romanian,5,5,0,2026-08-10
+753640,Outer Wilds,russian,4276,3917,359,2026-08-10
+753640,Outer Wilds,spanish,5558,5431,127,2026-08-10
+753640,Outer Wilds,latam,1016,995,21,2026-08-10
+753640,Outer Wilds,swedish,152,145,7,2026-08-10
+753640,Outer Wilds,thai,16,16,0,2026-08-10
+753640,Outer Wilds,turkish,256,233,23,2026-08-10
+753640,Outer Wilds,ukrainian,233,221,12,2026-08-10
+753640,Outer Wilds,vietnamese,3,3,0,2026-08-10
+1203620,Enshrouded,arabic,0,0,0,2026-08-10
+1203620,Enshrouded,bulgarian,15,15,0,2026-08-10
+1203620,Enshrouded,schinese,7870,5096,2774,2026-08-10
+1203620,Enshrouded,tchinese,1791,1344,447,2026-08-10
+1203620,Enshrouded,czech,437,393,44,2026-08-10
+1203620,Enshrouded,danish,169,158,11,2026-08-10
+1203620,Enshrouded,dutch,377,348,29,2026-08-10
+1203620,Enshrouded,english,54160,47183,6977,2026-08-10
+1203620,Enshrouded,finnish,172,157,15,2026-08-10
+1203620,Enshrouded,french,5666,5142,524,2026-08-10
+1203620,Enshrouded,german,10944,10155,789,2026-08-10
+1203620,Enshrouded,greek,61,57,4,2026-08-10
+1203620,Enshrouded,hungarian,206,189,17,2026-08-10
+1203620,Enshrouded,indonesian,14,12,2,2026-08-10
+1203620,Enshrouded,italian,692,630,62,2026-08-10
+1203620,Enshrouded,japanese,643,484,159,2026-08-10
+1203620,Enshrouded,koreana,2181,1695,486,2026-08-10
+1203620,Enshrouded,malay,0,0,0,2026-08-10
+1203620,Enshrouded,norwegian,204,191,13,2026-08-10
+1203620,Enshrouded,polish,1758,1584,174,2026-08-10
+1203620,Enshrouded,portuguese,221,201,20,2026-08-10
+1203620,Enshrouded,brazilian,3177,2926,251,2026-08-10
+1203620,Enshrouded,romanian,28,25,3,2026-08-10
+1203620,Enshrouded,russian,7312,5870,1442,2026-08-10
+1203620,Enshrouded,spanish,2939,2723,216,2026-08-10
+1203620,Enshrouded,latam,460,426,34,2026-08-10
+1203620,Enshrouded,swedish,472,437,35,2026-08-10
+1203620,Enshrouded,thai,375,346,29,2026-08-10
+1203620,Enshrouded,turkish,1288,1113,175,2026-08-10
+1203620,Enshrouded,ukrainian,662,582,80,2026-08-10
+1203620,Enshrouded,vietnamese,28,27,1,2026-08-10
+962130,Grounded,arabic,0,0,0,2026-08-10
+962130,Grounded,bulgarian,24,23,1,2026-08-10
+962130,Grounded,schinese,16014,12804,3210,2026-08-10
+962130,Grounded,tchinese,634,518,116,2026-08-10
+962130,Grounded,czech,360,339,21,2026-08-10
+962130,Grounded,danish,235,220,15,2026-08-10
+962130,Grounded,dutch,366,342,24,2026-08-10
+962130,Grounded,english,50665,46531,4134,2026-08-10
+962130,Grounded,finnish,118,110,8,2026-08-10
+962130,Grounded,french,2731,2526,205,2026-08-10
+962130,Grounded,german,5615,5180,435,2026-08-10
+962130,Grounded,greek,30,29,1,2026-08-10
+962130,Grounded,hungarian,320,313,7,2026-08-10
+962130,Grounded,indonesian,13,13,0,2026-08-10
+962130,Grounded,italian,432,411,21,2026-08-10
+962130,Grounded,japanese,197,166,31,2026-08-10
+962130,Grounded,koreana,2271,1984,287,2026-08-10
+962130,Grounded,malay,0,0,0,2026-08-10
+962130,Grounded,norwegian,269,258,11,2026-08-10
+962130,Grounded,polish,1053,988,65,2026-08-10
+962130,Grounded,portuguese,209,204,5,2026-08-10
+962130,Grounded,brazilian,2440,2308,132,2026-08-10
+962130,Grounded,romanian,34,31,3,2026-08-10
+962130,Grounded,russian,6246,5553,693,2026-08-10
+962130,Grounded,spanish,2123,1981,142,2026-08-10
+962130,Grounded,latam,317,299,18,2026-08-10
+962130,Grounded,swedish,439,408,31,2026-08-10
+962130,Grounded,thai,747,691,56,2026-08-10
+962130,Grounded,turkish,783,712,71,2026-08-10
+962130,Grounded,ukrainian,491,449,42,2026-08-10
+962130,Grounded,vietnamese,116,103,13,2026-08-10
+1641960,Forever Skies,arabic,0,0,0,2026-08-10
+1641960,Forever Skies,bulgarian,2,2,0,2026-08-10
+1641960,Forever Skies,schinese,844,579,265,2026-08-10
+1641960,Forever Skies,tchinese,99,53,46,2026-08-10
+1641960,Forever Skies,czech,81,71,10,2026-08-10
+1641960,Forever Skies,danish,16,15,1,2026-08-10
+1641960,Forever Skies,dutch,26,25,1,2026-08-10
+1641960,Forever Skies,english,5306,4204,1102,2026-08-10
+1641960,Forever Skies,finnish,7,6,1,2026-08-10
+1641960,Forever Skies,french,374,299,75,2026-08-10
+1641960,Forever Skies,german,860,695,165,2026-08-10
+1641960,Forever Skies,greek,4,4,0,2026-08-10
+1641960,Forever Skies,hungarian,24,23,1,2026-08-10
+1641960,Forever Skies,indonesian,0,0,0,2026-08-10
+1641960,Forever Skies,italian,49,42,7,2026-08-10
+1641960,Forever Skies,japanese,83,62,21,2026-08-10
+1641960,Forever Skies,koreana,113,80,33,2026-08-10
+1641960,Forever Skies,malay,0,0,0,2026-08-10
+1641960,Forever Skies,norwegian,10,9,1,2026-08-10
+1641960,Forever Skies,polish,175,145,30,2026-08-10
+1641960,Forever Skies,portuguese,8,8,0,2026-08-10
+1641960,Forever Skies,brazilian,109,94,15,2026-08-10
+1641960,Forever Skies,romanian,6,6,0,2026-08-10
+1641960,Forever Skies,russian,244,174,70,2026-08-10
+1641960,Forever Skies,spanish,217,186,31,2026-08-10
+1641960,Forever Skies,latam,24,22,2,2026-08-10
+1641960,Forever Skies,swedish,28,23,5,2026-08-10
+1641960,Forever Skies,thai,9,8,1,2026-08-10
+1641960,Forever Skies,turkish,34,25,9,2026-08-10
+1641960,Forever Skies,ukrainian,85,81,4,2026-08-10
+1641960,Forever Skies,vietnamese,2,2,0,2026-08-10
+1159690,Voidtrain,arabic,0,0,0,2026-08-10
+1159690,Voidtrain,bulgarian,1,1,0,2026-08-10
+1159690,Voidtrain,schinese,482,170,312,2026-08-10
+1159690,Voidtrain,tchinese,27,15,12,2026-08-10
+1159690,Voidtrain,czech,35,25,10,2026-08-10
+1159690,Voidtrain,danish,14,9,5,2026-08-10
+1159690,Voidtrain,dutch,15,15,0,2026-08-10
+1159690,Voidtrain,english,4856,3510,1346,2026-08-10
+1159690,Voidtrain,finnish,13,11,2,2026-08-10
+1159690,Voidtrain,french,317,238,79,2026-08-10
+1159690,Voidtrain,german,587,457,130,2026-08-10
+1159690,Voidtrain,greek,4,2,2,2026-08-10
+1159690,Voidtrain,hungarian,28,27,1,2026-08-10
+1159690,Voidtrain,indonesian,0,0,0,2026-08-10
+1159690,Voidtrain,italian,28,23,5,2026-08-10
+1159690,Voidtrain,japanese,33,22,11,2026-08-10
+1159690,Voidtrain,koreana,101,51,50,2026-08-10
+1159690,Voidtrain,malay,0,0,0,2026-08-10
+1159690,Voidtrain,norwegian,9,6,3,2026-08-10
+1159690,Voidtrain,polish,100,78,22,2026-08-10
+1159690,Voidtrain,portuguese,7,6,1,2026-08-10
+1159690,Voidtrain,brazilian,130,105,25,2026-08-10
+1159690,Voidtrain,romanian,4,4,0,2026-08-10
+1159690,Voidtrain,russian,2679,2202,477,2026-08-10
+1159690,Voidtrain,spanish,118,91,27,2026-08-10
+1159690,Voidtrain,latam,28,19,9,2026-08-10
+1159690,Voidtrain,swedish,28,20,8,2026-08-10
+1159690,Voidtrain,thai,4,3,1,2026-08-10
+1159690,Voidtrain,turkish,75,50,25,2026-08-10
+1159690,Voidtrain,ukrainian,40,33,7,2026-08-10
+1159690,Voidtrain,vietnamese,2,2,0,2026-08-10
+251570,7 Days to Die,arabic,0,0,0,2026-08-10
+251570,7 Days to Die,bulgarian,98,87,11,2026-08-10
+251570,7 Days to Die,schinese,53550,45384,8166,2026-08-10
+251570,7 Days to Die,tchinese,2761,2419,342,2026-08-10
+251570,7 Days to Die,czech,4291,4008,283,2026-08-10
+251570,7 Days to Die,danish,833,767,66,2026-08-10
+251570,7 Days to Die,dutch,1162,1051,111,2026-08-10
+251570,7 Days to Die,english,187461,156790,30671,2026-08-10
+251570,7 Days to Die,finnish,720,639,81,2026-08-10
+251570,7 Days to Die,french,9592,8694,898,2026-08-10
+251570,7 Days to Die,german,15923,14200,1723,2026-08-10
+251570,7 Days to Die,greek,163,149,14,2026-08-10
+251570,7 Days to Die,hungarian,909,841,68,2026-08-10
+251570,7 Days to Die,indonesian,10,8,2,2026-08-10
+251570,7 Days to Die,italian,1123,968,155,2026-08-10
+251570,7 Days to Die,japanese,3468,3017,451,2026-08-10
+251570,7 Days to Die,koreana,3875,3342,533,2026-08-10
+251570,7 Days to Die,malay,1,1,0,2026-08-10
+251570,7 Days to Die,norwegian,481,436,45,2026-08-10
+251570,7 Days to Die,polish,10261,9380,881,2026-08-10
+251570,7 Days to Die,portuguese,803,753,50,2026-08-10
+251570,7 Days to Die,brazilian,11394,10482,912,2026-08-10
+251570,7 Days to Die,romanian,438,423,15,2026-08-10
+251570,7 Days to Die,russian,61014,53976,7038,2026-08-10
+251570,7 Days to Die,spanish,19474,18113,1361,2026-08-10
+251570,7 Days to Die,latam,2553,2313,240,2026-08-10
+251570,7 Days to Die,swedish,1165,1058,107,2026-08-10
+251570,7 Days to Die,thai,1483,1360,123,2026-08-10
+251570,7 Days to Die,turkish,10084,8833,1251,2026-08-10
+251570,7 Days to Die,ukrainian,1926,1749,177,2026-08-10
+251570,7 Days to Die,vietnamese,99,88,11,2026-08-10
+427410,Abiotic Factor,arabic,0,0,0,2026-08-10
+427410,Abiotic Factor,bulgarian,4,4,0,2026-08-10
+427410,Abiotic Factor,schinese,6159,5714,445,2026-08-10
+427410,Abiotic Factor,tchinese,847,817,30,2026-08-10
+427410,Abiotic Factor,czech,112,111,1,2026-08-10
+427410,Abiotic Factor,danish,25,23,2,2026-08-10
+427410,Abiotic Factor,dutch,51,50,1,2026-08-10
+427410,Abiotic Factor,english,37587,36271,1316,2026-08-10
+427410,Abiotic Factor,finnish,69,68,1,2026-08-10
+427410,Abiotic Factor,french,1066,1036,30,2026-08-10
+427410,Abiotic Factor,german,1256,1220,36,2026-08-10
+427410,Abiotic Factor,greek,3,3,0,2026-08-10
+427410,Abiotic Factor,hungarian,54,53,1,2026-08-10
+427410,Abiotic Factor,indonesian,3,3,0,2026-08-10
+427410,Abiotic Factor,italian,131,127,4,2026-08-10
+427410,Abiotic Factor,japanese,311,280,31,2026-08-10
+427410,Abiotic Factor,koreana,577,525,52,2026-08-10
+427410,Abiotic Factor,malay,0,0,0,2026-08-10
+427410,Abiotic Factor,norwegian,40,40,0,2026-08-10
+427410,Abiotic Factor,polish,360,348,12,2026-08-10
+427410,Abiotic Factor,portuguese,35,33,2,2026-08-10
+427410,Abiotic Factor,brazilian,901,880,21,2026-08-10
+427410,Abiotic Factor,romanian,5,4,1,2026-08-10
+427410,Abiotic Factor,russian,7229,6824,405,2026-08-10
+427410,Abiotic Factor,spanish,485,469,16,2026-08-10
+427410,Abiotic Factor,latam,153,147,6,2026-08-10
+427410,Abiotic Factor,swedish,64,59,5,2026-08-10
+427410,Abiotic Factor,thai,48,48,0,2026-08-10
+427410,Abiotic Factor,turkish,185,178,7,2026-08-10
+427410,Abiotic Factor,ukrainian,224,212,12,2026-08-10
+427410,Abiotic Factor,vietnamese,2,2,0,2026-08-10
+1374490,RuneScape: Dragonwilds,arabic,0,0,0,2026-08-10
+1374490,RuneScape: Dragonwilds,bulgarian,5,4,1,2026-08-10
+1374490,RuneScape: Dragonwilds,schinese,587,255,332,2026-08-10
+1374490,RuneScape: Dragonwilds,tchinese,117,66,51,2026-08-10
+1374490,RuneScape: Dragonwilds,czech,79,65,14,2026-08-10
+1374490,RuneScape: Dragonwilds,danish,67,59,8,2026-08-10
+1374490,RuneScape: Dragonwilds,dutch,293,266,27,2026-08-10
+1374490,RuneScape: Dragonwilds,english,23561,19356,4205,2026-08-10
+1374490,RuneScape: Dragonwilds,finnish,97,87,10,2026-08-10
+1374490,RuneScape: Dragonwilds,french,601,487,114,2026-08-10
+1374490,RuneScape: Dragonwilds,german,668,491,177,2026-08-10
+1374490,RuneScape: Dragonwilds,greek,4,4,0,2026-08-10
+1374490,RuneScape: Dragonwilds,hungarian,29,24,5,2026-08-10
+1374490,RuneScape: Dragonwilds,indonesian,1,1,0,2026-08-10
+1374490,RuneScape: Dragonwilds,italian,96,80,16,2026-08-10
+1374490,RuneScape: Dragonwilds,japanese,49,32,17,2026-08-10
+1374490,RuneScape: Dragonwilds,koreana,70,42,28,2026-08-10
+1374490,RuneScape: Dragonwilds,malay,0,0,0,2026-08-10
+1374490,RuneScape: Dragonwilds,norwegian,65,63,2,2026-08-10
+1374490,RuneScape: Dragonwilds,polish,106,80,26,2026-08-10
+1374490,RuneScape: Dragonwilds,portuguese,54,50,4,2026-08-10
+1374490,RuneScape: Dragonwilds,brazilian,922,847,75,2026-08-10
+1374490,RuneScape: Dragonwilds,romanian,5,5,0,2026-08-10
+1374490,RuneScape: Dragonwilds,russian,364,215,149,2026-08-10
+1374490,RuneScape: Dragonwilds,spanish,514,441,73,2026-08-10
+1374490,RuneScape: Dragonwilds,latam,126,112,14,2026-08-10
+1374490,RuneScape: Dragonwilds,swedish,129,117,12,2026-08-10
+1374490,RuneScape: Dragonwilds,thai,13,9,4,2026-08-10
+1374490,RuneScape: Dragonwilds,turkish,110,68,42,2026-08-10
+1374490,RuneScape: Dragonwilds,ukrainian,32,21,11,2026-08-10
+1374490,RuneScape: Dragonwilds,vietnamese,1,0,1,2026-08-10
+1645820,SurrounDead,arabic,0,0,0,2026-08-10
+1645820,SurrounDead,bulgarian,3,3,0,2026-08-10
+1645820,SurrounDead,schinese,547,458,89,2026-08-10
+1645820,SurrounDead,tchinese,52,48,4,2026-08-10
+1645820,SurrounDead,czech,157,147,10,2026-08-10
+1645820,SurrounDead,danish,50,47,3,2026-08-10
+1645820,SurrounDead,dutch,94,89,5,2026-08-10
+1645820,SurrounDead,english,17086,15515,1571,2026-08-10
+1645820,SurrounDead,finnish,41,39,2,2026-08-10
+1645820,SurrounDead,french,729,693,36,2026-08-10
+1645820,SurrounDead,german,904,851,53,2026-08-10
+1645820,SurrounDead,greek,11,11,0,2026-08-10
+1645820,SurrounDead,hungarian,64,57,7,2026-08-10
+1645820,SurrounDead,indonesian,11,9,2,2026-08-10
+1645820,SurrounDead,italian,136,129,7,2026-08-10
+1645820,SurrounDead,japanese,248,217,31,2026-08-10
+1645820,SurrounDead,koreana,159,133,26,2026-08-10
+1645820,SurrounDead,malay,0,0,0,2026-08-10
+1645820,SurrounDead,norwegian,34,33,1,2026-08-10
+1645820,SurrounDead,polish,402,373,29,2026-08-10
+1645820,SurrounDead,portuguese,105,102,3,2026-08-10
+1645820,SurrounDead,brazilian,1727,1651,76,2026-08-10
+1645820,SurrounDead,romanian,18,16,2,2026-08-10
+1645820,SurrounDead,russian,1472,1356,116,2026-08-10
+1645820,SurrounDead,spanish,1269,1177,92,2026-08-10
+1645820,SurrounDead,latam,244,228,16,2026-08-10
+1645820,SurrounDead,swedish,89,79,10,2026-08-10
+1645820,SurrounDead,thai,145,143,2,2026-08-10
+1645820,SurrounDead,turkish,321,290,31,2026-08-10
+1645820,SurrounDead,ukrainian,111,106,5,2026-08-10
+1645820,SurrounDead,vietnamese,25,25,0,2026-08-10
+221100,DayZ,arabic,1,1,0,2026-08-10
+221100,DayZ,bulgarian,204,163,41,2026-08-10
+221100,DayZ,schinese,15075,9624,5451,2026-08-10
+221100,DayZ,tchinese,756,468,288,2026-08-10
+221100,DayZ,czech,5033,4157,876,2026-08-10
+221100,DayZ,danish,1154,927,227,2026-08-10
+221100,DayZ,dutch,1896,1593,303,2026-08-10
+221100,DayZ,english,210610,155820,54790,2026-08-10
+221100,DayZ,finnish,1709,1407,302,2026-08-10
+221100,DayZ,french,14908,11699,3209,2026-08-10
+221100,DayZ,german,25960,19621,6339,2026-08-10
+221100,DayZ,greek,469,399,70,2026-08-10
+221100,DayZ,hungarian,1978,1690,288,2026-08-10
+221100,DayZ,indonesian,3,3,0,2026-08-10
+221100,DayZ,italian,2493,1837,656,2026-08-10
+221100,DayZ,japanese,677,429,248,2026-08-10
+221100,DayZ,koreana,2939,1559,1380,2026-08-10
+221100,DayZ,malay,1,1,0,2026-08-10
+221100,DayZ,norwegian,1087,905,182,2026-08-10
+221100,DayZ,polish,7077,5801,1276,2026-08-10
+221100,DayZ,portuguese,2744,2486,258,2026-08-10
+221100,DayZ,brazilian,29327,26516,2811,2026-08-10
+221100,DayZ,romanian,583,533,50,2026-08-10
+221100,DayZ,russian,111003,91454,19549,2026-08-10
+221100,DayZ,spanish,15711,13289,2422,2026-08-10
+221100,DayZ,latam,1313,1131,182,2026-08-10
+221100,DayZ,swedish,2385,2050,335,2026-08-10
+221100,DayZ,thai,1262,1058,204,2026-08-10
+221100,DayZ,turkish,5663,4105,1558,2026-08-10
+221100,DayZ,ukrainian,3088,2703,385,2026-08-10
+221100,DayZ,vietnamese,57,48,9,2026-08-10
+1149460,ICARUS,arabic,0,0,0,2026-08-10
+1149460,ICARUS,bulgarian,19,17,2,2026-08-10
+1149460,ICARUS,schinese,3049,1155,1894,2026-08-10
+1149460,ICARUS,tchinese,540,287,253,2026-08-10
+1149460,ICARUS,czech,418,347,71,2026-08-10
+1149460,ICARUS,danish,141,119,22,2026-08-10
+1149460,ICARUS,dutch,216,188,28,2026-08-10
+1149460,ICARUS,english,37506,28547,8959,2026-08-10
+1149460,ICARUS,finnish,111,97,14,2026-08-10
+1149460,ICARUS,french,2837,2225,612,2026-08-10
+1149460,ICARUS,german,5040,3983,1057,2026-08-10
+1149460,ICARUS,greek,46,39,7,2026-08-10
+1149460,ICARUS,hungarian,194,160,34,2026-08-10
+1149460,ICARUS,indonesian,13,11,2,2026-08-10
+1149460,ICARUS,italian,221,175,46,2026-08-10
+1149460,ICARUS,japanese,590,362,228,2026-08-10
+1149460,ICARUS,koreana,1046,640,406,2026-08-10
+1149460,ICARUS,malay,0,0,0,2026-08-10
+1149460,ICARUS,norwegian,195,167,28,2026-08-10
+1149460,ICARUS,polish,667,542,125,2026-08-10
+1149460,ICARUS,portuguese,179,164,15,2026-08-10
+1149460,ICARUS,brazilian,2545,2107,438,2026-08-10
+1149460,ICARUS,romanian,58,53,5,2026-08-10
+1149460,ICARUS,russian,8155,6052,2103,2026-08-10
+1149460,ICARUS,spanish,1464,1189,275,2026-08-10
+1149460,ICARUS,latam,291,232,59,2026-08-10
+1149460,ICARUS,swedish,250,212,38,2026-08-10
+1149460,ICARUS,thai,95,73,22,2026-08-10
+1149460,ICARUS,turkish,801,564,237,2026-08-10
+1149460,ICARUS,ukrainian,281,201,80,2026-08-10
+1149460,ICARUS,vietnamese,24,19,5,2026-08-10
+1898300,ASKA,arabic,0,0,0,2026-08-10
+1898300,ASKA,bulgarian,2,2,0,2026-08-10
+1898300,ASKA,schinese,369,228,141,2026-08-10
+1898300,ASKA,tchinese,148,95,53,2026-08-10
+1898300,ASKA,czech,85,76,9,2026-08-10
+1898300,ASKA,danish,33,31,2,2026-08-10
+1898300,ASKA,dutch,37,34,3,2026-08-10
+1898300,ASKA,english,6371,5105,1266,2026-08-10
+1898300,ASKA,finnish,23,20,3,2026-08-10
+1898300,ASKA,french,476,399,77,2026-08-10
+1898300,ASKA,german,1013,832,181,2026-08-10
+1898300,ASKA,greek,7,7,0,2026-08-10
+1898300,ASKA,hungarian,33,27,6,2026-08-10
+1898300,ASKA,indonesian,1,1,0,2026-08-10
+1898300,ASKA,italian,60,50,10,2026-08-10
+1898300,ASKA,japanese,118,85,33,2026-08-10
+1898300,ASKA,koreana,72,50,22,2026-08-10
+1898300,ASKA,malay,0,0,0,2026-08-10
+1898300,ASKA,norwegian,36,33,3,2026-08-10
+1898300,ASKA,polish,339,287,52,2026-08-10
+1898300,ASKA,portuguese,28,26,2,2026-08-10
+1898300,ASKA,brazilian,466,404,62,2026-08-10
+1898300,ASKA,romanian,15,14,1,2026-08-10
+1898300,ASKA,russian,1504,1124,380,2026-08-10
+1898300,ASKA,spanish,372,325,47,2026-08-10
+1898300,ASKA,latam,46,40,6,2026-08-10
+1898300,ASKA,swedish,72,66,6,2026-08-10
+1898300,ASKA,thai,22,20,2,2026-08-10
+1898300,ASKA,turkish,170,123,47,2026-08-10
+1898300,ASKA,ukrainian,102,93,9,2026-08-10
+1898300,ASKA,vietnamese,5,5,0,2026-08-10

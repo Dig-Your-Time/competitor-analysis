@@ -23,6 +23,15 @@ def load(name):
     with open(DATA / name, encoding="utf-8-sig", newline="") as f:
         return list(csv.DictReader(f))
 
+def load_optional(name):
+    """For tables produced by a separate fetch (languages), so a fresh clone that
+    has not run fetch_languages.py yet still builds instead of crashing."""
+    p = DATA / name
+    if not p.exists():
+        print(f"  (no {name} yet -- run scripts/fetch_languages.py)")
+        return []
+    return load(name)
+
 def num(v):
     v = (v or "").strip().replace(",", "")
     if v == "":
@@ -64,6 +73,9 @@ for r in seed:
         "price_eur": num(s.get("base_price_eur")),
         "price_retrieved": s.get("price_retrieved", ""),
         "genres": s.get("genres", ""), "steam_tags": s.get("steam_top_tags", ""),
+        # which languages the game SHIPS (as review-language codes, so it joins to
+        # the language mix). The pair answers "did shipping this move its share?"
+        "supported_languages": [c for c in (s.get("supported_language_codes") or "").split(";") if c],
         "platforms": s.get("platforms", ""), "publisher": s.get("publisher", ""),
         "developer": s.get("developer", ""),
         "review_count": num(s.get("review_count_total")),
@@ -135,6 +147,32 @@ for gid, rows in by.items():
     curves[gid] = [{"w": int(r["week_index"]), "new": int(r["reviews_new"]),
                     "cum": int(r["reviews_cumulative"]),
                     "pct": round(int(r["reviews_cumulative"]) / total, 4)} for r in rows]
+
+# language mix: one game -> its review-language breakdown, biggest first.
+# `share` is computed here from the rows themselves rather than against the
+# all-languages total Steam reports, so it always sums to exactly 1 — the two
+# readings can differ by a review or three, because reviews are posted and deleted
+# while the ~32 requests for a game are in flight.
+languages = {}
+for r in load_optional("languages.csv"):
+    languages.setdefault(r["game_id"], []).append(r)
+for gid, rows in languages.items():
+    total = sum(num(r["reviews"]) or 0 for r in rows) or 1
+    languages[gid] = [{
+        "lang": r["language"],
+        "n": num(r["reviews"]),
+        "share": round((num(r["reviews"]) or 0) / total, 5),
+        "pos": num(r["reviews_positive"]),
+        "neg": num(r["reviews_negative"]),
+    } for r in sorted(rows, key=lambda x: -(num(x["reviews"]) or 0)) if num(r["reviews"])]
+
+# Valve's own platform-wide language split. This is the denominator that makes a
+# per-game share readable: 11% Simplified Chinese looks healthy until you see that
+# Chinese is 22% of Steam. It measures CLIENT language while reviews measure the
+# language someone wrote in, so it is sound for comparing games to each other and
+# not for reading an absolute share of players off a single game.
+language_baseline = {r["language"]: num(r["steam_share_pct"])
+                     for r in load_optional("steam_language_baseline.csv")}
 
 # company financials: one company -> its filed annual rows (native currency kept;
 # CLAUDE.md rule -> currency is converted in the dashboard, never in the data).
@@ -253,9 +291,17 @@ data = {
                               "one-off spike the week Steam's review feature launched -- that bump "
                               "is the feature, not a sale."),
         "est_note": "Units & revenue are ESTIMATES, never sales data. Revenue is GROSS (Valve takes 30%+).",
+        "language_note": ("Share of REVIEWS by language, not of players -- review propensity "
+                          "differs by language community and there is no ground truth to "
+                          "correct it with. Comparing one game to another is sound; reading "
+                          "an absolute share of players off it is not. It is also not country: "
+                          "Spanish spans Spain and Latin America. Steam publishes no country "
+                          "data for games you do not own."),
     },
     "games": games,
     "launch_curves": curves,
+    "languages": languages,
+    "language_baseline": language_baseline,
     "financials": financials,
     "funding": funding,
     "companies": list(seen_co.values()),
