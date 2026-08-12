@@ -19,11 +19,21 @@ revenue figures are **estimates** and are labelled as such everywhere they appea
 Valve doesn't publish sales, so nobody has the real number, only models that
 disagree with each other. The dashboard tries hard never to blur the two.
 
+## Documentation
+
+- **[Dashboard guide](docs/dashboard-guide.md)** — what every view shows, what every
+  number means, the tiers, where the data comes from, and what the dashboard can't
+  tell you.
+- **[The game page](docs/game-pages-and-gamesensor.md)** — the per-game page at
+  `/<steam_appid>` explained section by section, including what "vendor model" means
+  and how to refresh the third-party estimates.
+
 ## Layout
 
 ```
 .
 ├── data/            the CSVs. Hand-curated files + script-generated ones.
+├── docs/            what the dashboard shows and where the numbers come from.
 ├── scripts/         the Python pipeline (fetch, estimate, build).
 └── dashboard/       the static site (React). Reads dashboard/public/data.json.
 ```
