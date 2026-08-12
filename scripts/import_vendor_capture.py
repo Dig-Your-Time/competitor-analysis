@@ -52,13 +52,18 @@ COUNTRY = {
 
 
 def to_num(v):
-    """'1.7m' / '$6M' / '400K' / '666' -> int. Returns '' for blanks."""
+    """'1.7m' / '$6M' / '400K' / '666' -> int. Returns '' for blanks.
+
+    round(), not int(): 4.1 * 1_000_000 is 4099999.9999999995 in binary floating point,
+    so int() truncated "4.1m" to 4,099,999 and "65.6m" to 65,599,999. Both landed in the
+    CSVs looking like suspiciously precise estimates when they were parse artifacts.
+    """
     if v in (None, ""):
         return ""
     s = str(v).replace("$", "").replace(",", "").strip().lower()
     mult = {"k": 1_000, "m": 1_000_000, "b": 1_000_000_000}.get(s[-1:])
     try:
-        return int(float(s[:-1]) * mult) if mult else int(float(s))
+        return round(float(s[:-1]) * mult) if mult else round(float(s))
     except ValueError:
         return ""
 

@@ -65,7 +65,7 @@ export default function Compare({ data }) {
         title="Compare"
         subtitle="Every metric, side by side, including our own game."
         infoWidth={430}
-        info={<>Reviews bars are a single solid fill, a <b>HARD</b> fact. The units bar is a <b>band</b>, not a point: it spans the low to high estimate and the tick marks the mid. A <b>wide band means the estimators disagree</b>, so read the width as "how much to trust this." Revenue is <b>gross</b>: Valve takes 30%+, so real take-home is well under half.</>}
+        info={<>Reviews bars are a single solid fill, a <b>HARD</b> fact. The units bar is a <b>band</b>, not a point: it spans <b>Gamalytic's own low to high</b> for that game and the tick marks its mid. A wide band means <b>that model is unsure</b>, so read the width as "how much to trust this." It is not the gap between vendors — for that, open a game's page, where Boxleiter, GameSensor and Gamalytic sit side by side and differ by 2–4× on small games. Revenue is <b>gross</b>: Valve takes 30%+, so real take-home is well under half.</>}
       />
 
       <div className="cmp-chips">

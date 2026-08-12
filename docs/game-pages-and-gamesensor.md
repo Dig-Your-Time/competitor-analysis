@@ -40,6 +40,15 @@ than averaging them:
 | **GameSensor** | A commercial vendor's model. |
 | **Gamalytic** | A second commercial vendor's model. |
 
+**Boxleiter won't divide evenly by the review count shown at the top of the page**, and for
+one game the gap is visible. Steam reports two review totals: the store-page figure, which
+*excludes* reviews Valve has ruled an off-topic review bomb, and the bombs-included figure.
+The page header shows the store figure, because that's what a visitor to the store sees.
+Boxleiter multiplies the bombs-included one, because a review-bombing player still bought
+the game. For 27 of the 28 tracked games the two are identical. **7 Days to Die** is the
+exception — 397,896 on the store against 407,115 including 9,219 bombed reviews — so its
+Boxleiter bar is built on the larger number. That is deliberate, not an arithmetic slip.
+
 The bars are scaled to the largest, so a disagreement *looks* like one. Beneath them the
 page states the spread in words.
 
@@ -119,7 +128,8 @@ Two footnotes appear under the table when they apply:
 - **† on the Chinese row.** GameSensor files both Chinese scripts under one row it labels
   "Traditional Chinese". Its figure is shown where it puts it, marked, with Steam's real
   Simplified/Traditional split alongside — for Dome Keeper, GameSensor says 10% while
-  Steam's actual split is 9.1% Simplified + 1.2% Traditional.
+  Steam's actual split is 9.1% Simplified + 0.7% Traditional. Nearly all of that 10% is
+  Simplified, which is exactly why the label can't be taken at face value.
 - **"Others"** — GameSensor lists only its top languages and buckets the rest. Our table
   has no such bucket; it's the complete list, so the two "others" aren't comparable.
 

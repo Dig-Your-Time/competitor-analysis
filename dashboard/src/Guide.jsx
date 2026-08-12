@@ -1,5 +1,6 @@
 export default function Guide({ data }) {
   const m = data.meta
+  const nCurves = Object.keys(data.launch_curves || {}).length
   return (
     <div className="guide">
       <h1>Guide: what everything here means</h1>
@@ -43,10 +44,16 @@ export default function Guide({ data }) {
           <strong> mid</strong>.
         </p>
         <p>
-          Read the band's <strong>width as your confidence</strong>. A tight band means the two
-          independent estimators (Gamalytic and Boxleiter) roughly agree; a wide one means they don't,
-          so the "number" could be off by a lot. Two studios can show the same mid yet mean very different
-          things once you look at how wide each one's band is.
+          Read the band's <strong>width as your confidence</strong>. The band is <em>Gamalytic's own</em>
+          low-to-high range for that game, read off its page — not a spread between two estimators. A
+          tight band means the model is confident; a wide one means it isn't, so the "number" could be
+          off by a lot. Two studios can show the same mid yet mean very different things once you look
+          at how wide each one's band is.
+        </p>
+        <p>
+          For the disagreement <em>between</em> estimators, open a game's own page: it lists Boxleiter,
+          GameSensor and Gamalytic side by side rather than averaging them. On small games they differ
+          by 2–4×, which is a far bigger uncertainty than any one vendor's band admits to.
         </p>
         <p className="callout">
           <strong>Don't compare revenue to our own net figure.</strong> Est. gross revenue is before
@@ -73,14 +80,19 @@ export default function Guide({ data }) {
       </div>
 
       <div className="gcard">
-        <h2>Why some games are missing from the curve</h2>
+        <h2>Every game has a curve — but read the edges honestly</h2>
         <p>
-          Games with more than about 100k reviews (Terraria, DayZ, Valheim, Deep Rock, 7 Days, ASTRONEER,
-          Teardown, Outer Wilds, Enshrouded) appear everywhere <em>except</em> the launch curve. Steam's
-          reviews API walks newest to oldest and gives out before reaching a million-review game's launch
-          week, so their early curve is unrecoverable. Rather than draw a misleading stub, they're flagged
-          and excluded from the overlay. They still count as <strong>ceiling markers</strong>, never as
-          typical-case peers.
+          All {nCurves} tracked games appear in the overlay, big ones included. Counting
+          a week at a time off Steam's own review index costs the same whether a week holds 3 reviews or
+          30,000, so a million-review game is no longer unreachable — the old limit that dropped Terraria,
+          DayZ and Valheim from this view is gone. Coverage is <strong>measured</strong> against each game's
+          lifetime review total rather than assumed, and anything that recovers under 90% is flagged in the
+          chart's own notes.
+        </p>
+        <p>
+          What still needs care: weeks <strong>before 0</strong> are Early Access, not a pre-launch mystery;
+          a line that <strong>starts late</strong> has no launch spike to read; and the big multiplayer games
+          remain <strong>ceiling markers</strong>, never typical-case peers, however complete their curves are.
         </p>
       </div>
 
@@ -99,7 +111,7 @@ export default function Guide({ data }) {
           <div className="d"><span className="k">Reviews, dates, prices, tags</span><span className="v">Steam APIs. <span className="tagpill tag-hard">HARD</span>.</span></div>
           <div className="d"><span className="k">Price</span><span className="v">Always the <strong>list price</strong>, never the sale price. Steam reports both, and a game that happened to be 75% off on the day we fetched is not a $7 game — filing the discount would put it in the wrong bracket on the market map, the one chart meant to inform our own pricing. Shown in <strong>two regions</strong>: the US dollar price and the Finnish euro price, both fetched. Steam sets regional prices <em>per region</em> rather than converting, so these are two separate decisions by the publisher — Hydroneer is €15.49 against $14.99, Outer Wilds €22.99 against $24.99. Caveat: this is <em>today&apos;s</em> list price, re-fetched on every run because prices move. A studio that permanently repriced shows the new number; Steam exposes no price history.</span></div>
           <div className="d"><span className="k">Launch curves</span><span className="v">Weekly review counts read straight off Steam&apos;s review index, one week at a time, so cost doesn&apos;t scale with a game&apos;s size and <strong>every tracked game has a curve</strong>. Weeks before 0 are Early Access: a game whose Steam release date is its 1.0 date can have years of sales to the left of &quot;launch&quot;.</span></div>
-          <div className="d"><span className="k">Units &amp; revenue</span><span className="v">Gamalytic (the mid) bracketed by a Boxleiter estimate (reviews × 20 to 40). <span className="tagpill tag-est">EST</span>. Revenue is <strong>gross</strong>; Valve takes 30%+ and real take-home is well under half.</span></div>
+          <div className="d"><span className="k">Units &amp; revenue</span><span className="v">Gamalytic's own low / mid / high, read off its page for each game. <span className="tagpill tag-est">EST</span>. A Boxleiter figure (reviews × 30) and GameSensor's are kept alongside on each game page as competing estimates, never blended in. Revenue is <strong>gross</strong>; Valve takes 30%+ and real take-home is well under half. Caveat: Gamalytic <em>truncates</em> what it displays — a modelled 1,174,095 renders as &quot;1.1m&quot; — so the stored figure is the displayed one and runs slightly low, on average 1.3% and at worst 6%.</span></div>
           <div className="d"><span className="k">Company financials</span><span className="v">Filed Nordic and EU annual accounts. <span className="tagpill tag-hard">HARD</span>, but multi-currency and sometimes P&amp;L-restricted.</span></div>
           <div className="d"><span className="k">Sales claims, deal notes</span><span className="v">Dev tweets, interviews, postmortems. <span className="tagpill tag-anec">ANEC</span>.</span></div>
           <div className="d"><span className="k">Currency</span><span className="v">All <strong>estimated and filed money is shown in EUR</strong>, converted at fixed approximate rates (the exact rates and per-currency detail appear on a studio's source panel). The one exception is a game's <strong>listed Steam price</strong>. Its euro figure is <em>not</em> converted — it is Steam's actual Finnish store price, fetched separately, because Valve's regional pricing is set per region rather than derived from the dollar figure.</span></div>
