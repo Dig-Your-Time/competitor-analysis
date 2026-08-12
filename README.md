@@ -25,8 +25,8 @@ disagree with each other. The dashboard tries hard never to blur the two.
   number means, the tiers, where the data comes from, and what the dashboard can't
   tell you.
 - **[The game page](docs/game-pages-and-gamesensor.md)** — the per-game page at
-  `/<steam_appid>` explained section by section, including what "vendor model" means
-  and how to refresh the third-party estimates.
+  `/<steam_appid>` explained section by section, and how to refresh the third-party
+  estimates.
 
 ## Layout
 
