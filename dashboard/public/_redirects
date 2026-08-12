@@ -1,0 +1,6 @@
+# SPA fallback. Game pages live at /<steam_appid>, which is a client-side route with
+# no file behind it -- without this, loading or refreshing /892970 directly is a 404.
+# The dev server does this automatically; static hosts have to be told.
+# Cloudflare Pages reads this file. GitHub Pages ignores it and needs a 404.html copy
+# of index.html instead -- see docs/game-pages-and-gamesensor.md.
+/*    /index.html   200

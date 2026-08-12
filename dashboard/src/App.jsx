@@ -9,8 +9,10 @@ import PublisherView from './PublisherView.jsx'
 import FundingView from './FundingView.jsx'
 import Guide from './Guide.jsx'
 import OurGameEditor from './OurGameEditor.jsx'
+import GamePage from './GamePage.jsx'
 import { DrawerProvider } from './drawer.jsx'
 import { EditorCtx } from './editor.jsx'
+import { RouterProvider, useRoute } from './router.jsx'
 
 const TABS = [
   { id: 'browse', label: 'Browse' },
@@ -25,6 +27,15 @@ const TABS = [
 ]
 
 export default function App() {
+  return (
+    <RouterProvider>
+      <Dashboard />
+    </RouterProvider>
+  )
+}
+
+function Dashboard() {
+  const { route, navigate } = useRoute()
   const [data, setData] = useState(null)
   const [tab, setTab] = useState('browse')
   const [ourEdits, setOurEdits] = useState({})
@@ -57,22 +68,36 @@ export default function App() {
           <span className="mark">Competitor Analysis</span>
           <span className="tag">Indie mining &amp; survival benchmark</span>
         </div>
+        {/* The header stays put on every route. On a game page a tab click has to do
+            two things: pick the tab AND return to the dashboard URL. */}
         <nav className="nav">
           {TABS.map((t) => (
-            <button key={t.id} className={tab === t.id ? 'on' : ''} onClick={() => setTab(t.id)}>{t.label}</button>
+            <button
+              key={t.id}
+              className={route.name === 'home' && tab === t.id ? 'on' : ''}
+              onClick={() => { setTab(t.id); if (route.name !== 'home') navigate('/') }}
+            >
+              {t.label}
+            </button>
           ))}
         </nav>
       </div>
 
-      {tab === 'curves' && <LaunchCurves data={view} />}
-      {tab === 'browse' && <Directory data={view} />}
-      {tab === 'compare' && <Compare data={view} />}
-      {tab === 'market' && <MarketMap data={view} />}
-      {tab === 'regions' && <RegionMap data={view} />}
-      {tab === 'financials' && <Financials data={view} />}
-      {tab === 'publishers' && <PublisherView data={view} />}
-      {tab === 'funding' && <FundingView data={view} />}
-      {tab === 'guide' && <Guide data={view} />}
+      {route.name === 'game' ? (
+        <GamePage data={view} gameId={route.gameId} />
+      ) : (
+        <>
+          {tab === 'curves' && <LaunchCurves data={view} />}
+          {tab === 'browse' && <Directory data={view} />}
+          {tab === 'compare' && <Compare data={view} />}
+          {tab === 'market' && <MarketMap data={view} />}
+          {tab === 'regions' && <RegionMap data={view} />}
+          {tab === 'financials' && <Financials data={view} />}
+          {tab === 'publishers' && <PublisherView data={view} />}
+          {tab === 'funding' && <FundingView data={view} />}
+          {tab === 'guide' && <Guide data={view} />}
+        </>
+      )}
 
       <footer>
         Data generated {view.generated}. Reviews, dates &amp; prices are HARD (Steam); units &amp; revenue are estimates.
