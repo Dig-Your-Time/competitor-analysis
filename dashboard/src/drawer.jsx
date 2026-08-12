@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import { Link } from './router.jsx'
 import { fmt, toEur, eurStr, nativeAmt, EUR_PER } from './lib.js'
 import { CAN_EDIT, nextSourceId } from './editApi.js'
 import { EditForm, EditCue } from './EditForm.jsx'
@@ -199,7 +200,7 @@ function StudioBody({ data, cid, hideGames }) {
 }
 
 function GameBody({ data, gid }) {
-  const { reload } = useDrawer()
+  const { reload, close } = useDrawer()
   const [form, setForm] = useState(null)
   const g = data.games.find((x) => x.game_id === gid)
   if (!g) return <p className="note">No game record.</p>
@@ -227,6 +228,13 @@ function GameBody({ data, gid }) {
           <span className="edit-note">judgement fields only — Steam facts &amp; estimates are script-owned</span>
         </div>
       ) : null}
+
+      {/* the drawer is a peek; this is the way out to the game's own shareable URL */}
+      {!g.is_our_game && (
+        <Link to={`/${g.game_id}`} className="dfullpage" onClick={close}>
+          Open full page for {g.title} →
+        </Link>
+      )}
 
       <div className="dfacts">
         <div><span>Tier</span><b>{g.tier}</b></div>

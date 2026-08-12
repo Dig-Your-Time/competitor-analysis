@@ -24,6 +24,14 @@ HAND = {
     "funding":           ("funding.csv",           []),          # rounds have no natural key
     "sources":           ("sources.csv",           ["source_id"]),
     "gamalytic_stats":   ("gamalytic_stats.csv",   ["game_id"]),
+    # GameSensor is captured by hand in a browser (the site is behind a bot
+    # challenge, so no script regenerates it) -- same ownership as the Gamalytic
+    # export, and therefore edited only through here.
+    "gamesensor_stats":     ("gamesensor_stats.csv",     ["game_id"]),
+    "gamesensor_languages": ("gamesensor_languages.csv", ["game_id", "gs_language"]),
+    # Gamalytic's web page, captured the same way for the same reason (paywalled API)
+    "gamalytic_detail":    ("gamalytic_detail.csv",    ["game_id"]),
+    "gamalytic_countries": ("gamalytic_countries.csv", ["game_id", "country_code"]),
 }
 
 # SCRIPT-owned; never writable here (belt-and-suspenders over the HAND allowlist)

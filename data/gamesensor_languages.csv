@@ -1,0 +1,292 @@
+game_id,title,gs_language,language,revenue_pct,copies_pct,supported,captured_date,confidence_class,src_est
+1637320,Dome Keeper,English,english,66.0,60.0,1,2026-08-12,EST,S051
+1637320,Dome Keeper,Traditional Chinese,chinese_all,6.0,10.0,1,2026-08-12,EST,S051
+1637320,Dome Keeper,Spanish,spanish,4.0,3.0,1,2026-08-12,EST,S051
+1637320,Dome Keeper,French,french,4.0,3.0,1,2026-08-12,EST,S051
+1637320,Dome Keeper,German,german,4.0,3.0,1,2026-08-12,EST,S051
+1637320,Dome Keeper,Others,other,4.0,4.0,0,2026-08-12,EST,S051
+1637320,Dome Keeper,Russian,russian,4.0,8.0,1,2026-08-12,EST,S051
+1637320,Dome Keeper,Korean,koreana,2.0,3.0,1,2026-08-12,EST,S051
+1637320,Dome Keeper,Brazilian Portuguese,brazilian,2.0,3.0,1,2026-08-12,EST,S051
+1637320,Dome Keeper,Turkish,turkish,2.0,1.0,1,2026-08-12,EST,S051
+1637320,Dome Keeper,Polish,polish,2.0,1.0,1,2026-08-12,EST,S051
+252410,SteamWorld Dig,English,english,57.0,51.0,1,2026-08-12,EST,S051
+252410,SteamWorld Dig,Russian,russian,9.0,14.0,1,2026-08-12,EST,S051
+252410,SteamWorld Dig,Spanish,spanish,8.0,7.0,1,2026-08-12,EST,S051
+252410,SteamWorld Dig,Brazilian Portuguese,brazilian,6.0,7.0,1,2026-08-12,EST,S051
+252410,SteamWorld Dig,German,german,4.0,4.0,1,2026-08-12,EST,S051
+252410,SteamWorld Dig,Others,other,4.0,5.0,0,2026-08-12,EST,S051
+252410,SteamWorld Dig,Traditional Chinese,chinese_all,4.0,4.0,0,2026-08-12,EST,S051
+252410,SteamWorld Dig,French,french,3.0,3.0,1,2026-08-12,EST,S051
+252410,SteamWorld Dig,Polish,polish,2.0,2.0,1,2026-08-12,EST,S051
+252410,SteamWorld Dig,Italian,italian,1.0,1.0,1,2026-08-12,EST,S051
+252410,SteamWorld Dig,Turkish,turkish,1.0,1.0,0,2026-08-12,EST,S051
+252410,SteamWorld Dig,Korean,koreana,1.0,1.0,0,2026-08-12,EST,S051
+571310,SteamWorld Dig 2,English,english,58.0,50.0,1,2026-08-12,EST,S051
+571310,SteamWorld Dig 2,Russian,russian,9.0,15.0,1,2026-08-12,EST,S051
+571310,SteamWorld Dig 2,Spanish,spanish,8.0,6.0,1,2026-08-12,EST,S051
+571310,SteamWorld Dig 2,Traditional Chinese,chinese_all,7.0,9.0,0,2026-08-12,EST,S051
+571310,SteamWorld Dig 2,Others,other,5.0,5.0,0,2026-08-12,EST,S051
+571310,SteamWorld Dig 2,German,german,4.0,3.0,1,2026-08-12,EST,S051
+571310,SteamWorld Dig 2,Brazilian Portuguese,brazilian,4.0,6.0,0,2026-08-12,EST,S051
+571310,SteamWorld Dig 2,French,french,2.0,2.0,1,2026-08-12,EST,S051
+571310,SteamWorld Dig 2,Polish,polish,2.0,2.0,0,2026-08-12,EST,S051
+571310,SteamWorld Dig 2,Turkish,turkish,1.0,1.0,0,2026-08-12,EST,S051
+1106840,Hydroneer,English,english,73.0,72.0,1,2026-08-12,EST,S051
+1106840,Hydroneer,German,german,7.0,7.0,1,2026-08-12,EST,S051
+1106840,Hydroneer,Others,other,5.0,5.0,0,2026-08-12,EST,S051
+1106840,Hydroneer,Czech,czech,4.0,3.0,1,2026-08-12,EST,S051
+1106840,Hydroneer,French,french,3.0,3.0,1,2026-08-12,EST,S051
+1106840,Hydroneer,Polish,polish,2.0,2.0,1,2026-08-12,EST,S051
+1106840,Hydroneer,Russian,russian,1.0,3.0,1,2026-08-12,EST,S051
+1106840,Hydroneer,Traditional Chinese,chinese_all,1.0,2.0,0,2026-08-12,EST,S051
+1106840,Hydroneer,Swedish,swedish,1.0,1.0,1,2026-08-12,EST,S051
+1106840,Hydroneer,Dutch,dutch,1.0,1.0,1,2026-08-12,EST,S051
+1106840,Hydroneer,Brazilian Portuguese,brazilian,1.0,2.0,1,2026-08-12,EST,S051
+1621690,Core Keeper,English,english,54.0,47.0,1,2026-08-12,EST,S051
+1621690,Core Keeper,Traditional Chinese,chinese_all,10.0,16.0,1,2026-08-12,EST,S051
+1621690,Core Keeper,Korean,koreana,7.0,8.0,1,2026-08-12,EST,S051
+1621690,Core Keeper,Spanish,spanish,7.0,5.0,1,2026-08-12,EST,S051
+1621690,Core Keeper,German,german,6.0,4.0,1,2026-08-12,EST,S051
+1621690,Core Keeper,Others,other,4.0,4.0,0,2026-08-12,EST,S051
+1621690,Core Keeper,French,french,3.0,2.0,1,2026-08-12,EST,S051
+1621690,Core Keeper,Russian,russian,2.0,5.0,1,2026-08-12,EST,S051
+1621690,Core Keeper,Brazilian Portuguese,brazilian,2.0,3.0,1,2026-08-12,EST,S051
+1621690,Core Keeper,Japanese,japanese,2.0,2.0,1,2026-08-12,EST,S051
+1621690,Core Keeper,Polish,polish,2.0,1.0,0,2026-08-12,EST,S051
+1621690,Core Keeper,Thai,thai,1.0,2.0,1,2026-08-12,EST,S051
+881100,Noita,English,english,67.0,59.0,1,2026-08-12,EST,S051
+881100,Noita,Traditional Chinese,chinese_all,12.0,15.0,0,2026-08-12,EST,S051
+881100,Noita,Russian,russian,6.0,12.0,1,2026-08-12,EST,S051
+881100,Noita,Others,other,3.0,3.0,0,2026-08-12,EST,S051
+881100,Noita,German,german,2.0,2.0,1,2026-08-12,EST,S051
+881100,Noita,Spanish,spanish,2.0,2.0,1,2026-08-12,EST,S051
+881100,Noita,Polish,polish,2.0,2.0,1,2026-08-12,EST,S051
+881100,Noita,Korean,koreana,2.0,2.0,1,2026-08-12,EST,S051
+881100,Noita,French,french,2.0,1.0,1,2026-08-12,EST,S051
+881100,Noita,Japanese,japanese,1.0,1.0,1,2026-08-12,EST,S051
+881100,Noita,Brazilian Portuguese,brazilian,1.0,2.0,1,2026-08-12,EST,S051
+1457320,Techtonica,English,english,67.0,65.0,1,2026-08-12,EST,S051
+1457320,Techtonica,German,german,12.0,10.0,1,2026-08-12,EST,S051
+1457320,Techtonica,Others,other,5.0,5.0,0,2026-08-12,EST,S051
+1457320,Techtonica,French,french,5.0,4.0,1,2026-08-12,EST,S051
+1457320,Techtonica,Russian,russian,4.0,7.0,1,2026-08-12,EST,S051
+1457320,Techtonica,Traditional Chinese,chinese_all,3.0,5.0,1,2026-08-12,EST,S051
+1457320,Techtonica,Japanese,japanese,2.0,3.0,1,2026-08-12,EST,S051
+1457320,Techtonica,Polish,polish,1.0,1.0,1,2026-08-12,EST,S051
+1457320,Techtonica,Spanish,spanish,1.0,,0,2026-08-12,EST,S051
+2392740,Cave Digger 2,English,english,73.0,69.0,1,2026-08-12,EST,S051
+2392740,Cave Digger 2,Spanish,spanish,6.0,6.0,1,2026-08-12,EST,S051
+2392740,Cave Digger 2,German,german,4.0,3.0,1,2026-08-12,EST,S051
+2392740,Cave Digger 2,Polish,polish,4.0,3.0,0,2026-08-12,EST,S051
+2392740,Cave Digger 2,Turkish,turkish,3.0,3.0,0,2026-08-12,EST,S051
+2392740,Cave Digger 2,Russian,russian,3.0,8.0,0,2026-08-12,EST,S051
+2392740,Cave Digger 2,Brazilian Portuguese,brazilian,3.0,6.0,1,2026-08-12,EST,S051
+2392740,Cave Digger 2,Danish,danish,3.0,3.0,0,2026-08-12,EST,S051
+606150,Moonlighter,English,english,47.0,45.0,1,2026-08-12,EST,S051
+606150,Moonlighter,Traditional Chinese,chinese_all,11.0,11.0,1,2026-08-12,EST,S051
+606150,Moonlighter,Spanish,spanish,8.0,7.0,1,2026-08-12,EST,S051
+606150,Moonlighter,Brazilian Portuguese,brazilian,8.0,11.0,1,2026-08-12,EST,S051
+606150,Moonlighter,Turkish,turkish,5.0,3.0,1,2026-08-12,EST,S051
+606150,Moonlighter,Russian,russian,5.0,7.0,1,2026-08-12,EST,S051
+606150,Moonlighter,Korean,koreana,4.0,3.0,1,2026-08-12,EST,S051
+606150,Moonlighter,German,german,3.0,3.0,1,2026-08-12,EST,S051
+606150,Moonlighter,Others,other,3.0,3.0,0,2026-08-12,EST,S051
+606150,Moonlighter,French,french,3.0,2.0,1,2026-08-12,EST,S051
+606150,Moonlighter,Polish,polish,2.0,2.0,1,2026-08-12,EST,S051
+606150,Moonlighter,Japanese,japanese,1.0,1.0,1,2026-08-12,EST,S051
+361420,ASTRONEER,English,english,47.0,45.0,1,2026-08-12,EST,S051
+361420,ASTRONEER,Traditional Chinese,chinese_all,12.0,13.0,0,2026-08-12,EST,S051
+361420,ASTRONEER,Russian,russian,9.0,12.0,1,2026-08-12,EST,S051
+361420,ASTRONEER,Turkish,turkish,8.0,5.0,1,2026-08-12,EST,S051
+361420,ASTRONEER,Others,other,5.0,5.0,0,2026-08-12,EST,S051
+361420,ASTRONEER,German,german,4.0,4.0,1,2026-08-12,EST,S051
+361420,ASTRONEER,Korean,koreana,4.0,4.0,1,2026-08-12,EST,S051
+361420,ASTRONEER,Spanish,spanish,3.0,3.0,1,2026-08-12,EST,S051
+361420,ASTRONEER,French,french,3.0,3.0,1,2026-08-12,EST,S051
+361420,ASTRONEER,Polish,polish,3.0,3.0,1,2026-08-12,EST,S051
+361420,ASTRONEER,Brazilian Portuguese,brazilian,2.0,3.0,1,2026-08-12,EST,S051
+751780,Forager,English,english,42.0,40.0,1,2026-08-12,EST,S051
+751780,Forager,Spanish,spanish,10.0,9.0,1,2026-08-12,EST,S051
+751780,Forager,Traditional Chinese,chinese_all,10.0,11.0,0,2026-08-12,EST,S051
+751780,Forager,German,german,8.0,7.0,1,2026-08-12,EST,S051
+751780,Forager,Brazilian Portuguese,brazilian,7.0,9.0,1,2026-08-12,EST,S051
+751780,Forager,Korean,koreana,7.0,7.0,1,2026-08-12,EST,S051
+751780,Forager,Russian,russian,5.0,7.0,1,2026-08-12,EST,S051
+751780,Forager,Others,other,4.0,3.0,0,2026-08-12,EST,S051
+751780,Forager,Turkish,turkish,3.0,3.0,1,2026-08-12,EST,S051
+751780,Forager,French,french,2.0,2.0,1,2026-08-12,EST,S051
+751780,Forager,Polish,polish,2.0,2.0,0,2026-08-12,EST,S051
+1087760,The Gunk,English,english,57.0,42.0,1,2026-08-12,EST,S051
+1087760,The Gunk,Spanish,spanish,8.0,5.0,1,2026-08-12,EST,S051
+1087760,The Gunk,German,german,6.0,3.0,1,2026-08-12,EST,S051
+1087760,The Gunk,Others,other,5.0,4.0,0,2026-08-12,EST,S051
+1087760,The Gunk,Traditional Chinese,chinese_all,5.0,9.0,0,2026-08-12,EST,S051
+1087760,The Gunk,Russian,russian,5.0,19.0,1,2026-08-12,EST,S051
+1087760,The Gunk,French,french,5.0,3.0,1,2026-08-12,EST,S051
+1087760,The Gunk,Brazilian Portuguese,brazilian,4.0,10.0,1,2026-08-12,EST,S051
+1087760,The Gunk,Turkish,turkish,3.0,2.0,0,2026-08-12,EST,S051
+1087760,The Gunk,Italian,italian,2.0,1.0,1,2026-08-12,EST,S051
+1087760,The Gunk,Polish,polish,1.0,,0,2026-08-12,EST,S051
+548430,Deep Rock Galactic,English,english,66.0,57.0,1,2026-08-12,EST,S051
+548430,Deep Rock Galactic,Russian,russian,9.0,17.0,1,2026-08-12,EST,S051
+548430,Deep Rock Galactic,Traditional Chinese,chinese_all,8.0,10.0,1,2026-08-12,EST,S051
+548430,Deep Rock Galactic,Others,other,4.0,5.0,0,2026-08-12,EST,S051
+548430,Deep Rock Galactic,German,german,3.0,2.0,1,2026-08-12,EST,S051
+548430,Deep Rock Galactic,Spanish,spanish,3.0,2.0,1,2026-08-12,EST,S051
+548430,Deep Rock Galactic,French,french,2.0,2.0,1,2026-08-12,EST,S051
+548430,Deep Rock Galactic,Polish,polish,2.0,1.0,1,2026-08-12,EST,S051
+548430,Deep Rock Galactic,Turkish,turkish,1.0,,1,2026-08-12,EST,S051
+548430,Deep Rock Galactic,Brazilian Portuguese,brazilian,1.0,2.0,1,2026-08-12,EST,S051
+105600,Terraria,English,english,53.0,49.0,1,2026-08-12,EST,S051
+105600,Terraria,Russian,russian,12.0,15.0,1,2026-08-12,EST,S051
+105600,Terraria,Traditional Chinese,chinese_all,11.0,12.0,0,2026-08-12,EST,S051
+105600,Terraria,Spanish,spanish,7.0,6.0,1,2026-08-12,EST,S051
+105600,Terraria,Others,other,4.0,4.0,0,2026-08-12,EST,S051
+105600,Terraria,Brazilian Portuguese,brazilian,4.0,5.0,1,2026-08-12,EST,S051
+105600,Terraria,Polish,polish,3.0,3.0,1,2026-08-12,EST,S051
+105600,Terraria,German,german,2.0,2.0,1,2026-08-12,EST,S051
+105600,Terraria,Turkish,turkish,1.0,1.0,0,2026-08-12,EST,S051
+105600,Terraria,Korean,koreana,1.0,1.0,0,2026-08-12,EST,S051
+105600,Terraria,French,french,1.0,1.0,1,2026-08-12,EST,S051
+892970,Valheim,English,english,60.0,55.0,1,2026-08-12,EST,S051
+892970,Valheim,Russian,russian,8.0,14.0,1,2026-08-12,EST,S051
+892970,Valheim,Others,other,6.0,6.0,0,2026-08-12,EST,S051
+892970,Valheim,German,german,5.0,4.0,1,2026-08-12,EST,S051
+892970,Valheim,Spanish,spanish,4.0,4.0,1,2026-08-12,EST,S051
+892970,Valheim,Traditional Chinese,chinese_all,4.0,5.0,1,2026-08-12,EST,S051
+892970,Valheim,Turkish,turkish,4.0,2.0,1,2026-08-12,EST,S051
+892970,Valheim,French,french,3.0,3.0,1,2026-08-12,EST,S051
+892970,Valheim,Brazilian Portuguese,brazilian,3.0,4.0,1,2026-08-12,EST,S051
+892970,Valheim,Polish,polish,3.0,2.0,1,2026-08-12,EST,S051
+892970,Valheim,Korean,koreana,1.0,1.0,1,2026-08-12,EST,S051
+1167630,Teardown,English,english,62.0,59.0,1,2026-08-12,EST,S051
+1167630,Teardown,Russian,russian,10.0,18.0,1,2026-08-12,EST,S051
+1167630,Teardown,Turkish,turkish,7.0,3.0,0,2026-08-12,EST,S051
+1167630,Teardown,Others,other,6.0,5.0,0,2026-08-12,EST,S051
+1167630,Teardown,Polish,polish,5.0,4.0,1,2026-08-12,EST,S051
+1167630,Teardown,German,german,5.0,4.0,1,2026-08-12,EST,S051
+1167630,Teardown,Spanish,spanish,2.0,2.0,1,2026-08-12,EST,S051
+1167630,Teardown,French,french,2.0,2.0,1,2026-08-12,EST,S051
+1167630,Teardown,Traditional Chinese,chinese_all,1.0,2.0,0,2026-08-12,EST,S051
+1167630,Teardown,Swedish,swedish,1.0,,0,2026-08-12,EST,S051
+753640,Outer Wilds,English,english,62.0,57.0,1,2026-08-12,EST,S051
+753640,Outer Wilds,Traditional Chinese,chinese_all,11.0,16.0,0,2026-08-12,EST,S051
+753640,Outer Wilds,French,french,7.0,6.0,1,2026-08-12,EST,S051
+753640,Outer Wilds,Spanish,spanish,6.0,5.0,1,2026-08-12,EST,S051
+753640,Outer Wilds,Others,other,3.0,3.0,0,2026-08-12,EST,S051
+753640,Outer Wilds,Brazilian Portuguese,brazilian,3.0,5.0,1,2026-08-12,EST,S051
+753640,Outer Wilds,Russian,russian,3.0,4.0,1,2026-08-12,EST,S051
+753640,Outer Wilds,German,german,2.0,1.0,1,2026-08-12,EST,S051
+753640,Outer Wilds,Korean,koreana,1.0,1.0,1,2026-08-12,EST,S051
+753640,Outer Wilds,Italian,italian,1.0,1.0,1,2026-08-12,EST,S051
+1203620,Enshrouded,English,english,56.0,52.0,1,2026-08-12,EST,S051
+1203620,Enshrouded,German,german,13.0,11.0,1,2026-08-12,EST,S051
+1203620,Enshrouded,French,french,7.0,5.0,1,2026-08-12,EST,S051
+1203620,Enshrouded,Others,other,6.0,5.0,0,2026-08-12,EST,S051
+1203620,Enshrouded,Traditional Chinese,chinese_all,5.0,9.0,1,2026-08-12,EST,S051
+1203620,Enshrouded,Russian,russian,4.0,7.0,1,2026-08-12,EST,S051
+1203620,Enshrouded,Spanish,spanish,4.0,3.0,1,2026-08-12,EST,S051
+1203620,Enshrouded,Polish,polish,2.0,2.0,1,2026-08-12,EST,S051
+1203620,Enshrouded,Brazilian Portuguese,brazilian,2.0,3.0,1,2026-08-12,EST,S051
+1203620,Enshrouded,Korean,koreana,2.0,2.0,1,2026-08-12,EST,S051
+962130,Grounded,English,english,59.0,53.0,1,2026-08-12,EST,S051
+962130,Grounded,Traditional Chinese,chinese_all,9.0,17.0,1,2026-08-12,EST,S051
+962130,Grounded,German,german,8.0,6.0,1,2026-08-12,EST,S051
+962130,Grounded,Others,other,6.0,6.0,0,2026-08-12,EST,S051
+962130,Grounded,French,french,4.0,3.0,1,2026-08-12,EST,S051
+962130,Grounded,Russian,russian,3.0,7.0,1,2026-08-12,EST,S051
+962130,Grounded,Turkish,turkish,3.0,,1,2026-08-12,EST,S051
+962130,Grounded,Spanish,spanish,3.0,2.0,1,2026-08-12,EST,S051
+962130,Grounded,Brazilian Portuguese,brazilian,3.0,2.0,1,2026-08-12,EST,S051
+962130,Grounded,Korean,koreana,2.0,2.0,1,2026-08-12,EST,S051
+962130,Grounded,Polish,polish,1.0,1.0,1,2026-08-12,EST,S051
+1641960,Forever Skies,English,english,62.0,60.0,1,2026-08-12,EST,S051
+1641960,Forever Skies,German,german,11.0,10.0,1,2026-08-12,EST,S051
+1641960,Forever Skies,Traditional Chinese,chinese_all,6.0,11.0,0,2026-08-12,EST,S051
+1641960,Forever Skies,Others,other,5.0,6.0,0,2026-08-12,EST,S051
+1641960,Forever Skies,French,french,5.0,4.0,1,2026-08-12,EST,S051
+1641960,Forever Skies,Spanish,spanish,3.0,3.0,1,2026-08-12,EST,S051
+1641960,Forever Skies,Russian,russian,3.0,3.0,1,2026-08-12,EST,S051
+1641960,Forever Skies,Polish,polish,2.0,2.0,1,2026-08-12,EST,S051
+1641960,Forever Skies,Czech,czech,1.0,,0,2026-08-12,EST,S051
+1641960,Forever Skies,Korean,koreana,1.0,1.0,1,2026-08-12,EST,S051
+1159690,Voidtrain,English,english,59.0,49.0,1,2026-08-12,EST,S051
+1159690,Voidtrain,Russian,russian,14.0,27.0,1,2026-08-12,EST,S051
+1159690,Voidtrain,German,german,8.0,6.0,1,2026-08-12,EST,S051
+1159690,Voidtrain,Traditional Chinese,chinese_all,5.0,5.0,0,2026-08-12,EST,S051
+1159690,Voidtrain,French,french,4.0,3.0,1,2026-08-12,EST,S051
+1159690,Voidtrain,Others,other,3.0,4.0,0,2026-08-12,EST,S051
+1159690,Voidtrain,Spanish,spanish,2.0,1.0,1,2026-08-12,EST,S051
+1159690,Voidtrain,Polish,polish,1.0,1.0,1,2026-08-12,EST,S051
+1159690,Voidtrain,Turkish,turkish,1.0,,1,2026-08-12,EST,S051
+1159690,Voidtrain,Korean,koreana,1.0,1.0,1,2026-08-12,EST,S051
+1159690,Voidtrain,Brazilian Portuguese,brazilian,1.0,1.0,1,2026-08-12,EST,S051
+251570,7 Days to Die,English,english,50.0,47.0,1,2026-08-12,EST,S051
+251570,7 Days to Die,Russian,russian,13.0,15.0,1,2026-08-12,EST,S051
+251570,7 Days to Die,Traditional Chinese,chinese_all,12.0,13.0,1,2026-08-12,EST,S051
+251570,7 Days to Die,Others,other,5.0,5.0,0,2026-08-12,EST,S051
+251570,7 Days to Die,Spanish,spanish,5.0,5.0,1,2026-08-12,EST,S051
+251570,7 Days to Die,German,german,5.0,4.0,1,2026-08-12,EST,S051
+251570,7 Days to Die,Polish,polish,3.0,3.0,1,2026-08-12,EST,S051
+251570,7 Days to Die,French,french,3.0,2.0,1,2026-08-12,EST,S051
+251570,7 Days to Die,Brazilian Portuguese,brazilian,2.0,3.0,1,2026-08-12,EST,S051
+251570,7 Days to Die,Turkish,turkish,2.0,2.0,1,2026-08-12,EST,S051
+251570,7 Days to Die,Czech,czech,1.0,1.0,0,2026-08-12,EST,S051
+427410,Abiotic Factor,English,english,74.0,65.0,1,2026-08-12,EST,S051
+427410,Abiotic Factor,Traditional Chinese,chinese_all,8.0,12.0,1,2026-08-12,EST,S051
+427410,Abiotic Factor,Russian,russian,7.0,13.0,1,2026-08-12,EST,S051
+427410,Abiotic Factor,Others,other,4.0,4.0,0,2026-08-12,EST,S051
+427410,Abiotic Factor,German,german,3.0,2.0,1,2026-08-12,EST,S051
+427410,Abiotic Factor,French,french,2.0,2.0,1,2026-08-12,EST,S051
+427410,Abiotic Factor,Spanish,spanish,1.0,,0,2026-08-12,EST,S051
+427410,Abiotic Factor,Brazilian Portuguese,brazilian,1.0,2.0,1,2026-08-12,EST,S051
+1374490,RuneScape: Dragonwilds,English,english,83.0,82.0,1,2026-08-12,EST,S051
+1374490,RuneScape: Dragonwilds,Others,other,5.0,4.0,0,2026-08-12,EST,S051
+1374490,RuneScape: Dragonwilds,German,german,3.0,2.0,1,2026-08-12,EST,S051
+1374490,RuneScape: Dragonwilds,Brazilian Portuguese,brazilian,2.0,3.0,1,2026-08-12,EST,S051
+1374490,RuneScape: Dragonwilds,French,french,2.0,2.0,1,2026-08-12,EST,S051
+1374490,RuneScape: Dragonwilds,Spanish,spanish,2.0,2.0,1,2026-08-12,EST,S051
+1374490,RuneScape: Dragonwilds,Dutch,dutch,1.0,1.0,0,2026-08-12,EST,S051
+1374490,RuneScape: Dragonwilds,Traditional Chinese,chinese_all,1.0,2.0,1,2026-08-12,EST,S051
+1645820,SurrounDead,English,english,69.0,65.0,1,2026-08-12,EST,S051
+1645820,SurrounDead,Others,other,6.0,7.0,0,2026-08-12,EST,S051
+1645820,SurrounDead,Spanish,spanish,6.0,5.0,0,2026-08-12,EST,S051
+1645820,SurrounDead,Brazilian Portuguese,brazilian,4.0,7.0,0,2026-08-12,EST,S051
+1645820,SurrounDead,German,german,4.0,4.0,0,2026-08-12,EST,S051
+1645820,SurrounDead,French,french,3.0,3.0,0,2026-08-12,EST,S051
+1645820,SurrounDead,Russian,russian,3.0,6.0,0,2026-08-12,EST,S051
+1645820,SurrounDead,Polish,polish,2.0,2.0,0,2026-08-12,EST,S051
+1645820,SurrounDead,Traditional Chinese,chinese_all,2.0,2.0,0,2026-08-12,EST,S051
+1645820,SurrounDead,Turkish,turkish,1.0,1.0,0,2026-08-12,EST,S051
+221100,DayZ,English,english,51.0,48.0,1,2026-08-12,EST,S051
+221100,DayZ,Russian,russian,19.0,22.0,1,2026-08-12,EST,S051
+221100,DayZ,German,german,7.0,6.0,1,2026-08-12,EST,S051
+221100,DayZ,Others,other,6.0,6.0,0,2026-08-12,EST,S051
+221100,DayZ,Brazilian Portuguese,brazilian,4.0,5.0,1,2026-08-12,EST,S051
+221100,DayZ,French,french,4.0,4.0,1,2026-08-12,EST,S051
+221100,DayZ,Spanish,spanish,3.0,3.0,1,2026-08-12,EST,S051
+221100,DayZ,Traditional Chinese,chinese_all,3.0,3.0,1,2026-08-12,EST,S051
+221100,DayZ,Polish,polish,2.0,1.0,1,2026-08-12,EST,S051
+221100,DayZ,Turkish,turkish,1.0,1.0,0,2026-08-12,EST,S051
+221100,DayZ,Czech,czech,1.0,1.0,1,2026-08-12,EST,S051
+1149460,ICARUS,English,english,65.0,56.0,1,2026-08-12,EST,S051
+1149460,ICARUS,German,german,9.0,8.0,1,2026-08-12,EST,S051
+1149460,ICARUS,French,french,5.0,4.0,1,2026-08-12,EST,S051
+1149460,ICARUS,Others,other,5.0,5.0,0,2026-08-12,EST,S051
+1149460,ICARUS,Russian,russian,4.0,11.0,1,2026-08-12,EST,S051
+1149460,ICARUS,Traditional Chinese,chinese_all,4.0,7.0,1,2026-08-12,EST,S051
+1149460,ICARUS,Spanish,spanish,3.0,2.0,0,2026-08-12,EST,S051
+1149460,ICARUS,Brazilian Portuguese,brazilian,2.0,3.0,1,2026-08-12,EST,S051
+1149460,ICARUS,Korean,koreana,2.0,2.0,1,2026-08-12,EST,S051
+1149460,ICARUS,Turkish,turkish,1.0,1.0,0,2026-08-12,EST,S051
+1149460,ICARUS,Polish,polish,1.0,,0,2026-08-12,EST,S051
+1898300,ASKA,English,english,59.0,53.0,1,2026-08-12,EST,S051
+1898300,ASKA,German,german,11.0,8.0,1,2026-08-12,EST,S051
+1898300,ASKA,Others,other,7.0,6.0,0,2026-08-12,EST,S051
+1898300,ASKA,Russian,russian,6.0,13.0,1,2026-08-12,EST,S051
+1898300,ASKA,French,french,5.0,4.0,1,2026-08-12,EST,S051
+1898300,ASKA,Spanish,spanish,4.0,3.0,1,2026-08-12,EST,S051
+1898300,ASKA,Polish,polish,4.0,3.0,1,2026-08-12,EST,S051
+1898300,ASKA,Traditional Chinese,chinese_all,3.0,4.0,1,2026-08-12,EST,S051
+1898300,ASKA,Brazilian Portuguese,brazilian,2.0,4.0,1,2026-08-12,EST,S051

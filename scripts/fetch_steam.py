@@ -42,7 +42,7 @@ Modes:
   python scripts/fetch_steam.py --add <appid> [title]   one new competitor
 """
 
-import csv, json, os, time, sys, hashlib, datetime as dt
+import csv, json, os, re, time, sys, hashlib, datetime as dt
 from pathlib import Path
 
 try:
@@ -188,6 +188,52 @@ def fetch_details(appid, cc=CC):
     if not node.get("success"):
         return None
     return node["data"]
+
+# Steam store display name -> the language code the reviews API uses. The two
+# vocabularies disagree (the store says "Korean", reviews say "koreana"), and without
+# this mapping languages.csv and games_steam.csv cannot be joined -- which is what
+# makes "did shipping this language actually move its share?" answerable.
+STORE_LANG_CODE = {
+    "english": "english", "german": "german", "french": "french", "italian": "italian",
+    "spanish - spain": "spanish", "spanish": "spanish",
+    "spanish - latin america": "latam", "latam": "latam",
+    "portuguese - brazil": "brazilian", "portuguese-brazil": "brazilian",
+    "portuguese - portugal": "portuguese", "portuguese": "portuguese",
+    "polish": "polish", "russian": "russian", "ukrainian": "ukrainian",
+    "czech": "czech", "hungarian": "hungarian", "romanian": "romanian",
+    "bulgarian": "bulgarian", "greek": "greek", "turkish": "turkish",
+    "dutch": "dutch", "danish": "danish", "swedish": "swedish",
+    "norwegian": "norwegian", "finnish": "finnish", "japanese": "japanese",
+    "korean": "koreana", "simplified chinese": "schinese",
+    "traditional chinese": "tchinese", "thai": "thai", "vietnamese": "vietnamese",
+    "indonesian": "indonesian", "arabic": "arabic", "malay": "malay",
+}
+
+# Store languages Steam will happily sell a game in but does NOT categorise reviews
+# into -- there is no review-language code for them, so they can never appear in
+# languages.csv. Listed explicitly so the unmapped-name warning stays meaningful
+# instead of firing on the same two names every run.
+NO_REVIEW_CODE = {"catalan", "basque", "galician"}
+
+def parse_supported_languages(raw):
+    """appdetails' supported_languages is an HTML blob:
+    'English<strong>*</strong>, French, ...<br>* languages with full audio support'
+    Return (clean display list, joined review-language codes, unmapped names)."""
+    if not raw:
+        return "", "", []
+    txt = re.split(r"<br\s*/?>", raw)[0]          # drop the audio-support footnote
+    txt = re.sub(r"<[^>]+>", "", txt)             # strip the <strong>*</strong> markers
+    names = [n.strip(" * ") for n in txt.split(",") if n.strip(" * ")]
+    codes, unmapped = [], []
+    for n in names:
+        key = n.lower()
+        c = STORE_LANG_CODE.get(key)
+        if c:
+            if c not in codes:
+                codes.append(c)
+        elif key not in NO_REVIEW_CODE:
+            unmapped.append(n)
+    return ", ".join(names), ";".join(codes), unmapped
 
 def price_fields(node, suffix):
     """price_overview -> the list price, the live price, and the discount between.
@@ -361,6 +407,9 @@ def build_one(title, hint):
     # Honest limit: this is TODAY's list price, not the launch price. A studio that
     # permanently repriced shows the new number; Steam exposes no price history.
     prices = {**price_fields(d, "usd"), **price_fields(d_alt, "eur")}
+    sup_names, sup_codes, sup_unmapped = parse_supported_languages(d.get("supported_languages"))
+    if sup_unmapped:
+        print(f"  !! unmapped store language names (add to STORE_LANG_CODE): {sup_unmapped}")
     game_row = {
         "game_id": appid,
         "steam_appid": appid,
@@ -374,6 +423,9 @@ def build_one(title, hint):
         "price_region_eur": CC_ALT,                 # which store the EUR price is from
         "price_retrieved": TODAY,                   # prices go stale fast -- date them
         "genres": ", ".join(g["description"] for g in d.get("genres", [])),
+        "supported_languages": sup_names,        # what the game SHIPS, not who plays it
+        "supported_language_codes": sup_codes,   # joins to languages.csv
+        "supported_language_count": (len(sup_codes.split(";")) if sup_codes else 0),
         "steam_top_tags": tags,
         "platforms": ", ".join(k for k, v in d.get("platforms", {}).items() if v),
         "review_count_total": summ.get("total_reviews", ""),   # store-page figure

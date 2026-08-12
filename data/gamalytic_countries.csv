@@ -1,0 +1,109 @@
+game_id,title,rank,country_code,country_name,players_pct,captured_date,confidence_class,src_est
+1637320,Dome Keeper,1,US,United States,24.0,2026-08-12,EST,S055
+1637320,Dome Keeper,2,CN,China,16.0,2026-08-12,EST,S055
+1637320,Dome Keeper,3,DE,Germany,5.9,2026-08-12,EST,S055
+1637320,Dome Keeper,,OTHERS,All other countries,54.1,2026-08-12,EST,S055
+252410,SteamWorld Dig,1,US,United States,23.9,2026-08-12,EST,S055
+252410,SteamWorld Dig,2,GB,United Kingdom,7.6,2026-08-12,EST,S055
+252410,SteamWorld Dig,3,RU,Russia,6.4,2026-08-12,EST,S055
+252410,SteamWorld Dig,,OTHERS,All other countries,62.1,2026-08-12,EST,S055
+571310,SteamWorld Dig 2,1,CN,China,19.2,2026-08-12,EST,S055
+571310,SteamWorld Dig 2,2,US,United States,11.5,2026-08-12,EST,S055
+571310,SteamWorld Dig 2,3,RU,Russia,9.7,2026-08-12,EST,S055
+571310,SteamWorld Dig 2,,OTHERS,All other countries,59.6,2026-08-12,EST,S055
+1106840,Hydroneer,1,US,United States,29.9,2026-08-12,EST,S055
+1106840,Hydroneer,2,DE,Germany,12.2,2026-08-12,EST,S055
+1106840,Hydroneer,3,GB,United Kingdom,7.9,2026-08-12,EST,S055
+1106840,Hydroneer,,OTHERS,All other countries,50.1,2026-08-12,EST,S055
+1621690,Core Keeper,1,US,United States,21.6,2026-08-12,EST,S055
+1621690,Core Keeper,2,CN,China,17.8,2026-08-12,EST,S055
+1621690,Core Keeper,3,DE,Germany,6.1,2026-08-12,EST,S055
+1621690,Core Keeper,,OTHERS,All other countries,54.5,2026-08-12,EST,S055
+881100,Noita,1,US,United States,25.0,2026-08-12,EST,S055
+881100,Noita,2,CN,China,19.3,2026-08-12,EST,S055
+881100,Noita,3,RU,Russia,8.3,2026-08-12,EST,S055
+881100,Noita,,OTHERS,All other countries,47.4,2026-08-12,EST,S055
+1457320,Techtonica,1,US,United States,24.9,2026-08-12,EST,S055
+1457320,Techtonica,2,DE,Germany,14.6,2026-08-12,EST,S055
+1457320,Techtonica,3,GB,United Kingdom,9.2,2026-08-12,EST,S055
+1457320,Techtonica,,OTHERS,All other countries,51.4,2026-08-12,EST,S055
+606150,Moonlighter,1,US,United States,23.9,2026-08-12,EST,S055
+606150,Moonlighter,2,CN,China,10.2,2026-08-12,EST,S055
+606150,Moonlighter,3,BR,Brazil,7.2,2026-08-12,EST,S055
+606150,Moonlighter,,OTHERS,All other countries,58.8,2026-08-12,EST,S055
+361420,ASTRONEER,1,US,United States,20.3,2026-08-12,EST,S055
+361420,ASTRONEER,2,CN,China,15.7,2026-08-12,EST,S055
+361420,ASTRONEER,3,RU,Russia,8.7,2026-08-12,EST,S055
+361420,ASTRONEER,,OTHERS,All other countries,55.3,2026-08-12,EST,S055
+751780,Forager,1,US,United States,23.3,2026-08-12,EST,S055
+751780,Forager,2,CN,China,11.7,2026-08-12,EST,S055
+751780,Forager,3,DE,Germany,7.8,2026-08-12,EST,S055
+751780,Forager,,OTHERS,All other countries,57.2,2026-08-12,EST,S055
+1087760,The Gunk,1,US,United States,24.4,2026-08-12,EST,S055
+1087760,The Gunk,2,CN,China,7.0,2026-08-12,EST,S055
+1087760,The Gunk,3,BR,Brazil,6.2,2026-08-12,EST,S055
+1087760,The Gunk,,OTHERS,All other countries,62.4,2026-08-12,EST,S055
+548430,Deep Rock Galactic,1,US,United States,22.2,2026-08-12,EST,S055
+548430,Deep Rock Galactic,2,CN,China,18.1,2026-08-12,EST,S055
+548430,Deep Rock Galactic,3,RU,Russia,9.8,2026-08-12,EST,S055
+548430,Deep Rock Galactic,,OTHERS,All other countries,49.9,2026-08-12,EST,S055
+105600,Terraria,1,CN,China,19.0,2026-08-12,EST,S055
+105600,Terraria,2,US,United States,18.5,2026-08-12,EST,S055
+105600,Terraria,3,RU,Russia,8.3,2026-08-12,EST,S055
+105600,Terraria,,OTHERS,All other countries,54.2,2026-08-12,EST,S055
+892970,Valheim,1,US,United States,21.8,2026-08-12,EST,S055
+892970,Valheim,2,CN,China,9.1,2026-08-12,EST,S055
+892970,Valheim,3,RU,Russia,9.0,2026-08-12,EST,S055
+892970,Valheim,,OTHERS,All other countries,60.1,2026-08-12,EST,S055
+1167630,Teardown,1,US,United States,30.1,2026-08-12,EST,S055
+1167630,Teardown,2,RU,Russia,9.2,2026-08-12,EST,S055
+1167630,Teardown,3,DE,Germany,6.7,2026-08-12,EST,S055
+1167630,Teardown,,OTHERS,All other countries,54.0,2026-08-12,EST,S055
+753640,Outer Wilds,1,US,United States,24.4,2026-08-12,EST,S055
+753640,Outer Wilds,2,CN,China,16.5,2026-08-12,EST,S055
+753640,Outer Wilds,3,FR,France,5.6,2026-08-12,EST,S055
+753640,Outer Wilds,,OTHERS,All other countries,53.5,2026-08-12,EST,S055
+1203620,Enshrouded,1,US,United States,22.3,2026-08-12,EST,S055
+1203620,Enshrouded,2,CN,China,13.9,2026-08-12,EST,S055
+1203620,Enshrouded,3,DE,Germany,10.3,2026-08-12,EST,S055
+1203620,Enshrouded,,OTHERS,All other countries,53.5,2026-08-12,EST,S055
+962130,Grounded,1,CN,China,30.8,2026-08-12,EST,S055
+962130,Grounded,2,US,United States,22.4,2026-08-12,EST,S055
+962130,Grounded,3,DE,Germany,5.8,2026-08-12,EST,S055
+962130,Grounded,,OTHERS,All other countries,41.0,2026-08-12,EST,S055
+1641960,Forever Skies,1,US,United States,25.9,2026-08-12,EST,S055
+1641960,Forever Skies,2,DE,Germany,12.0,2026-08-12,EST,S055
+1641960,Forever Skies,3,GB,United Kingdom,10.4,2026-08-12,EST,S055
+1641960,Forever Skies,,OTHERS,All other countries,51.7,2026-08-12,EST,S055
+1159690,Voidtrain,1,US,United States,22.9,2026-08-12,EST,S055
+1159690,Voidtrain,2,RU,Russia,13.8,2026-08-12,EST,S055
+1159690,Voidtrain,3,DE,Germany,11.4,2026-08-12,EST,S055
+1159690,Voidtrain,,OTHERS,All other countries,51.9,2026-08-12,EST,S055
+251570,7 Days to Die,1,CN,China,21.0,2026-08-12,EST,S055
+251570,7 Days to Die,2,US,United States,18.8,2026-08-12,EST,S055
+251570,7 Days to Die,3,RU,Russia,8.4,2026-08-12,EST,S055
+251570,7 Days to Die,,OTHERS,All other countries,51.7,2026-08-12,EST,S055
+427410,Abiotic Factor,1,US,United States,30.3,2026-08-12,EST,S055
+427410,Abiotic Factor,2,CN,China,17.8,2026-08-12,EST,S055
+427410,Abiotic Factor,3,RU,Russia,7.7,2026-08-12,EST,S055
+427410,Abiotic Factor,,OTHERS,All other countries,44.3,2026-08-12,EST,S055
+1374490,RuneScape: Dragonwilds,1,US,United States,40.1,2026-08-12,EST,S055
+1374490,RuneScape: Dragonwilds,2,GB,United Kingdom,8.0,2026-08-12,EST,S055
+1374490,RuneScape: Dragonwilds,3,CA,Canada,5.0,2026-08-12,EST,S055
+1374490,RuneScape: Dragonwilds,,OTHERS,All other countries,46.9,2026-08-12,EST,S055
+1645820,SurrounDead,1,US,United States,31.7,2026-08-12,EST,S055
+1645820,SurrounDead,2,GB,United Kingdom,6.6,2026-08-12,EST,S055
+1645820,SurrounDead,3,CA,Canada,4.6,2026-08-12,EST,S055
+1645820,SurrounDead,,OTHERS,All other countries,57.1,2026-08-12,EST,S055
+221100,DayZ,1,US,United States,20.0,2026-08-12,EST,S055
+221100,DayZ,2,RU,Russia,12.2,2026-08-12,EST,S055
+221100,DayZ,3,DE,Germany,8.2,2026-08-12,EST,S055
+221100,DayZ,,OTHERS,All other countries,59.6,2026-08-12,EST,S055
+1149460,ICARUS,1,US,United States,23.2,2026-08-12,EST,S055
+1149460,ICARUS,2,RU,Russia,11.1,2026-08-12,EST,S055
+1149460,ICARUS,3,DE,Germany,9.8,2026-08-12,EST,S055
+1149460,ICARUS,,OTHERS,All other countries,55.9,2026-08-12,EST,S055
+1898300,ASKA,1,US,United States,21.6,2026-08-12,EST,S055
+1898300,ASKA,2,DE,Germany,12.6,2026-08-12,EST,S055
+1898300,ASKA,3,RU,Russia,8.6,2026-08-12,EST,S055
+1898300,ASKA,,OTHERS,All other countries,57.2,2026-08-12,EST,S055

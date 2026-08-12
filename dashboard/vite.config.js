@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { spawn } from 'node:child_process'
+import { copyFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 
 const SCRIPT = (name) => fileURLToPath(new URL(`../scripts/${name}`, import.meta.url))
@@ -52,8 +53,31 @@ function localEditApi() {
   }
 }
 
-// base './' keeps asset paths relative so it also works on GitHub / Cloudflare Pages
-export default defineConfig({
-  base: './',
-  plugins: [react(), localEditApi()],
-})
+// GitHub Pages serves this as a PROJECT site under /<repo>/, and .github/workflows/
+// deploy.yml publishes there on every push to main. A relative base ('./') is fine for
+// assets but breaks client-side routing: the router cannot tell "/competitor-analysis/"
+// (the app root) from "/1637320" (a game), so a deep link renders the wrong view.
+// An absolute base fixes that. Override with VITE_BASE=/ if this ever moves to a
+// domain root such as Cloudflare Pages.
+const PAGES_BASE = process.env.VITE_BASE || '/competitor-analysis/'
+
+// GitHub Pages has no SPA fallback and ignores _redirects. Serving a copy of index.html
+// as 404.html is the standard trick: an unknown path (a game route) gets the app instead
+// of a 404, and the router reads the URL from there.
+function spaFallback(outDir) {
+  return {
+    name: 'spa-404-fallback',
+    apply: 'build',
+    closeBundle() {
+      const src = new URL(`./${outDir}/index.html`, import.meta.url)
+      const dst = new URL(`./${outDir}/404.html`, import.meta.url)
+      copyFileSync(src, dst)
+      console.log(`  spa-404-fallback: wrote ${outDir}/404.html`)
+    },
+  }
+}
+
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? PAGES_BASE : '/',
+  plugins: [react(), localEditApi(), spaFallback('dist')],
+}))

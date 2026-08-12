@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { fmt, TIER_ORDER } from './lib.js'
 import { useDrawer } from './drawer.jsx'
+import { Link } from './router.jsx'
 import { ViewHead } from './ui.jsx'
 import { CAN_EDIT, nextSourceId } from './editApi.js'
 import { EditForm } from './EditForm.jsx'
@@ -54,7 +55,10 @@ export default function Directory({ data }) {
         tag: tierShort(g.tier),
         statA: fmt(g.review_count), statALbl: 'reviews',
         statB: g.release_date ? g.release_date.slice(0, 4) : '—', statBLbl: 'released',
-        onClick: () => open({ type: 'game', id: g.game_id }),
+        // Browse is where you go to READ about a game, so a card opens its own page
+        // at /<appid> -- a real URL that can be shared. The drawer is kept for the
+        // chart views, where a peek shouldn't cost you your place.
+        href: `/${g.game_id}`,
       }))
     : studios.map((c) => ({
         key: c.company_id,
@@ -96,8 +100,11 @@ export default function Directory({ data }) {
       </div>
 
       <div className="gcgrid">
-        {cards.map((c) => (
-          <button className="gcard-b" key={c.key} onClick={c.onClick} title="View details & sources">
+        {cards.map((c) => {
+          const Card = c.href ? Link : 'button'
+          const props = c.href ? { to: c.href } : { onClick: c.onClick, type: 'button' }
+          return (
+          <Card className="gcard-b" key={c.key} {...props} title="View details & sources">
             <div className="gcard-top">
               <span className="gcname">{c.title}</span>
               <span className="minitag">{c.tag}</span>
@@ -108,8 +115,9 @@ export default function Directory({ data }) {
               <div className="gcstat-div" />
               <div className="gcstat"><span className="gcstat-v">{c.statB}</span><span className="gcstat-l">{c.statBLbl}</span></div>
             </div>
-          </button>
-        ))}
+          </Card>
+          )
+        })}
       </div>
       {cards.length === 0 && <p className="note" style={{ marginTop: 20 }}>Nothing matches your search.</p>}
       {CAN_EDIT && form ? <EditForm {...form} onCancel={() => setForm(null)} onDone={done} /> : null}

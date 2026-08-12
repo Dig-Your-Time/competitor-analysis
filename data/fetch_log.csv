@@ -96,7 +96,7 @@ retrieved_date,appid,endpoint,url,n_records,status
 2026-08-10,105600,appreviews_summary,https://store.steampowered.com/appreviews/105600?json=1&language=all&purchase_type=all&num_per_page=0,-,200
 2026-08-10,105600,appreviews_summary_all,https://store.steampowered.com/appreviews/105600?json=1&language=all&purchase_type=all&num_per_page=0&filter_offtopic_activity=0,-,200
 2026-08-10,105600,appreviewhistogram,https://store.steampowered.com/appreviewhistogram/105600?l=english,-,200
-2026-08-10,105600,appreviews_window,weeks -3..795,799,fetched 2
+2026-08-10,105600,appreviews_window,weeks -3..795,799,fetched 1
 2026-08-10,892970,appdetails,https://store.steampowered.com/api/appdetails?appids=892970&cc=us&l=english,-,200
 2026-08-10,892970,appdetails,https://store.steampowered.com/api/appdetails?appids=892970&cc=fi&l=english,-,200
 2026-08-10,892970,steamspy,https://steamspy.com/api.php?request=appdetails&appid=892970,-,200
@@ -138,7 +138,7 @@ retrieved_date,appid,endpoint,url,n_records,status
 2026-08-10,1641960,appreviews_summary,https://store.steampowered.com/appreviews/1641960?json=1&language=all&purchase_type=all&num_per_page=0,-,200
 2026-08-10,1641960,appreviews_summary_all,https://store.steampowered.com/appreviews/1641960?json=1&language=all&purchase_type=all&num_per_page=0&filter_offtopic_activity=0,-,200
 2026-08-10,1641960,appreviewhistogram,https://store.steampowered.com/appreviewhistogram/1641960?l=english,-,200
-2026-08-10,1641960,appreviews_window,weeks -98..69,168,fetched 2
+2026-08-10,1641960,appreviews_window,weeks -98..69,168,fetched 1
 2026-08-10,1159690,appdetails,https://store.steampowered.com/api/appdetails?appids=1159690&cc=us&l=english,-,200
 2026-08-10,1159690,appdetails,https://store.steampowered.com/api/appdetails?appids=1159690&cc=fi&l=english,-,200
 2026-08-10,1159690,steamspy,https://steamspy.com/api.php?request=appdetails&appid=1159690,-,200
