@@ -27,6 +27,8 @@ disagree with each other. The dashboard tries hard never to blur the two.
 - **[The game page](docs/game-pages-and-gamesensor.md)** — the per-game page at
   `/<steam_appid>` explained section by section, and how to refresh the third-party
   estimates.
+- **[Known gaps](docs/TODO.md)** — what the dashboard doesn't do yet, chiefly the
+  calibration loop that would tell us how wrong the sales estimates actually are.
 
 ## Layout
 
